@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "dist/prayser-landing-test",
+    "public": "dist/prayser-landing-test/browser",
     "ignore": [
       "firebase.json",
       "**/.*",
