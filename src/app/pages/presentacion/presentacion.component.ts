@@ -34,8 +34,8 @@ export class PresentacionComponent {
       isOpen: true
     },
     {
-      title: 'Tablero Kanban',
-      content: 'Visualiza y gestiona el flujo de tus procesos de venta de forma intuitiva.',
+      title: 'Tablero de progreso',
+      content: 'Visualiza y gestiona de forma clara e intuitiva en qué etapa del proceso está cada oportunidad.',
       icon: 'fas fa-tasks',
       isOpen: true
     },
