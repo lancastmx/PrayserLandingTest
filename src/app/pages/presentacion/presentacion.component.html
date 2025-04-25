@@ -1,59 +1,16 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Infografía Interactiva de Prayser</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
-    <style>
-        /* Estilos personalizados */
-        body {
-            font-family: 'Inter', sans-serif; /* Fuente Inter */
-            background-color: #f8fafc; /* Fondo gris muy claro */
-        }
-        /* Definición del color verde personalizado de Prayser */
-        .bg-prayser-green { background-color: #124734; }
-        .text-prayser-green { color: #124734; }
-        .border-prayser-green { border-color: #124734; }
 
-        /* Estilo para las secciones colapsables */
-        .collapsible-content {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.5s ease-out; /* Transición suave */
-        }
-        .collapsible-content.open {
-            max-height: 1000px; /* Altura suficiente para el contenido */
-        }
-
-        /* Estilo para los pasos del flujo */
-        .flow-step {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .flow-step:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-        }
-
-        /* Iconos en los botones */
-        .collapsible-trigger i.fa-chevron-down {
-            transition: transform 0.3s ease;
-        }
-        .collapsible-trigger.open i.fa-chevron-down {
-            transform: rotate(180deg);
-        }
-    </style>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-</head>
-<body class="p-4 md:p-8">
+<div class="p-4 md:p-8">
 
     <div class="max-w-6xl mx-auto bg-white rounded-lg shadow-xl overflow-hidden">
 
         <header class="bg-prayser-green text-white p-6 md:p-10 text-center rounded-t-lg">
-            <h1 class="text-3xl md:text-4xl font-bold mb-2">Prayser: La Simplicidad que Impulsa tus Ventas</h1>
+          <!-- <picture>
+            <source srcset="assets/image/logoPrayser3.png" media="(min-width: 1024px)">
+            <source srcset="assets/image/logoPrayser3.png" media="(max-width: 1023px)">
+            <img src="assets/image/logoPrayser3.png" alt="Logo Prayser" class="mx-auto w-32 h-auto">
+          </picture> -->
+          <img src="assets/image/logoPrayser3.png" alt="Logo Prayser" style="display: block; margin: 0 auto; width: 450px; height: auto;">
+
             <p class="text-lg md:text-xl">Tu solución 100% online para cotizar, gestionar y vender eficientemente.</p>
         </header>
 
@@ -65,65 +22,19 @@
                     Prayser es un <strong class="text-prayser-green">gestor de cotizaciones 100% online</strong> diseñado para simplificar tu proceso de ventas. Te permite <strong class="text-prayser-green">Cotizar</strong> profesionalmente, <strong class="text-prayser-green">Gestionar</strong> clientes y productos, y <strong class="text-prayser-green">Vender</strong> más eficazmente. Nacimos de la necesidad de una herramienta sencilla y accesible, enfocada en un trato más humano y eficiente.
                 </p>
             </section>
-
-            <section>
-                <h2 class="text-2xl font-semibold text-prayser-green mb-6 text-center">Funcionalidades Clave</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <div class="bg-gray-50 p-5 rounded-lg border border-gray-200">
-                        <button class="collapsible-trigger w-full text-left flex justify-between items-center font-semibold text-prayser-green mb-2">
-                            <span><i class="fas fa-box-open mr-2"></i>Gestión de Productos</span>
-                            <i class="fas fa-chevron-down text-sm"></i>
-                        </button>
-                        <div class="collapsible-content text-gray-600 text-sm">
-                            Administra tu catálogo fácilmente. Carga y organiza tus productos o servicios de manera sencilla.
-                        </div>
-                    </div>
-                    <div class="bg-gray-50 p-5 rounded-lg border border-gray-200">
-                        <button class="collapsible-trigger w-full text-left flex justify-between items-center font-semibold text-prayser-green mb-2">
-                            <span><i class="fas fa-file-invoice-dollar mr-2"></i>Módulo de Cotización</span>
-                            <i class="fas fa-chevron-down text-sm"></i>
-                        </button>
-                        <div class="collapsible-content text-gray-600 text-sm">
-                            Crea cotizaciones profesionales en minutos con formatos personalizables. ¡Adiós Excel!
-                        </div>
-                    </div>
-                    <div class="bg-gray-50 p-5 rounded-lg border border-gray-200">
-                        <button class="collapsible-trigger w-full text-left flex justify-between items-center font-semibold text-prayser-green mb-2">
-                            <span><i class="fas fa-share-alt mr-2"></i>Service Dock</span>
-                            <i class="fas fa-chevron-down text-sm"></i>
-                        </button>
-                        <div class="collapsible-content text-gray-600 text-sm">
-                            Comparte cotizaciones digitalmente con tus clientes, facilitando la comunicación y decisión.
-                        </div>
-                    </div>
-                     <div class="bg-gray-50 p-5 rounded-lg border border-gray-200">
-                        <button class="collapsible-trigger w-full text-left flex justify-between items-center font-semibold text-prayser-green mb-2">
-                            <span><i class="fas fa-users mr-2"></i>Gestión de Catálogos</span>
-                            <i class="fas fa-chevron-down text-sm"></i>
-                        </button>
-                        <div class="collapsible-content text-gray-600 text-sm">
-                            Organiza proveedores, contactos, clientes, publicidad, observaciones, productos y formatos.
-                        </div>
-                    </div>
-                     <div class="bg-gray-50 p-5 rounded-lg border border-gray-200">
-                        <button class="collapsible-trigger w-full text-left flex justify-between items-center font-semibold text-prayser-green mb-2">
-                            <span><i class="fas fa-tasks mr-2"></i>Tablero Kanban</span>
-                            <i class="fas fa-chevron-down text-sm"></i>
-                        </button>
-                        <div class="collapsible-content text-gray-600 text-sm">
-                           Visualiza y gestiona el flujo de tus procesos de venta de forma intuitiva.
-                        </div>
-                    </div>
-                     <div class="bg-gray-50 p-5 rounded-lg border border-gray-200">
-                        <button class="collapsible-trigger w-full text-left flex justify-between items-center font-semibold text-prayser-green mb-2">
-                            <span><i class="fas fa-palette mr-2"></i>Personaliza tus Cotizaciones</span> <i class="fas fa-chevron-down text-sm"></i>
-                        </button>
-                        <div class="collapsible-content text-gray-600 text-sm">
-                           Diseña cotizaciones que proyecten la personalidad de tu empresa, destacando la identidad de tu negocio. </div>
-                    </div>
+          <section>
+            <h2 class="text-2xl font-semibold text-prayser-green mb-6 pb-4 text-center">Funcionalidades Clave</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div *ngFor="let item of funcionalidades; let i = index" class="bg-gray-50 p-5 rounded-lg border border-gray-200">
+                <div class="collapsible-trigger w-full text-left flex justify-between items-center font-semibold text-prayser-green mb-2">
+                  <span><i [class]="item.icon + ' mr-2'"></i>{{ item.title }}</span>
                 </div>
-            </section>
-
+                <div class="collapsible-content text-gray-600 text-sm" *ngIf="item.isOpen">
+                  {{ item.content }}
+                </div>
+              </div>
+            </div>
+          </section>
             <section>
                 <h2 class="text-2xl font-semibold text-prayser-green mb-6 text-center">Flujo Simplificado: Cotización y Catálogos</h2>
                 <div class="relative flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-8">
@@ -203,35 +114,10 @@
                  <h2 class="text-2xl font-semibold text-prayser-green mb-4">¿Listo para Simplificar tus Ventas?</h2>
                  <p class="text-gray-700 mb-2">Prueba Prayser por solo <strong class="text-prayser-green">$10.00 MXN</strong> el primer mes.</p>
                  <p class="text-gray-600 mb-6">Después, disfruta de todo por <strong class="text-prayser-green">$1,199.00 MXN</strong> mensuales.</p>
-                 <a href="#" class="inline-block bg-prayser-green text-white font-semibold py-3 px-8 rounded-lg shadow hover:bg-opacity-90 transition duration-300">
+                 <a href="https://app.prayser.com/signup" class="inline-block bg-prayser-green text-white font-semibold py-3 px-8 rounded-lg shadow hover:bg-opacity-90 transition duration-300">
                     ¡Regístrate Ahora!
                  </a>
-                 <div class="mt-6 text-sm text-gray-500">
-                     <p>¿Preguntas? Contáctanos:</p>
-                     <p><i class="fas fa-phone mr-1"></i> 55 5555 5555 | <i class="fas fa-envelope mr-1"></i> infoprayser.com</p>
-                 </div>
-            </section>
-
+          </section>
         </main>
     </div>
-
-    <script>
-        // Script para la interactividad de las secciones colapsables
-        const triggers = document.querySelectorAll('.collapsible-trigger');
-
-        triggers.forEach(trigger => {
-            trigger.addEventListener('click', () => {
-                const content = trigger.nextElementSibling; // El div .collapsible-content
-                const icon = trigger.querySelector('i.fa-chevron-down'); // Busca específicamente el icono hacia abajo
-
-                // Alternar la clase 'open' en el contenido y el trigger
-                trigger.classList.toggle('open');
-                content.classList.toggle('open');
-
-                // El icono rota automáticamente debido a las reglas CSS .collapsible-trigger.open i.fa-chevron-down
-            });
-        });
-    </script>
-
-</body>
-</html>
+</div>
