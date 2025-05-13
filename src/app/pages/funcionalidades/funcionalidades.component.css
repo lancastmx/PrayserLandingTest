@@ -46,3 +46,26 @@ header {
 #menu-toggle {
     z-index: 50;
 }
+
+ /* Custom Styles */
+ body {
+  font-family: 'Inter', sans-serif; /* Using Inter font */
+}
+/* Style for the active menu item */
+.active-link {
+  background-color: #e5e7eb; /* gray-200 */
+  color: #1f2937; /* gray-800 */
+  font-weight: 600;
+}
+/* Ensure content area has minimum height */
+main {
+  min-height: calc(100vh - 4rem); /* Adjust based on header height */
+}
+/* Simple transition for content update */
+#content-area {
+  transition: opacity 0.3s ease-in-out;
+}
+/* Style for the sidebar toggle button */
+#menu-toggle {
+   z-index: 50; /* Ensure it's above other elements */
+}

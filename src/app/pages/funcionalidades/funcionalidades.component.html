@@ -5,17 +5,11 @@
            transition-transform duration-300 md:relative md:translate-x-0"
     [class.-translate-x-full]="!sidebarOpen()">
 
-    <!-- Brand + close (móvil) -->
-    <header class="mb-6 flex h-16 items-center justify-between">
-      <span class="text-2xl font-bold text-gray-700">PRAYSER</span>
-      <button class="md:hidden text-gray-600" (click)="toggleSidebar(false)">
-        <i class="fa-solid fa-xmark text-xl"></i>
-      </button>
-    </header>
 
     <nav class="flex-1 overflow-y-auto text-sm">
 
       <!-- Links directos -->
+
       <a routerLink="/dashboard"
          class="mb-2 flex items-center rounded-lg p-2 text-gray-600 hover:bg-gray-200">
         <i class="fa-solid fa-gauge w-5 mr-3"></i> Dashboard
@@ -30,9 +24,11 @@
       <p class="flex items-center p-2 font-semibold text-gray-700">
         <i class="fa-solid fa-folder w-5 mr-3"></i> Archivo
       </p>
-
+    <nav class="flex-1 overflow-y-auto">
       <ul class="ml-4 mt-2 space-y-1">
-        <li *ngFor="let s of sections">
+        <li><a outerLink="/dashboard" data-section="proveedores" class="menu-link flex items-center p-2 text-sm text-gray-600 hover:bg-gray-200 rounded-lg"><i class="fas fa-truck w-4 h-4 mr-2"></i>Proveedores</a></li>
+
+        <li class="menu-link" *ngFor="let s of sections">
           <button
             class="flex w-full items-center rounded-lg p-2"
             [ngClass]="activeSection() === s.id
@@ -43,7 +39,7 @@
           </button>
         </li>
       </ul>
-
+    </nav>
       <a routerLink="/configuracion"
          class="mt-4 flex items-center rounded-lg p-2 text-gray-600 hover:bg-gray-200">
         <i class="fa-solid fa-cog w-5 mr-3"></i> Configuración
@@ -54,313 +50,228 @@
   <!-- ▸ MAIN -------------------------------------------------------------- -->
   <div class="flex flex-1 flex-col">
 
-    <!-- Topbar -->
-    <header class="flex h-16 items-center justify-between bg-white px-4 shadow-sm md:px-6">
-      <button class="md:hidden text-gray-600" (click)="toggleSidebar(true)">
-        <i class="fa-solid fa-bars text-xl"></i>
-      </button>
-      <h1 class="text-xl font-semibold text-gray-800">Gestión de Catálogos</h1>
-      <span class="text-sm text-gray-500">
-        <i class="fa-solid fa-user-circle mr-1"></i> Ángel Cast
-      </span>
-    </header>
-
-    <!-- Tabs NAV (Tailwind puro) -->
-    <nav class="flex border-b bg-gray-50 px-4">
-      <button
-        *ngFor="let s of sections"
-        class="px-4 py-2 text-sm font-medium -mb-px border-b-2"
-        [ngClass]="activeSection() === s.id
-          ? 'border-blue-600 text-blue-600'
-          : 'border-transparent text-gray-600 hover:text-gray-800 hover:border-gray-300'"
-        (click)="setActiveSection(s.id)">
-        <i class="{{ s.icon }} mr-1"></i> {{ s.title }}
-      </button>
-    </nav>
 
     <!-- Contenido dinámico -->
-    <main class="flex flex-1 flex-col overflow-y-auto bg-gray-100 p-6">
-      <section class="space-y-4" id="content-area">
-        <h2 class="flex items-center text-2xl font-semibold text-gray-700">
-          <i class="{{ current().icon }} w-6 mr-3 text-blue-600"></i>
-          {{ current().title }}
-        </h2>
-
-        <p class="text-gray-600">{{ current().description }}</p>
-
-        <img class="mx-auto w-full max-w-3xl rounded-lg shadow-md"
-             [src]="'https://placehold.co/800x400/f3f4f6/9ca3af?text=' + current().title"
-             alt="Imagen representativa"
-              />
-
-        <p class="text-center text-sm text-gray-500">
-          Estas secciones son la base para agilizar tus procesos en Prayser.
+    <main class="flex-1 overflow-x-hidden overflow-y-auto bg-gray-100 p-6">
+      <div id="content-area" class="bg-white p-6 rounded-lg shadow">
+        <h2 class="text-2xl font-semibold text-gray-700 mb-4">{{ current().title }}</h2>
+        <p class="text-gray-600 mb-4">
+          {{ current().description }}
         </p>
-      </section>
+         <img src="https://placehold.co/800x400/f3f4f6/9ca3af?text=Imagen+del+Dashboard+(Platzhalter)"
+              alt="Imagen del Dashboard de Prayser"
+              class="rounded-lg shadow-md w-full max-w-3xl mx-auto"
+              onerror="this.onerror=null; this.src='https://placehold.co/600x300/f3f4f6/9ca3af?text=Error+al+cargar+imagen';">
+         <p class="text-center text-sm text-gray-500 mt-2">Imagen representativa del dashboard.</p>
+    </div>
+    </main>
+    <main class="flex-1 overflow-x-hidden overflow-y-auto bg-gray-100 p-6">
+
+  </main>
+  </div>
+</div>
+
+
+<div class="flex h-screen bg-white">
+  <aside id="sidebar" class="fixed inset-y-0 left-0 z-40 w-64 bg-gray-50 border-r border-gray-200 p-4 transition-transform duration-300 ease-in-out transform -translate-x-full md:translate-x-0 md:relative md:inset-0 md:flex md:flex-col">
+
+
+      <nav class="flex-1 overflow-y-auto">
+          <ul>
+              <li class="mb-2">
+                  <a  class="flex items-center p-2 text-gray-600 hover:bg-gray-200 rounded-lg">
+                      <i class="fas fa-tachometer-alt w-5 h-5 mr-3"></i>
+                      Dashboard
+                  </a>
+              </li>
+              <li class="mb-2">
+                  <a  class="flex items-center p-2 text-gray-600 hover:bg-gray-200 rounded-lg">
+                      <i class="fas fa-lightbulb w-5 h-5 mr-3"></i>
+                      Oportunidades
+                  </a>
+              </li>
+              <li class="mb-2">
+                  <span class="flex items-center p-2 text-gray-700 font-semibold">
+                      <i class="fas fa-folder w-5 h-5 mr-3"></i>
+                      Archivo
+                      <i class="fas fa-chevron-down ml-auto text-xs"></i>
+                  </span>
+                  <ul class="ml-4 mt-1 space-y-1" id="archivo-menu">
+                      <li><a routerLink="/dashboard" outerLink="/dashboard" data-section="proveedores" class="menu-link flex items-center p-2 text-sm text-gray-600 hover:bg-gray-200 rounded-lg"><i class="fas fa-truck w-4 h-4 mr-2"></i>Proveedores</a></li>
+                      <li><a  data-section="contactos" class="menu-link flex items-center p-2 text-sm text-gray-600 hover:bg-gray-200 rounded-lg"><i class="fas fa-address-book w-4 h-4 mr-2"></i>Contactos</a></li>
+                      <li><a data-section="clientes" class="menu-link flex items-center p-2 text-sm text-gray-600 hover:bg-gray-200 rounded-lg"><i class="fas fa-users w-4 h-4 mr-2"></i>Clientes</a></li>
+                      <li><a  data-section="publicidad" class="menu-link flex items-center p-2 text-sm text-gray-600 hover:bg-gray-200 rounded-lg"><i class="fas fa-bullhorn w-4 h-4 mr-2"></i>Publicidad</a></li>
+                      <li><a data-section="observaciones" class="menu-link flex items-center p-2 text-sm text-gray-600 hover:bg-gray-200 rounded-lg"><i class="fas fa-clipboard w-4 h-4 mr-2"></i>Observaciones</a></li>
+                      <li><a  data-section="productos" class="menu-link flex items-center p-2 text-sm text-gray-600 hover:bg-gray-200 rounded-lg"><i class="fas fa-box w-4 h-4 mr-2"></i>Productos / Servicios</a></li>
+                      <li><a  data-section="formatos" class="menu-link flex items-center p-2 text-sm text-gray-600 hover:bg-gray-200 rounded-lg"><i class="fas fa-file-alt w-4 h-4 mr-2"></i>Formatos</a></li>
+                  </ul>
+                  <ul class="ml-4 mt-1 space-y-1" id="archivo-menu">
+                    <li>
+                      <a routerLink="/dashboard" outerLink="/dashboard" data-section="proveedores"
+                         class="menu-link flex items-center p-2 text-sm text-gray-600 hover:bg-gray-200 rounded-lg">
+                        <i class="fas fa-truck w-4 h-4 mr-2"></i> Proveedores
+                      </a>
+                    </li>
+                    <li>
+                      <a data-section="contactos"
+                         class="menu-link flex items-center p-2 text-sm text-gray-600 hover:bg-gray-200 rounded-lg">
+                        <i class="fas fa-address-book w-4 h-4 mr-2"></i> Contactos
+                      </a>
+                    </li>
+                    <li>
+                      <a data-section="clientes"
+                         class="menu-link flex items-center p-2 text-sm text-gray-600 hover:bg-gray-200 rounded-lg">
+                        <i class="fas fa-users w-4 h-4 mr-2"></i> Clientes
+                      </a>
+                    </li>
+                    <li>
+                      <a data-section="publicidad"
+                         class="menu-link flex items-center p-2 text-sm text-gray-600 hover:bg-gray-200 rounded-lg">
+                        <i class="fas fa-bullhorn w-4 h-4 mr-2"></i> Publicidad
+                      </a>
+                    </li>
+                    <li>
+                      <a data-section="observaciones"
+                         class="menu-link flex items-center p-2 text-sm text-gray-600 hover:bg-gray-200 rounded-lg">
+                        <i class="fas fa-clipboard w-4 h-4 mr-2"></i> Observaciones
+                      </a>
+                    </li>
+                    <li>
+                      <a data-section="productos"
+                         class="menu-link flex items-center p-2 text-sm text-gray-600 hover:bg-gray-200 rounded-lg">
+                        <i class="fas fa-box w-4 h-4 mr-2"></i> Productos / Servicios
+                      </a>
+                    </li>
+                    <li>
+                      <a data-section="formatos"
+                         class="menu-link flex items-center p-2 text-sm text-gray-600 hover:bg-gray-200 rounded-lg">
+                        <i class="fas fa-file-alt w-4 h-4 mr-2"></i> Formatos
+                      </a>
+                    </li>
+                  </ul>
+              </li>
+               <li class="mb-2">
+                  <a href="#" class="flex items-center p-2 text-gray-600 hover:bg-gray-200 rounded-lg">
+                      <i class="fas fa-cog w-5 h-5 mr-3"></i>
+                      Configuración
+                  </a>
+              </li>
+          </ul>
+      </nav>
+  </aside>
+
+  <div class="flex-1 flex flex-col overflow-hidden">
+       <header class="bg-white shadow-sm h-16 flex items-center justify-between px-4 md:px-6">
+           <button id="menu-toggle" class="md:hidden text-gray-600 hover:text-gray-800">
+              <i class="fas fa-bars text-xl"></i>
+          </button>
+          <h1 class="text-xl font-semibold text-gray-800 md:ml-0 ml-4">Gestión de Catálogos</h1>
+          <div class="text-sm text-gray-500">
+              <i class="fas fa-user-circle mr-1"></i> angel cast
+          </div>
+      </header>
+
+      <main class="flex-1 overflow-x-hidden overflow-y-auto bg-gray-100 p-6">
+          <div id="content-area" class="bg-white p-6 rounded-lg shadow">
+              <h2 class="text-2xl font-semibold text-gray-700 mb-4">Bienvenido a la Gestión de Catálogos de Prayser</h2>
+              <p class="text-gray-600 mb-4">
+                  Selecciona una sección del menú "Archivo" en la barra lateral para ver su descripción y utilidad.
+                  Prayser centraliza la información esencial de tu negocio para simplificar tus procesos.
+              </p>
+               <img src="https://placehold.co/800x400/f3f4f6/9ca3af?text=Imagen+del+Dashboard+(Platzhalter)"
+                    alt="Imagen del Dashboard de Prayser"
+                    class="rounded-lg shadow-md w-full max-w-3xl mx-auto"
+                    onerror="this.onerror=null; this.src='https://placehold.co/600x300/f3f4f6/9ca3af?text=Error+al+cargar+imagen';">
+               <p class="text-center text-sm text-gray-500 mt-2">Imagen representativa del dashboard.</p>
+          </div>
+      </main>
+  </div>
+</div>
+<div class="flex h-screen bg-white font-['Inter']">
+
+  <!-- ▸ SIDEBAR -->
+  <aside
+    class="fixed inset-y-0 left-0 z-40 w-64 bg-gray-50 border-r border-gray-200 p-4 transition-transform duration-300 ease-in-out transform md:translate-x-0 md:relative md:flex md:flex-col"
+    [class.-translate-x-full]="!sidebarOpen()"
+  >
+    <div class="flex items-center justify-between mb-6 h-16">
+      <span class="text-2xl font-bold text-gray-700">PRAYSER</span>
+      <button (click)="toggleSidebar(false)" class="md:hidden text-gray-600 hover:text-gray-800">
+        <i class="fas fa-times text-xl"></i>
+      </button>
+    </div>
+
+    <nav class="flex-1 overflow-y-auto text-sm">
+      <ul>
+        <li class="mb-2">
+          <a routerLink="/dashboard" class="flex items-center p-2 text-gray-600 hover:bg-gray-200 rounded-lg">
+            <i class="fa-solid fa-gauge w-5 h-5 mr-3"></i> Dashboard
+          </a>
+        </li>
+
+        <li class="mb-2">
+          <a routerLink="/oportunidades" class="flex items-center p-2 text-gray-600 hover:bg-gray-200 rounded-lg">
+            <i class="fa-solid fa-lightbulb w-5 h-5 mr-3"></i> Oportunidades
+          </a>
+        </li>
+
+        <li class="mb-2">
+          <span class="flex items-center p-2 font-semibold text-gray-700">
+            <i class="fas fa-folder w-5 h-5 mr-3"></i> Archivo
+          </span>
+          <ul class="ml-4 mt-2 space-y-1">
+            <li>
+              <a outerLink="/dashboard" data-section="proveedores" class="menu-link flex items-center p-2 text-sm text-gray-600 hover:bg-gray-200 rounded-lg">
+                <i class="fas fa-truck w-4 h-4 mr-2"></i> Proveedores
+              </a>
+            </li>
+
+            <li *ngFor="let s of sections">
+              <button
+                class="flex w-full items-center rounded-lg p-2 text-sm"
+                [ngClass]="activeSection() === s.id ? 'active-link text-primary-600 font-semibold' : 'text-gray-600 hover:bg-gray-200'"
+                (click)="setActiveSection(s.id); sidebarOpen() && toggleSidebar(false)">
+                <i class="{{ s.icon }} w-4 h-4 mr-2"></i> {{ s.title }}
+              </button>
+            </li>
+          </ul>
+        </li>
+
+        <li class="mt-4">
+          <a routerLink="/configuracion" class="flex items-center p-2 text-gray-600 hover:bg-gray-200 rounded-lg">
+            <i class="fa-solid fa-cog w-5 h-5 mr-3"></i> Configuración
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </aside>
+
+  <!-- ▸ CONTENIDO PRINCIPAL -->
+  <div class="flex-1 flex flex-col overflow-hidden">
+
+    <header class="bg-white shadow-sm h-16 flex items-center justify-between px-4 md:px-6">
+      <button (click)="toggleSidebar(true)" class="md:hidden text-gray-600 hover:text-gray-800">
+        <i class="fas fa-bars text-xl"></i>
+      </button>
+      <h1 class="text-xl font-semibold text-gray-800">Gestión de Catálogos</h1>
+      <div class="text-sm text-gray-500">
+        <i class="fas fa-user-circle mr-1"></i> angel cast
+      </div>
+    </header>
+
+    <main class="flex-1 overflow-x-hidden overflow-y-auto bg-gray-100 p-6">
+      <div id="content-area" class="bg-white p-6 rounded-lg shadow">
+        <h2 class="text-2xl font-semibold text-gray-700 mb-4">{{ current().title }}</h2>
+        <p class="text-gray-600 mb-4">
+          {{ current().description }}
+        </p>
+        <img
+          src="https://placehold.co/800x400/f3f4f6/9ca3af?text=Imagen+del+Dashboard+(Platzhalter)"
+          alt="Imagen del Dashboard de Prayser"
+          class="rounded-lg shadow-md w-full max-w-3xl mx-auto"
+          onerror="this.onerror=null; this.src='https://placehold.co/600x300/f3f4f6/9ca3af?text=Error+al+cargar+imagen';">
+        <p class="text-center text-sm text-gray-500 mt-2">Imagen representativa del dashboard.</p>
+      </div>
     </main>
   </div>
 </div>
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gestión de Catálogos en Prayser</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
-    <style>
-        /* Custom Styles */
-        body {
-            font-family: 'Inter', sans-serif; /* Using Inter font */
-        }
-        /* Style for the active menu item */
-        .active-link {
-            background-color: #e5e7eb; /* gray-200 */
-            color: #1f2937; /* gray-800 */
-            font-weight: 600;
-        }
-        /* Ensure content area has minimum height */
-        main {
-            min-height: calc(100vh - 4rem); /* Adjust based on header height */
-        }
-        /* Simple transition for content update */
-        #content-area {
-            transition: opacity 0.3s ease-in-out;
-        }
-        /* Style for the sidebar toggle button */
-        #menu-toggle {
-             z-index: 50; /* Ensure it's above other elements */
-        }
-    </style>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-</head>
-<body class="bg-gray-100">
-
-    <div class="flex h-screen bg-white">
-        <aside id="sidebar" class="fixed inset-y-0 left-0 z-40 w-64 bg-gray-50 border-r border-gray-200 p-4 transition-transform duration-300 ease-in-out transform -translate-x-full md:translate-x-0 md:relative md:inset-0 md:flex md:flex-col">
-            <div class="flex items-center justify-between mb-6 h-16">
-                 <span class="text-2xl font-bold text-gray-700">PRAYSER</span>
-                 <button id="close-menu" class="md:hidden text-gray-600 hover:text-gray-800">
-                     <i class="fas fa-times text-xl"></i>
-                 </button>
-            </div>
-
-            <nav class="flex-1 overflow-y-auto">
-                <ul>
-                    <li class="mb-2">
-                        <a href="#" class="flex items-center p-2 text-gray-600 hover:bg-gray-200 rounded-lg">
-                            <i class="fas fa-tachometer-alt w-5 h-5 mr-3"></i>
-                            Dashboard
-                        </a>
-                    </li>
-                    <li class="mb-2">
-                        <a href="#" class="flex items-center p-2 text-gray-600 hover:bg-gray-200 rounded-lg">
-                            <i class="fas fa-lightbulb w-5 h-5 mr-3"></i>
-                            Oportunidades
-                        </a>
-                    </li>
-                    <li class="mb-2">
-                        <span class="flex items-center p-2 text-gray-700 font-semibold">
-                            <i class="fas fa-folder w-5 h-5 mr-3"></i>
-                            Archivo
-                            <i class="fas fa-chevron-down ml-auto text-xs"></i>
-                        </span>
-                        <ul class="ml-4 mt-1 space-y-1" id="archivo-menu">
-                            <li><a href="#" data-section="proveedores" class="menu-link flex items-center p-2 text-sm text-gray-600 hover:bg-gray-200 rounded-lg"><i class="fas fa-truck w-4 h-4 mr-2"></i>Proveedores</a></li>
-                            <li><a href="#" data-section="contactos" class="menu-link flex items-center p-2 text-sm text-gray-600 hover:bg-gray-200 rounded-lg"><i class="fas fa-address-book w-4 h-4 mr-2"></i>Contactos</a></li>
-                            <li><a href="#" data-section="clientes" class="menu-link flex items-center p-2 text-sm text-gray-600 hover:bg-gray-200 rounded-lg"><i class="fas fa-users w-4 h-4 mr-2"></i>Clientes</a></li>
-                            <li><a href="#" data-section="publicidad" class="menu-link flex items-center p-2 text-sm text-gray-600 hover:bg-gray-200 rounded-lg"><i class="fas fa-bullhorn w-4 h-4 mr-2"></i>Publicidad</a></li>
-                            <li><a href="#" data-section="observaciones" class="menu-link flex items-center p-2 text-sm text-gray-600 hover:bg-gray-200 rounded-lg"><i class="fas fa-clipboard w-4 h-4 mr-2"></i>Observaciones</a></li>
-                            <li><a href="#" data-section="productos" class="menu-link flex items-center p-2 text-sm text-gray-600 hover:bg-gray-200 rounded-lg"><i class="fas fa-box w-4 h-4 mr-2"></i>Productos / Servicios</a></li>
-                            <li><a href="#" data-section="formatos" class="menu-link flex items-center p-2 text-sm text-gray-600 hover:bg-gray-200 rounded-lg"><i class="fas fa-file-alt w-4 h-4 mr-2"></i>Formatos</a></li>
-                        </ul>
-                    </li>
-                     <li class="mb-2">
-                        <a href="#" class="flex items-center p-2 text-gray-600 hover:bg-gray-200 rounded-lg">
-                            <i class="fas fa-cog w-5 h-5 mr-3"></i>
-                            Configuración
-                        </a>
-                    </li>
-                </ul>
-            </nav>
-        </aside>
-
-        <div class="flex-1 flex flex-col overflow-hidden">
-             <header class="bg-white shadow-sm h-16 flex items-center justify-between px-4 md:px-6">
-                 <button id="menu-toggle" class="md:hidden text-gray-600 hover:text-gray-800">
-                    <i class="fas fa-bars text-xl"></i>
-                </button>
-                <h1 class="text-xl font-semibold text-gray-800 md:ml-0 ml-4">Gestión de Catálogos</h1>
-                <div class="text-sm text-gray-500">
-                    <i class="fas fa-user-circle mr-1"></i> angel cast
-                </div>
-            </header>
-
-            <main class="flex-1 overflow-x-hidden overflow-y-auto bg-gray-100 p-6">
-                <div id="content-area" class="bg-white p-6 rounded-lg shadow">
-                    <h2 class="text-2xl font-semibold text-gray-700 mb-4">Bienvenido a la Gestión de Catálogos de Prayser</h2>
-                    <p class="text-gray-600 mb-4">
-                        Selecciona una sección del menú "Archivo" en la barra lateral para ver su descripción y utilidad.
-                        Prayser centraliza la información esencial de tu negocio para simplificar tus procesos.
-                    </p>
-                     <img src="https://placehold.co/800x400/f3f4f6/9ca3af?text=Imagen+del+Dashboard+(Platzhalter)"
-                          alt="Imagen del Dashboard de Prayser"
-                          class="rounded-lg shadow-md w-full max-w-3xl mx-auto"
-                          onerror="this.onerror=null; this.src='https://placehold.co/600x300/f3f4f6/9ca3af?text=Error+al+cargar+imagen';">
-                     <p class="text-center text-sm text-gray-500 mt-2">Imagen representativa del dashboard.</p>
-                </div>
-            </main>
-        </div>
-    </div>
-
-    <script>
-        // --- Data for Content ---
-        const contentData = {
-            proveedores: {
-                title: "1. Proveedores",
-                icon: "fas fa-truck",
-                description: `<strong>Función:</strong> Gestiona la información de todas las empresas o personas que te suministran productos o servicios.<br><br>
-                              <strong>Utilidad:</strong> Mantén un registro organizado de datos de contacto, condiciones comerciales, historial de compras y evaluaciones de tus proveedores. Facilita la comunicación y la gestión de la cadena de suministro.`
-            },
-            contactos: {
-                title: "2. Contactos",
-                icon: "fas fa-address-book",
-                description: `<strong>Función:</strong> Administra una lista general de contactos relevantes para tu negocio.<br><br>
-                              <strong>Utilidad:</strong> Puede incluir prospectos, socios, colaboradores u otros contactos que no necesariamente son clientes o proveedores activos. Centraliza la información de comunicación diversa.`
-            },
-            clientes: {
-                title: "3. Clientes",
-                icon: "fas fa-users",
-                description: `<strong>Función:</strong> Gestiona toda la información relacionada con las personas o empresas a las que vendes tus productos o servicios.<br><br>
-                              <strong>Utilidad:</strong> Almacena datos de contacto, historial de compras, preferencias, límites de crédito y cualquier otra información relevante para la gestión de la relación con el cliente (CRM) y el proceso de ventas. Es fundamental para crear cotizaciones rápidamente.`
-            },
-            publicidad: {
-                title: "4. Publicidad",
-                icon: "fas fa-bullhorn",
-                description: `<strong>Función:</strong> Registra y organiza la información sobre tus campañas y esfuerzos publicitarios.<br><br>
-                              <strong>Utilidad:</strong> Lleva un control de los medios utilizados, costos, fechas y posiblemente resultados de tus acciones de marketing y publicidad. Ayuda a evaluar el retorno de inversión.`
-            },
-            observaciones: {
-                title: "5. Observaciones",
-                icon: "fas fa-clipboard",
-                description: `<strong>Función:</strong> Un espacio flexible para registrar notas, comentarios o recordatorios importantes.<br><br>
-                              <strong>Utilidad:</strong> Puede usarse para anotaciones generales sobre clientes, proveedores, procesos internos o cualquier detalle que necesites tener a mano y que no encaje en otras categorías específicas.`
-            },
-            productos: {
-                title: "6. Productos / Servicios",
-                icon: "fas fa-box",
-                description: `<strong>Función:</strong> Administra el catálogo detallado de lo que ofreces a tus clientes.<br><br>
-                              <strong>Utilidad:</strong> Define descripciones, códigos (SKU), precios, unidades de medida, categorías y otros atributos de tus productos o servicios. Es la base para la creación de cotizaciones y la gestión de inventario (si aplica).`
-            },
-            formatos: {
-                title: "7. Formatos",
-                icon: "fas fa-file-alt",
-                description: `<strong>Función:</strong> Gestiona las plantillas o diseños predefinidos para tus documentos.<br><br>
-                              <strong>Utilidad:</strong> Personaliza la apariencia de tus cotizaciones, pedidos u otros documentos generados por Prayser, asegurando una imagen profesional y consistente con la identidad de tu negocio.`
-            }
-        };
-
-        // --- DOM Elements ---
-        const archivoMenu = document.getElementById('archivo-menu');
-        const contentArea = document.getElementById('content-area');
-        const menuLinks = archivoMenu.querySelectorAll('.menu-link'); // Get all links within the menu
-        const sidebar = document.getElementById('sidebar');
-        const menuToggle = document.getElementById('menu-toggle');
-        const closeMenuButton = document.getElementById('close-menu');
-
-
-        // --- Event Listeners ---
-
-        // Handle clicks on menu links within "Archivo"
-        archivoMenu.addEventListener('click', function(event) {
-            event.preventDefault(); // Prevent default link behavior
-            const targetLink = event.target.closest('a'); // Find the clicked link element
-
-            if (targetLink && targetLink.dataset.section) {
-                const sectionKey = targetLink.dataset.section;
-                const sectionData = contentData[sectionKey];
-
-                if (sectionData) {
-                    // Update content area with fade effect
-                    contentArea.style.opacity = 0; // Start fade out
-                    setTimeout(() => {
-                        // Update the inner HTML of the content area
-                        contentArea.innerHTML = `
-                            <h2 class="flex items-center text-2xl font-semibold text-gray-700 mb-4">
-                                <i class="${sectionData.icon} w-6 h-6 mr-3 text-blue-600"></i>
-                                ${sectionData.title}
-                            </h2>
-                            <div class="text-gray-600 space-y-3">${sectionData.description}</div>
-                            <p class="mt-6 text-sm text-gray-500 italic">Estos catálogos interconectados son la base para que Prayser simplifique y agilice tus procesos de cotización y venta.</p>
-                             <img src="https://placehold.co/800x400/f3f4f6/9ca3af?text=${encodeURIComponent(sectionData.title)}"
-                                 alt="Imagen representativa de ${sectionData.title}"
-                                 class="rounded-lg shadow-md w-full max-w-3xl mx-auto mt-6"
-                                 onerror="this.onerror=null; this.src='https://placehold.co/600x300/f3f4f6/9ca3af?text=Error+al+cargar+imagen';">
-                        `;
-                        contentArea.style.opacity = 1; // Fade in new content
-                    }, 150); // Match timeout roughly to CSS transition duration
-
-                    // Update active link styling
-                    // Remove active class from all links first
-                    menuLinks.forEach(link => link.classList.remove('active-link'));
-                    // Add active class to the clicked link
-                    targetLink.classList.add('active-link');
-
-                    // Close sidebar on mobile after clicking a link
-                    if (window.innerWidth < 768) { // Tailwind's md breakpoint
-                         sidebar.classList.add('-translate-x-full');
-                    }
-                }
-            }
-        });
-
-         // Sidebar Toggle for Mobile: Open sidebar
-         menuToggle.addEventListener('click', () => {
-            sidebar.classList.remove('-translate-x-full');
-         });
-
-         // Sidebar Toggle for Mobile: Close sidebar via button
-         closeMenuButton.addEventListener('click', () => {
-             sidebar.classList.add('-translate-x-full');
-         });
-
-         // Close sidebar if clicking outside of it on mobile
-         document.addEventListener('click', (event) => {
-             // Check if the click is outside the sidebar and also not on the toggle button
-             if (window.innerWidth < 768 && !sidebar.contains(event.target) && !menuToggle.contains(event.target)) {
-                 sidebar.classList.add('-translate-x-full');
-             }
-         });
-
-         // Optional: Set the first item as active on initial load
-         // Find the first link and simulate a click or directly update content/style
-         const firstLink = archivoMenu.querySelector('.menu-link');
-         if (firstLink) {
-             // Option 1: Simulate click (might be simpler)
-             // firstLink.click();
-             // Option 2: Manually set active state and content (more control)
-             const firstSectionKey = firstLink.dataset.section;
-             const firstSectionData = contentData[firstSectionKey];
-             if(firstSectionData){
-                contentArea.innerHTML = `
-                    <h2 class="flex items-center text-2xl font-semibold text-gray-700 mb-4">
-                        <i class="${firstSectionData.icon} w-6 h-6 mr-3 text-blue-600"></i>
-                        ${firstSectionData.title}
-                    </h2>
-                    <div class="text-gray-600 space-y-3">${firstSectionData.description}</div>
-                    <p class="mt-6 text-sm text-gray-500 italic">Estos catálogos interconectados son la base para que Prayser simplifique y agilice tus procesos de cotización y venta.</p>
-                    <img src="https://placehold.co/800x400/f3f4f6/9ca3af?text=${encodeURIComponent(firstSectionData.title)}"
-                         alt="Imagen representativa de ${firstSectionData.title}"
-                         class="rounded-lg shadow-md w-full max-w-3xl mx-auto mt-6"
-                         onerror="this.onerror=null; this.src='https://placehold.co/600x300/f3f4f6/9ca3af?text=Error+al+cargar+imagen';">
-                `;
-                firstLink.classList.add('active-link');
-             }
-
-         }
-
-    </script>
-</body>
-</html>
