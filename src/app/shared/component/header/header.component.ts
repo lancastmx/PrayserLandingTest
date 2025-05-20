@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLinkWithHref } from '@angular/router';
 @Component({
@@ -8,11 +8,7 @@ import { RouterLinkWithHref } from '@angular/router';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent {
 
-  constructor() { }
-
-  ngOnInit() {
-  }
 
 }

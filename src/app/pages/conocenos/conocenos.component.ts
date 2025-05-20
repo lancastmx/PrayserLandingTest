@@ -1,4 +1,4 @@
-import { Component, ElementRef, QueryList, Renderer2, ViewChildren } from '@angular/core';
+import { Component, ElementRef, QueryList, Renderer2, ViewChildren, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-conocenos',
@@ -7,7 +7,7 @@ import { CommonModule } from '@angular/common';
   templateUrl: './conocenos.component.html',
   styleUrl: './conocenos.component.css'
 })
-export class ConocenosComponent {
+export class ConocenosComponent implements OnInit {
   @ViewChildren('slide') slides!: QueryList<ElementRef>;
   @ViewChildren('navButton') navButtons!: QueryList<ElementRef>;
 
