@@ -326,6 +326,10 @@
 <section id="redes-sociales" class="container mx-auto px-6 py-8 text-center">
   <h2 class="text-2xl font-bold mb-6">Síguenos en Redes Sociales</h2>
   <div class="flex justify-center space-x-6 text-gray-600">
+    <a *ngFor="let social of footerContent.socialLinks" [href]="social.url" target="_blank"
+      class="hover:text-green-600 transition duration-200">
+          <i class="bx {{ social.iconClass }} text-3xl"></i>
+    </a>
     <a
       href="[Enlace a Facebook]"
       target="_blank"
@@ -357,12 +361,56 @@
   </div>
 </section>
 
+
 <footer id="footer" class="bg-gray-800 text-white py-8 text-center">
   <div class="container mx-auto px-6">
-    <p>&copy; 2024 Prayser. Todos los derechos reservados.</p>
+    <div class="mb-6">
+      <h3 class="text-2xl font-bold mb-2">Prayser: {{ footerContent.slogan }}</h3>
+      <p class="text-gray-400">{{ footerContent.description }}</p>
+    </div>
+
+    <div class="flex flex-col md:flex-row justify-center items-center md:items-start space-y-4 md:space-y-0 md:space-x-8 mb-6">
+      <div class="text-sm">
+        <p class="font-semibold mb-2">{{ footerContent.contactHeading }}</p>
+        <p class="flex items-center justify-center md:justify-start mb-1">
+          <i class="bx bx-phone mr-2"></i> {{ footerContent.phone1 }}
+        </p>
+        <p class="flex items-center justify-center md:justify-start mb-1">
+          <i class="bx bx-phone mr-2"></i> {{ footerContent.phone2 }}
+        </p>
+        <p class="flex items-center justify-center md:justify-start">
+          <i class="bx bx-envelope mr-2"></i> {{ footerContent.email }}
+        </p>
+      </div>
+
+      <div class="text-sm">
+        <p class="font-semibold mb-2">{{ footerContent.locationHeading }}</p>
+        <p class="flex items-center justify-center md:justify-start">
+          <i class="bx bx-map mr-2"></i> {{ footerContent.address }}
+        </p>
+      </div>
+    </div>
+
+    <div class="mt-4 mb-6 text-sm text-gray-500 flex flex-wrap justify-center space-x-4">
+      <a *ngFor="let link of footerContent.navLinks" [href]="link.href" class="hover:text-white mr-4">
+        {{ link.text }}
+      </a>
+    </div>
+
+    <div class="mb-6">
+      <h4 class="text-xl font-bold mb-4">{{ footerContent.socialMediaHeading }}</h4>
+      <div class="flex justify-center space-x-6 text-gray-400">
+        <a *ngFor="let social of footerContent.socialLinks" [href]="social.url" target="_blank"
+      class="hover:text-white transition duration-200">
+          <i class="bx {{ social.iconClass }} text-3xl"></i>
+        </a>
+      </div>
+    </div>
+
+    <p>{{ footerContent.copyright }}</p>
     <div class="mt-4 text-sm text-gray-500">
-      <a href="#" class="hover:text-white mr-4">Aviso de Privacidad</a>
-      <a href="#" class="hover:text-white">Términos y Condiciones</a>
+      <a [href]="footerContent.privacyPolicy.href" class="hover:text-white mr-4">{{ footerContent.privacyPolicy.text }}</a>
+      <a [href]="footerContent.termsAndConditions.href" class="hover:text-white">{{ footerContent.termsAndConditions.text }}</a>
     </div>
   </div>
 </footer>
