@@ -1,7 +1,8 @@
 <!-- BOTÓN MOBILE -->
 <button
   class="md:hidden fixed top-4 right-4 z-50 bg-slate-700 text-white p-2 rounded-md text-2xl"
-  (click)="toggleSidebar()">
+  (click)="toggleSidebar()"
+>
   <i class="bx bx-menu"></i>
 </button>
 
@@ -11,90 +12,225 @@
     'fixed top-0 left-0 h-full w-64 p-5 space-y-2 overflow-y-auto text-emerald-100',
     'bg-gradient-to-b from-emerald-800 via-emerald-700 to-green-800',
     'transition-transform duration-300 z-40',
-    sidebarOpen ? 'translate-x-0' : '-translate-x-full md:translate-x-0'
-  ]">
+    sidebarOpen ? 'translate-x-0' : '-translate-x-full md:translate-x-0',
+  ]"
+>
   <div class="mb-8 text-center">
-    <img src="assets/image/logo-prayser-bc.svg" class="h-12 mx-auto mb-2" alt="Logo Prayser">
+    <img
+      src="assets/image/logo-prayser-bc.svg"
+      class="h-12 mx-auto mb-2"
+      alt="Logo Prayser"
+    />
     <h2 class="text-xl font-semibold">Análisis</h2>
   </div>
 
   <nav class="space-y-1">
-    <a class="block py-2 px-3 rounded-md hover:bg-emerald-600" (click)="scrollTo('mercado')" (keydown.enter)="scrollTo('mercado')" tabindex="0" role="button">Mercado y Producto</a>
-    <a class="block py-2 px-3 rounded-md hover:bg-emerald-600" (click)="scrollTo('competencia')" (keydown.enter)="scrollTo('competencia')" tabindex="0" role="button">Competencia</a>
-    <a class="block py-2 px-3 rounded-md hover:bg-emerald-600" (click)="scrollTo('ventajas')" (keydown.enter)="scrollTo('ventajas')" tabindex="0" role="button">Ventajas Competitivas</a>
-    <a class="block py-2 px-3 rounded-md hover:bg-emerald-600" (click)="scrollTo('propuesta-valor')" (keydown.enter)="scrollTo('propuesta-valor')" tabindex="0" role="button">Propuesta de Valor</a>
-    <a class="block py-2 px-3 rounded-md hover:bg-emerald-600" (click)="scrollTo('recomendacion')" (keydown.enter)="scrollTo('recomendacion')" tabindex="0" role="button">Recomendación</a>
-    <a class="block py-2 px-3 rounded-md hover:bg-emerald-600" (click)="scrollTo('segmento-ideal')" (keydown.enter)="scrollTo('segmento-ideal')" tabindex="0" role="button">Segmento Ideal</a>
-    <a class="block py-2 px-3 rounded-md hover:bg-emerald-600" (click)="scrollTo('triggers')" (keydown.enter)="scrollTo('triggers')" tabindex="0" role="button">Triggers</a>
-    <a class="block py-2 px-3 rounded-md hover:bg-emerald-600" (click)="scrollTo('buyer-persona')" (keydown.enter)="scrollTo('buyer-persona')" tabindex="0" role="button">Buyer Persona</a>
-    <a class="block py-2 px-3 rounded-md hover:bg-emerald-600" (click)="scrollTo('plataformas')" (keydown.enter)="scrollTo('plataformas')" tabindex="0" role="button">Plataformas Ads</a>
-    <a class="block py-2 px-3 rounded-md hover:bg-emerald-600" (click)="scrollTo('funnel')" (keydown.enter)="scrollTo('funnel')" tabindex="0" role="button">Funnel</a>
-    <a class="block py-2 px-3 rounded-md hover:bg-emerald-600" (click)="scrollTo('segmentos-plataforma')" (keydown.enter)="scrollTo('segmentos-plataforma')" tabindex="0" role="button">Segmentos / Plataforma</a>
-    <a class="block py-2 px-3 rounded-md hover:bg-emerald-600" (click)="scrollTo('kpis')" (keydown.enter)="scrollTo('kpis')" tabindex="0" role="button">KPIs</a>
+    <a
+      class="block py-2 px-3 rounded-md hover:bg-emerald-600"
+      (click)="scrollTo('mercado')"
+      (keydown.enter)="scrollTo('mercado')"
+      tabindex="0"
+      role="button"
+      >Mercado y Producto</a
+    >
+    <a
+      class="block py-2 px-3 rounded-md hover:bg-emerald-600"
+      (click)="scrollTo('competencia')"
+      (keydown.enter)="scrollTo('competencia')"
+      tabindex="0"
+      role="button"
+      >Competencia</a
+    >
+    <a
+      class="block py-2 px-3 rounded-md hover:bg-emerald-600"
+      (click)="scrollTo('ventajas')"
+      (keydown.enter)="scrollTo('ventajas')"
+      tabindex="0"
+      role="button"
+      >Ventajas Competitivas</a
+    >
+    <a
+      class="block py-2 px-3 rounded-md hover:bg-emerald-600"
+      (click)="scrollTo('propuesta-valor')"
+      (keydown.enter)="scrollTo('propuesta-valor')"
+      tabindex="0"
+      role="button"
+      >Propuesta de Valor</a
+    >
+    <a
+      class="block py-2 px-3 rounded-md hover:bg-emerald-600"
+      (click)="scrollTo('recomendacion')"
+      (keydown.enter)="scrollTo('recomendacion')"
+      tabindex="0"
+      role="button"
+      >Recomendación</a
+    >
+    <a
+      class="block py-2 px-3 rounded-md hover:bg-emerald-600"
+      (click)="scrollTo('segmento-ideal')"
+      (keydown.enter)="scrollTo('segmento-ideal')"
+      tabindex="0"
+      role="button"
+      >Segmento Ideal</a
+    >
+    <a
+      class="block py-2 px-3 rounded-md hover:bg-emerald-600"
+      (click)="scrollTo('triggers')"
+      (keydown.enter)="scrollTo('triggers')"
+      tabindex="0"
+      role="button"
+      >Triggers</a
+    >
+    <a
+      class="block py-2 px-3 rounded-md hover:bg-emerald-600"
+      (click)="scrollTo('buyer-persona')"
+      (keydown.enter)="scrollTo('buyer-persona')"
+      tabindex="0"
+      role="button"
+      >Buyer Persona</a
+    >
+    <a
+      class="block py-2 px-3 rounded-md hover:bg-emerald-600"
+      (click)="scrollTo('plataformas')"
+      (keydown.enter)="scrollTo('plataformas')"
+      tabindex="0"
+      role="button"
+      >Plataformas Ads</a
+    >
+    <a
+      class="block py-2 px-3 rounded-md hover:bg-emerald-600"
+      (click)="scrollTo('funnel')"
+      (keydown.enter)="scrollTo('funnel')"
+      tabindex="0"
+      role="button"
+      >Funnel</a
+    >
+    <a
+      class="block py-2 px-3 rounded-md hover:bg-emerald-600"
+      (click)="scrollTo('segmentos-plataforma')"
+      (keydown.enter)="scrollTo('segmentos-plataforma')"
+      tabindex="0"
+      role="button"
+      >Segmentos / Plataforma</a
+    >
+    <a
+      class="block py-2 px-3 rounded-md hover:bg-emerald-600"
+      (click)="scrollTo('kpis')"
+      (keydown.enter)="scrollTo('kpis')"
+      tabindex="0"
+      role="button"
+      >KPIs</a
+    >
   </nav>
 </aside>
 
 <!-- CONTENIDO -->
 <main class="transition-all duration-300 md:ml-64 p-5 md:p-10">
-
   <!-- HERO -->
   <section
     id="hero"
-    class="min-h-screen flex flex-col items-center justify-center text-center
-           bg-gradient-to-br from-emerald-600 to-green-800 text-white rounded-xl
-           shadow-2xl p-6 md:p-12 mb-16">
-    <img src="assets/image/logo-prayser-bc.svg" class="h-24 md:h-32 mb-6" alt="Logo Prayser">
-    <h1 class="text-4xl md:text-6xl font-bold mb-4">Análisis Estratégico Prayser</h1>
-    <p class="text-lg md:text-2xl mb-8 text-emerald-200">Optimizando la Gestión de Cotizaciones para PYMES</p>
+    class="min-h-screen flex flex-col items-center justify-center text-center bg-gradient-to-br from-emerald-600 to-green-800 text-white rounded-xl shadow-2xl p-6 md:p-12 mb-16"
+  >
+    <img
+      src="assets/image/logo-prayser-bc.svg"
+      class="h-24 md:h-32 mb-6"
+      alt="Logo Prayser"
+    />
+    <h1 class="text-4xl md:text-6xl font-bold mb-4">
+      Análisis Estratégico Prayser
+    </h1>
+    <p class="text-lg md:text-2xl mb-8 text-emerald-200">
+      Optimizando la Gestión de Cotizaciones para PYMES
+    </p>
     <button
-      class="bg-white text-emerald-600 font-semibold px-8 py-3 rounded-lg shadow-md
-             hover:bg-slate-100 transition-colors text-lg inline-flex items-center"
-      (click)="scrollTo('mercado')">
+      class="bg-white text-emerald-600 font-semibold px-8 py-3 rounded-lg shadow-md hover:bg-slate-100 transition-colors text-lg inline-flex items-center"
+      (click)="scrollTo('mercado')"
+    >
       Descubrir Análisis <i class="bx bx-chevron-down text-2xl ml-2"></i>
     </button>
   </section>
 
   <!-- MERCADO Y PRODUCTO -->
   <section id="mercado" class="py-16">
-    <h2 class="text-3xl font-bold text-center mb-10 text-slate-700">Análisis del Mercado y Producto</h2>
+    <h2 class="text-3xl font-bold text-center mb-10 text-slate-700">
+      Análisis del Mercado y Producto
+    </h2>
 
     <div class="grid md:grid-cols-3 gap-8">
-      <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-shadow">
-        <h3 class="text-xl font-semibold text-emerald-600 mb-3">Producto: Prayser</h3>
-        <p class="text-slate-600">Plataforma SaaS para crear cotizaciones profesionales de forma rápida y personalizada. Gestiona listas de precios, fichas técnicas, clientes, proveedores y precios diferenciados. Intuitiva y accesible.</p>
+      <div
+        class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-shadow"
+      >
+        <h3 class="text-xl font-semibold text-emerald-600 mb-3">
+          Producto: Prayser
+        </h3>
+        <p class="text-slate-600">
+          Plataforma SaaS para crear cotizaciones profesionales de forma rápida
+          y personalizada. Gestiona listas de precios, fichas técnicas,
+          clientes, proveedores y precios diferenciados. Intuitiva y accesible.
+        </p>
       </div>
 
-      <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-shadow">
-        <h3 class="text-xl font-semibold text-emerald-600 mb-3">Tipo de Solución</h3>
-        <p class="text-slate-600">Cotizador + CRM ligero + gestor de productos. Especializado en la creación y gestión del proceso de cotización.</p>
+      <div
+        class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-shadow"
+      >
+        <h3 class="text-xl font-semibold text-emerald-600 mb-3">
+          Tipo de Solución
+        </h3>
+        <p class="text-slate-600">
+          Cotizador + CRM ligero + gestor de productos. Especializado en la
+          creación y gestión del proceso de cotización.
+        </p>
       </div>
 
-      <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-shadow">
-        <h3 class="text-xl font-semibold text-emerald-600 mb-3">Público Objetivo</h3>
-        <p class="text-slate-600">Profesionales independientes, PYMES y empresas con alta rotación de cotizaciones. La necesidad es validada por problemas operativos en grandes empresas.</p>
+      <div
+        class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-shadow"
+      >
+        <h3 class="text-xl font-semibold text-emerald-600 mb-3">
+          Público Objetivo
+        </h3>
+        <p class="text-slate-600">
+          Profesionales independientes, PYMES y empresas con alta rotación de
+          cotizaciones. La necesidad es validada por problemas operativos en
+          grandes empresas.
+        </p>
       </div>
     </div>
   </section>
   <section id="mercado" class="py-16">
-    <h2 class="text-3xl font-bold text-center mb-10 text-slate-700">Análisis del Mercado y Producto</h2>
+    <h2 class="text-3xl font-bold text-center mb-10 text-slate-700">
+      Análisis del Mercado y Producto
+    </h2>
 
     <div class="grid md:grid-cols-3 gap-8">
-      <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-shadow">
+      <div
+        class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-shadow"
+      >
         <h3 class="text-xl font-semibold text-emerald-600 mb-3">Producto</h3>
         <p class="text-slate-600">
-          Plataforma SaaS para crear cotizaciones profesionales, gestionar listas de precios,
-          fichas técnicas, clientes y proveedores; precios diferenciados; intuitiva y accesible
-          para PYMES, empresas y freelancers.
+          Plataforma SaaS para crear cotizaciones profesionales, gestionar
+          listas de precios, fichas técnicas, clientes y proveedores; precios
+          diferenciados; intuitiva y accesible para PYMES, empresas y
+          freelancers.
         </p>
       </div>
 
-      <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-shadow">
-        <h3 class="text-xl font-semibold text-emerald-600 mb-3">Tipo de solución</h3>
-        <p class="text-slate-600">Cotizador + CRM ligero + gestor de productos.</p>
+      <div
+        class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-shadow"
+      >
+        <h3 class="text-xl font-semibold text-emerald-600 mb-3">
+          Tipo de solución
+        </h3>
+        <p class="text-slate-600">
+          Cotizador + CRM ligero + gestor de productos.
+        </p>
       </div>
 
-      <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-shadow">
-        <h3 class="text-xl font-semibold text-emerald-600 mb-3">Público objetivo</h3>
+      <div
+        class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-shadow"
+      >
+        <h3 class="text-xl font-semibold text-emerald-600 mb-3">
+          Público objetivo
+        </h3>
         <ul class="list-disc list-inside text-slate-600 space-y-1">
           <li>Profesionales independientes</li>
           <li>PYMES de productos o servicios</li>
@@ -104,74 +240,95 @@
     </div>
   </section>
 
-
   <!-- COMPETENCIA -->
   <section id="competencia" class="py-16 bg-slate-100 rounded-xl">
-    <h2 class="text-3xl font-bold text-center mb-10 text-slate-700">Competencia Directa e Indirecta</h2>
+    <h2 class="text-3xl font-bold text-center mb-10 text-slate-700">
+      Competencia Directa e Indirecta
+    </h2>
 
     <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-
-      <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-shadow">
-        <h3 class="inline-flex items-center text-xl font-semibold text-emerald-600 mb-3">
+      <div
+        class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-shadow"
+      >
+        <h3
+          class="inline-flex items-center text-xl font-semibold text-emerald-600 mb-3"
+        >
           <i class="bx bx-bullseye text-2xl mr-2 text-red-500"></i>
           Competencia Directa
         </h3>
         <ul class="text-slate-600 space-y-1">
-          <li>Quoters</li><li>ProCotizador</li><li>WeQuote</li>
+          <li>Quoters</li>
+          <li>ProCotizador</li>
+          <li>WeQuote</li>
         </ul>
       </div>
 
-      <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-shadow">
-        <h3 class="inline-flex items-center text-xl font-semibold text-emerald-600 mb-3">
+      <div
+        class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-shadow"
+      >
+        <h3
+          class="inline-flex items-center text-xl font-semibold text-emerald-600 mb-3"
+        >
           <i class="bx bx-git-compare text-2xl mr-2 text-orange-500"></i>
           Competencia Indirecta
         </h3>
         <ul class="text-slate-600 space-y-1">
-          <li>HubSpot CRM</li><li>Excel + PDF personal</li><li>Zoho CRM</li>
-          <li>Bitrix24</li><li>ERPs (ej. Bling)</li>
+          <li>HubSpot CRM</li>
+          <li>Excel + PDF personal</li>
+          <li>Zoho CRM</li>
+          <li>Bitrix24</li>
+          <li>ERPs (ej. Bling)</li>
         </ul>
-        <p class="mt-3 text-sm text-slate-500">Excel es común pero ineficiente, subrayando la necesidad de Prayser.</p>
+        <p class="mt-3 text-sm text-slate-500">
+          Excel es común pero ineficiente, subrayando la necesidad de Prayser.
+        </p>
       </div>
-
     </div>
     <!-- TABLA RESUMEN -->
-<div class="overflow-auto mt-10">
-  <table class="min-w-full text-sm text-slate-700">
-    <thead class="bg-emerald-700 text-white">
-      <tr>
-        <th class="px-4 py-2">Tipo</th>
-        <th class="px-4 py-2">Competidor</th>
-        <th class="px-4 py-2">Características</th>
-        <th class="px-4 py-2">Diferenciador Prayser</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let c of competidores" class="odd:bg-slate-50">
-        <td class="border px-4 py-2">{{ c.type }}</td>
-        <td class="border px-4 py-2 font-semibold">{{ c.name }}</td>
-        <td class="border px-4 py-2">{{ c.features }}</td>
-        <td class="border px-4 py-2">{{ c.diff }}</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-
+    <div class="overflow-auto mt-10">
+      <table class="min-w-full text-sm text-slate-700">
+        <thead class="bg-emerald-700 text-white">
+          <tr>
+            <th class="px-4 py-2">Tipo</th>
+            <th class="px-4 py-2">Competidor</th>
+            <th class="px-4 py-2">Características</th>
+            <th class="px-4 py-2">Diferenciador Prayser</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let c of competidores" class="odd:bg-slate-50">
+            <td class="border px-4 py-2">{{ c.type }}</td>
+            <td class="border px-4 py-2 font-semibold">{{ c.name }}</td>
+            <td class="border px-4 py-2">{{ c.features }}</td>
+            <td class="border px-4 py-2">{{ c.diff }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </section>
 
   <!-- VENTAJAS COMPETITIVAS -->
   <section id="ventajas" class="py-16">
-    <h2 class="text-3xl font-bold text-center mb-10 text-slate-700">Ventajas Competitivas de Prayser</h2>
+    <h2 class="text-3xl font-bold text-center mb-10 text-slate-700">
+      Ventajas Competitivas de Prayser
+    </h2>
 
     <div class="max-w-5xl mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-      <div *ngFor="let v of ventajas"
-           class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-shadow">
-        <h3 class="text-xl font-semibold text-emerald-600 mb-3">{{ v.title }}</h3>
+      <div
+        *ngFor="let v of ventajas"
+        class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-shadow"
+      >
+        <h3 class="text-xl font-semibold text-emerald-600 mb-3">
+          {{ v.title }}
+        </h3>
         <p class="text-slate-600">{{ v.text }}</p>
       </div>
     </div>
   </section>
   <section class="py-16">
-    <h2 class="text-3xl font-bold text-center mb-10 text-slate-700">🧩 Análisis Comparativo</h2>
+    <h2 class="text-3xl font-bold text-center mb-10 text-slate-700">
+      🧩 Análisis Comparativo
+    </h2>
 
     <div class="overflow-auto">
       <table class="min-w-full text-sm text-slate-700">
@@ -194,13 +351,19 @@
   </section>
 
   <!-- PROPUESTA DE VALOR -->
-  <section id="propuesta-valor" class="py-16 bg-emerald-700 text-white rounded-xl">
-    <h2 class="text-3xl font-bold text-center mb-10">Propuesta de Ventaja Competitiva Clave</h2>
+  <section
+    id="propuesta-valor"
+    class="py-16 bg-emerald-700 text-white rounded-xl"
+  >
+    <h2 class="text-3xl font-bold text-center mb-10">
+      Propuesta de Ventaja Competitiva Clave
+    </h2>
 
     <div class="max-w-6xl mx-auto grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-      <div *ngFor="let p of propuestaValor"
-           class="bg-emerald-800 p-6 rounded-lg shadow-md hover:bg-emerald-900
-                  transition-colors text-center md:text-left">
+      <div
+        *ngFor="let p of propuestaValor"
+        class="bg-emerald-800 p-6 rounded-lg shadow-md hover:bg-emerald-900 transition-colors text-center md:text-left"
+      >
         <i [class]="p.icon + ' text-4xl mb-3 text-emerald-300'"></i>
         <h3 class="text-xl font-semibold mb-2">{{ p.title }}</h3>
         <p class="text-emerald-200">{{ p.text }}</p>
@@ -210,17 +373,34 @@
 
   <!-- RECOMENDACIÓN -->
   <section id="recomendacion" class="py-16">
-    <h2 class="text-3xl font-bold text-center mb-10 text-slate-700">Recomendación Estratégica</h2>
+    <h2 class="text-3xl font-bold text-center mb-10 text-slate-700">
+      Recomendación Estratégica
+    </h2>
 
-    <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-shadow max-w-3xl mx-auto text-center">
-      <h3 class="text-xl font-semibold text-emerald-600 mb-3">Enfoque Principal</h3>
-      <p class="text-slate-600 text-lg mb-4">«Cotizar sin complicarte la vida» y posicionarse como la alternativa para dejar atrás Excel.</p>
-      <p class="text-slate-500 mb-2">Validado por la frustración con métodos manuales.</p>
+    <div
+      class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-shadow max-w-3xl mx-auto text-center"
+    >
+      <h3 class="text-xl font-semibold text-emerald-600 mb-3">
+        Enfoque Principal
+      </h3>
+      <p class="text-slate-600 text-lg mb-4">
+        «Cotizar sin complicarte la vida» y posicionarse como la alternativa
+        para dejar atrás Excel.
+      </p>
+      <p class="text-slate-500 mb-2">
+        Validado por la frustración con métodos manuales.
+      </p>
 
-      <h3 class="text-xl font-semibold text-emerald-600 mt-6 mb-3">Segmento Objetivo</h3>
-      <p class="text-slate-600 text-lg mb-4">PYMES que usan métodos manuales pero buscan digitalizarse.</p>
+      <h3 class="text-xl font-semibold text-emerald-600 mt-6 mb-3">
+        Segmento Objetivo
+      </h3>
+      <p class="text-slate-600 text-lg mb-4">
+        PYMES que usan métodos manuales pero buscan digitalizarse.
+      </p>
 
-      <h3 class="text-xl font-semibold text-emerald-600 mt-6 mb-3">Tácticas Sugeridas</h3>
+      <h3 class="text-xl font-semibold text-emerald-600 mt-6 mb-3">
+        Tácticas Sugeridas
+      </h3>
       <ul class="text-slate-600 space-y-1">
         <li>Demos con descuento</li>
         <li>Webinars de plataforma</li>
@@ -230,13 +410,26 @@
 
   <!-- SEGMENTO IDEAL -->
   <section id="segmento-ideal" class="py-16 bg-slate-100 rounded-xl">
-    <h2 class="text-3xl font-bold text-center mb-10 text-slate-700">Segmento Ideal para Prayser</h2>
+    <h2 class="text-3xl font-bold text-center mb-10 text-slate-700">
+      Segmento Ideal para Prayser
+    </h2>
 
-    <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-shadow max-w-4xl mx-auto">
-      <p class="text-slate-600 mb-4"><strong class="text-emerald-600">Definición:</strong> PYMES (2 – 50 empleados).</p>
-      <p class="text-slate-600 mb-4"><strong class="text-emerald-600">Industrias Clave:</strong> Comercialización, servicios técnicos, fabricantes, imprentas, construcción, freelancers.</p>
+    <div
+      class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-shadow max-w-4xl mx-auto"
+    >
+      <p class="text-slate-600 mb-4">
+        <strong class="text-emerald-600">Definición:</strong> PYMES
+        (2 – 50 empleados).
+      </p>
+      <p class="text-slate-600 mb-4">
+        <strong class="text-emerald-600">Industrias Clave:</strong>
+        Comercialización, servicios técnicos, fabricantes, imprentas,
+        construcción, freelancers.
+      </p>
 
-      <h3 class="text-xl font-semibold text-emerald-600 mb-2">Principales “Dolores”</h3>
+      <h3 class="text-xl font-semibold text-emerald-600 mb-2">
+        Principales “Dolores”
+      </h3>
       <ul class="list-disc list-inside text-slate-600 space-y-2">
         <li>Pérdida de tiempo y errores manuales</li>
         <li>Mala imagen profesional</li>
@@ -244,18 +437,27 @@
         <li>Falta de seguimiento de cotizaciones</li>
       </ul>
 
-      <p class="text-slate-600 mt-4"><strong class="text-emerald-600">Búsqueda:</strong> Soluciones simples y sin curva de aprendizaje alta.</p>
+      <p class="text-slate-600 mt-4">
+        <strong class="text-emerald-600">Búsqueda:</strong> Soluciones simples y
+        sin curva de aprendizaje alta.
+      </p>
     </div>
   </section>
 
   <!-- TRIGGERS -->
   <section id="triggers" class="py-16">
-    <h2 class="text-3xl font-bold text-center mb-10 text-slate-700">Principales “Triggers”</h2>
+    <h2 class="text-3xl font-bold text-center mb-10 text-slate-700">
+      Principales “Triggers”
+    </h2>
 
     <div class="max-w-3xl mx-auto space-y-4">
-      <div *ngFor="let t of triggers"
-           class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-shadow flex items-center">
-        <i class="bx bx-bolt-circle text-3xl text-emerald-500 mr-4 flex-shrink-0"></i>
+      <div
+        *ngFor="let t of triggers"
+        class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-shadow flex items-center"
+      >
+        <i
+          class="bx bx-bolt-circle text-3xl text-emerald-500 mr-4 flex-shrink-0"
+        ></i>
         <p class="text-slate-700 text-lg">{{ t }}</p>
       </div>
     </div>
@@ -263,23 +465,43 @@
 
   <!-- BUYER PERSONA -->
   <section id="buyer-persona" class="py-16 bg-slate-100 rounded-xl">
-    <h2 class="text-3xl font-bold text-center mb-10 text-slate-700">Buyer Persona Ideal</h2>
+    <h2 class="text-3xl font-bold text-center mb-10 text-slate-700">
+      Buyer Persona Ideal
+    </h2>
 
-    <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-shadow max-w-lg mx-auto text-center">
-      <img src="https://placehold.co/120x120/A0AEC0/FFFFFF?text=MT" class="w-24 h-24 rounded-full mx-auto mb-4 shadow-md" alt="Mariana">
-      <h3 class="text-xl font-semibold text-emerald-600 mb-1">Mariana Torres</h3>
-      <p class="text-slate-600">Directora de Ventas de una comercializadora mediana.</p>
-      <p class="text-slate-500 mt-2">Busca eficiencia y profesionalizar la imagen de su equipo que usa Excel.</p>
+    <div
+      class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-shadow max-w-lg mx-auto text-center"
+    >
+      <img
+        src="https://placehold.co/120x120/A0AEC0/FFFFFF?text=MT"
+        class="w-24 h-24 rounded-full mx-auto mb-4 shadow-md"
+        alt="Mariana"
+      />
+      <h3 class="text-xl font-semibold text-emerald-600 mb-1">
+        Mariana Torres
+      </h3>
+      <p class="text-slate-600">
+        Directora de Ventas de una comercializadora mediana.
+      </p>
+      <p class="text-slate-500 mt-2">
+        Busca eficiencia y profesionalizar la imagen de su equipo que usa Excel.
+      </p>
     </div>
   </section>
 
   <!-- PLATAFORMAS ADS -->
   <section id="plataformas" class="py-16">
-    <h2 class="text-3xl font-bold text-center mb-10 text-slate-700">Plataformas Publicitarias</h2>
+    <h2 class="text-3xl font-bold text-center mb-10 text-slate-700">
+      Plataformas Publicitarias
+    </h2>
 
-    <div class="max-w-5xl mx-auto grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 text-center">
-      <div *ngFor="let p of plataformas"
-           class="bg-white p-4 rounded-xl shadow-lg hover:shadow-2xl transition-shadow">
+    <div
+      class="max-w-5xl mx-auto grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 text-center"
+    >
+      <div
+        *ngFor="let p of plataformas"
+        class="bg-white p-4 rounded-xl shadow-lg hover:shadow-2xl transition-shadow"
+      >
         <h4 class="font-semibold text-emerald-700 text-lg">{{ p.name }}</h4>
         <p class="text-sm text-slate-500">{{ p.purpose }}</p>
       </div>
@@ -288,26 +510,34 @@
 
   <!-- FUNNEL -->
   <section id="funnel" class="py-16 bg-slate-800 text-white rounded-xl">
-    <h2 class="text-3xl font-bold text-center mb-10">Estrategia Publicitaria por Funnel</h2>
+    <h2 class="text-3xl font-bold text-center mb-10">
+      Estrategia Publicitaria por Funnel
+    </h2>
 
     <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
       <!-- … tres cajas fijas … -->
       <div class="bg-slate-700 p-6 rounded-lg shadow-md">
-        <h3 class="text-2xl font-semibold text-emerald-300 mb-3">1. Awareness</h3>
+        <h3 class="text-2xl font-semibold text-emerald-300 mb-3">
+          1. Awareness
+        </h3>
         <p><strong>Objetivo:</strong> Reconocimiento</p>
         <p><strong>Plataformas:</strong> Facebook, LinkedIn, YouTube</p>
         <p><strong>Contenido:</strong> Videos, memes</p>
       </div>
 
       <div class="bg-slate-700 p-6 rounded-lg shadow-md">
-        <h3 class="text-2xl font-semibold text-emerald-300 mb-3">2. Consideración</h3>
+        <h3 class="text-2xl font-semibold text-emerald-300 mb-3">
+          2. Consideración
+        </h3>
         <p><strong>Objetivo:</strong> Educar</p>
         <p><strong>Plataformas:</strong> Google Search, LinkedIn Leads</p>
         <p><strong>Contenido:</strong> Guías, casos de éxito</p>
       </div>
 
       <div class="bg-slate-700 p-6 rounded-lg shadow-md">
-        <h3 class="text-2xl font-semibold text-emerald-300 mb-3">3. Conversión</h3>
+        <h3 class="text-2xl font-semibold text-emerald-300 mb-3">
+          3. Conversión
+        </h3>
         <p><strong>Objetivo:</strong> Acción</p>
         <p><strong>Plataformas:</strong> Google Ads, Email Automation</p>
         <p><strong>Contenido:</strong> Call‑to‑Action directos</p>
@@ -317,25 +547,49 @@
 
   <!-- SEGMENTOS POR PLATAFORMA -->
   <section id="segmentos-plataforma" class="py-16">
-    <h2 class="text-3xl font-bold text-center mb-10 text-slate-700">Segmentos Sugeridos por Plataforma</h2>
+    <h2 class="text-3xl font-bold text-center mb-10 text-slate-700">
+      Segmentos Sugeridos por Plataforma
+    </h2>
 
-    <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-shadow max-w-3xl mx-auto">
+    <div
+      class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-shadow max-w-3xl mx-auto"
+    >
       <ul class="space-y-3">
         <li class="flex items-start">
-          <i class="bx bxl-linkedin-square text-emerald-500 mr-2 text-2xl flex-shrink-0"></i>
-          <span class="text-slate-700"><strong class="text-emerald-600">LinkedIn:</strong> Segmentación por cargo y sector.</span>
+          <i
+            class="bx bxl-linkedin-square text-emerald-500 mr-2 text-2xl flex-shrink-0"
+          ></i>
+          <span class="text-slate-700"
+            ><strong class="text-emerald-600">LinkedIn:</strong> Segmentación
+            por cargo y sector.</span
+          >
         </li>
         <li class="flex items-start">
-          <i class="bx bxl-google text-emerald-500 mr-2 text-2xl flex-shrink-0"></i>
-          <span class="text-slate-700"><strong class="text-emerald-600">Google Ads:</strong> Palabras clave específicas.</span>
+          <i
+            class="bx bxl-google text-emerald-500 mr-2 text-2xl flex-shrink-0"
+          ></i>
+          <span class="text-slate-700"
+            ><strong class="text-emerald-600">Google Ads:</strong> Palabras
+            clave específicas.</span
+          >
         </li>
         <li class="flex items-start">
-          <i class="bx bxl-facebook-square text-emerald-500 mr-2 text-2xl flex-shrink-0"></i>
-          <span class="text-slate-700"><strong class="text-emerald-600">Facebook/Instagram:</strong> Públicos personalizados.</span>
+          <i
+            class="bx bxl-facebook-square text-emerald-500 mr-2 text-2xl flex-shrink-0"
+          ></i>
+          <span class="text-slate-700"
+            ><strong class="text-emerald-600">Facebook/Instagram:</strong>
+            Públicos personalizados.</span
+          >
         </li>
         <li class="flex items-start">
-          <i class="bx bx-envelope text-emerald-500 mr-2 text-2xl flex-shrink-0"></i>
-          <span class="text-slate-700"><strong class="text-emerald-600">Email Marketing:</strong> Flujos según comportamiento del lead.</span>
+          <i
+            class="bx bx-envelope text-emerald-500 mr-2 text-2xl flex-shrink-0"
+          ></i>
+          <span class="text-slate-700"
+            ><strong class="text-emerald-600">Email Marketing:</strong> Flujos
+            según comportamiento del lead.</span
+          >
         </li>
       </ul>
     </div>
@@ -343,22 +597,31 @@
 
   <!-- KPIS -->
   <section id="kpis" class="py-16 bg-slate-100 rounded-xl">
-    <h2 class="text-3xl font-bold text-center mb-10 text-slate-700">KPIs Clave</h2>
+    <h2 class="text-3xl font-bold text-center mb-10 text-slate-700">
+      KPIs Clave
+    </h2>
 
     <div class="max-w-6xl mx-auto grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-      <div *ngFor="let k of kpis"
-           class="bg-gradient-to-br from-emerald-500 to-green-700 text-white p-6 rounded-xl
-                  shadow-lg transform hover:scale-105 transition-transform">
+      <div
+        *ngFor="let k of kpis"
+        class="bg-gradient-to-br from-emerald-500 to-green-700 text-white p-6 rounded-xl shadow-lg transform hover:scale-105 transition-transform"
+      >
         <p class="text-emerald-200 text-sm">{{ k.stage }}</p>
         <h3 class="text-lg font-semibold mb-1">{{ k.kpi }}</h3>
         <p *ngIf="k.full" class="text-emerald-100 text-xs">{{ k.full }}</p>
       </div>
     </div>
 
-    <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-shadow max-w-2xl mx-auto mt-10 text-center">
+    <div
+      class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-shadow max-w-2xl mx-auto mt-10 text-center"
+    >
       <h3 class="text-xl font-semibold text-emerald-600 mb-3">Lead Magnet</h3>
-      <p class="text-slate-600">Incluye una guía descargable para captar correos (fase Consideración).</p>
-      <i class="bx bx-cloud-download text-5xl text-emerald-500 mx-auto mt-4"></i>
+      <p class="text-slate-600">
+        Incluye una guía descargable para captar correos (fase Consideración).
+      </p>
+      <i
+        class="bx bx-cloud-download text-5xl text-emerald-500 mx-auto mt-4"
+      ></i>
     </div>
   </section>
 
@@ -370,8 +633,8 @@
 
 <!-- BOTÓN ARRIBA -->
 <button
-  class="fixed bottom-5 right-5 bg-emerald-600 text-white p-3 rounded-full shadow-lg
-         hover:bg-emerald-700 transition-colors text-2xl z-50"
-  (click)="scrollTo('hero')">
+  class="fixed bottom-5 right-5 bg-emerald-600 text-white p-3 rounded-full shadow-lg hover:bg-emerald-700 transition-colors text-2xl z-50"
+  (click)="scrollTo('hero')"
+>
   <i class="bx bx-chevron-up"></i>
 </button>

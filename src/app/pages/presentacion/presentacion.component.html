@@ -1,118 +1,254 @@
-
 <div class="p-4 md:p-8">
+  <div class="max-w-6xl mx-auto bg-white rounded-lg shadow-xl overflow-hidden">
+    <header
+      class="bg-prayser-green text-white p-6 md:p-10 text-center rounded-t-lg"
+    >
+      <img
+        src="assets/image/logoPrayser3.png"
+        alt="Logo Prayser"
+        style="display: block; margin: 0 auto; width: 450px; height: auto"
+      />
 
-    <div class="max-w-6xl mx-auto bg-white rounded-lg shadow-xl overflow-hidden">
+      <p class="text-lg md:text-xl">
+        Tu solución 100% online para cotizar, gestionar y vender eficientemente.
+      </p>
+    </header>
 
-        <header class="bg-prayser-green text-white p-6 md:p-10 text-center rounded-t-lg">
-          <img src="assets/image/logoPrayser3.png" alt="Logo Prayser" style="display: block; margin: 0 auto; width: 450px; height: auto;">
-
-            <p class="text-lg md:text-xl">Tu solución 100% online para cotizar, gestionar y vender eficientemente.</p>
-        </header>
-
-        <main class="p-6 md:p-10 space-y-8">
-
-            <section class="text-center">
-                <h2 class="text-2xl font-semibold text-prayser-green mb-4">¿Qué es Prayser?</h2>
-                <p class="text-gray-700 leading-relaxed max-w-3xl mx-auto">
-                    Prayser es un <strong class="text-prayser-green">gestor de cotizaciones 100% online</strong> diseñado para simplificar tu proceso de ventas. Te permite <strong class="text-prayser-green">Cotizar</strong> profesionalmente, <strong class="text-prayser-green">Gestionar</strong> clientes y productos, y <strong class="text-prayser-green">Vender</strong> más eficazmente. Nacimos de la necesidad de una herramienta sencilla y accesible, enfocada en un trato más humano y eficiente.
-                </p>
-            </section>
-          <section>
-            <h2 class="text-2xl font-semibold text-prayser-green mb-6 pb-4 text-center">Funcionalidades Clave</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              <div *ngFor="let item of funcionalidades; let i = index" class="bg-gray-50 p-5 rounded-lg border border-gray-200">
-                <div class="collapsible-trigger w-full text-left flex justify-between items-center font-semibold text-prayser-green mb-2">
-                  <span><i [class]="item.icon + ' mr-2'"></i>{{ item.title }}</span>
-                </div>
-                <div class="collapsible-content text-gray-600 text-sm" *ngIf="item.isOpen">
-                  {{ item.content }}
-                </div>
-              </div>
+    <main class="p-6 md:p-10 space-y-8">
+      <section class="text-center">
+        <h2 class="text-2xl font-semibold text-prayser-green mb-4">
+          ¿Qué es Prayser?
+        </h2>
+        <p class="text-gray-700 leading-relaxed max-w-3xl mx-auto">
+          Prayser es un
+          <strong class="text-prayser-green"
+            >gestor de cotizaciones 100% online</strong
+          >
+          diseñado para simplificar tu proceso de ventas. Te permite
+          <strong class="text-prayser-green">Cotizar</strong> profesionalmente,
+          <strong class="text-prayser-green">Gestionar</strong> clientes y
+          productos, y <strong class="text-prayser-green">Vender</strong> más
+          eficazmente. Nacimos de la necesidad de una herramienta sencilla y
+          accesible, enfocada en un trato más humano y eficiente.
+        </p>
+      </section>
+      <section>
+        <h2
+          class="text-2xl font-semibold text-prayser-green mb-6 pb-4 text-center"
+        >
+          Funcionalidades Clave
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div
+            *ngFor="let item of funcionalidades; let i = index"
+            class="bg-gray-50 p-5 rounded-lg border border-gray-200"
+          >
+            <div
+              class="collapsible-trigger w-full text-left flex justify-between items-center font-semibold text-prayser-green mb-2"
+            >
+              <span><i [class]="item.icon + ' mr-2'"></i>{{ item.title }}</span>
             </div>
-          </section>
-            <section>
-                <h2 class="text-2xl font-semibold text-prayser-green mb-6 text-center">Flujo Simplificado: Cotización y Catálogos</h2>
-                <div class="relative flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-8">
-                    <div class="flow-step text-center p-4 bg-white border-2 border-prayser-green rounded-lg w-full md:w-1/4">
-                        <i class="fas fa-book text-3xl text-prayser-green mb-2"></i>
-                        <h3 class="font-semibold mb-1">1. Gestiona Catálogos</h3>
-                        <p class="text-sm text-gray-600">Organiza productos, clientes y proveedores centralizadamente.</p>
-                    </div>
-                    <div class="hidden md:block text-prayser-green text-2xl font-bold">&rarr;</div>
-                    <div class="md:hidden text-prayser-green text-2xl font-bold">&darr;</div>
-                    <div class="flow-step text-center p-4 bg-white border-2 border-prayser-green rounded-lg w-full md:w-1/4">
-                        <i class="fas fa-edit text-3xl text-prayser-green mb-2"></i>
-                        <h3 class="font-semibold mb-1">2. Crea Cotización</h3>
-                        <p class="text-sm text-gray-600">Usa el módulo para seleccionar productos y clientes del catálogo.</p>
-                    </div>
-                     <div class="hidden md:block text-prayser-green text-2xl font-bold">&rarr;</div>
-                    <div class="md:hidden text-prayser-green text-2xl font-bold">&darr;</div>
-                    <div class="flow-step text-center p-4 bg-white border-2 border-prayser-green rounded-lg w-full md:w-1/4">
-                        <i class="fas fa-paper-plane text-3xl text-prayser-green mb-2"></i>
-                        <h3 class="font-semibold mb-1">3. Envía y Gestiona</h3>
-                        <p class="text-sm text-gray-600">Comparte vía Service Dock y sigue el proceso en el Kanban.</p>
-                    </div>
-                </div>
-                 <p class="text-center text-gray-600 mt-4 text-sm italic">Este flujo integrado agiliza la creación de propuestas y centraliza tu información.</p>
-            </section>
+            <div
+              class="collapsible-content text-gray-600 text-sm"
+              *ngIf="item.isOpen"
+            >
+              {{ item.content }}
+            </div>
+          </div>
+        </div>
+      </section>
+      <section>
+        <h2 class="text-2xl font-semibold text-prayser-green mb-6 text-center">
+          Flujo Simplificado: Cotización y Catálogos
+        </h2>
+        <div
+          class="relative flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-8"
+        >
+          <div
+            class="flow-step text-center p-4 bg-white border-2 border-prayser-green rounded-lg w-full md:w-1/4"
+          >
+            <i class="fas fa-book text-3xl text-prayser-green mb-2"></i>
+            <h3 class="font-semibold mb-1">1. Gestiona Catálogos</h3>
+            <p class="text-sm text-gray-600">
+              Organiza productos, clientes y proveedores centralizadamente.
+            </p>
+          </div>
+          <div class="hidden md:block text-prayser-green text-2xl font-bold">
+            &rarr;
+          </div>
+          <div class="md:hidden text-prayser-green text-2xl font-bold">
+            &darr;
+          </div>
+          <div
+            class="flow-step text-center p-4 bg-white border-2 border-prayser-green rounded-lg w-full md:w-1/4"
+          >
+            <i class="fas fa-edit text-3xl text-prayser-green mb-2"></i>
+            <h3 class="font-semibold mb-1">2. Crea Cotización</h3>
+            <p class="text-sm text-gray-600">
+              Usa el módulo para seleccionar productos y clientes del catálogo.
+            </p>
+          </div>
+          <div class="hidden md:block text-prayser-green text-2xl font-bold">
+            &rarr;
+          </div>
+          <div class="md:hidden text-prayser-green text-2xl font-bold">
+            &darr;
+          </div>
+          <div
+            class="flow-step text-center p-4 bg-white border-2 border-prayser-green rounded-lg w-full md:w-1/4"
+          >
+            <i class="fas fa-paper-plane text-3xl text-prayser-green mb-2"></i>
+            <h3 class="font-semibold mb-1">3. Envía y Gestiona</h3>
+            <p class="text-sm text-gray-600">
+              Comparte vía Service Dock y sigue el proceso en el Kanban.
+            </p>
+          </div>
+        </div>
+        <p class="text-center text-gray-600 mt-4 text-sm italic">
+          Este flujo integrado agiliza la creación de propuestas y centraliza tu
+          información.
+        </p>
+      </section>
 
-            <section class="bg-gray-100 p-6 rounded-lg">
-                <h2 class="text-2xl font-semibold text-prayser-green mb-4 text-center">Beneficios para tu Negocio</h2>
-                <ul class="list-none space-y-3 text-gray-700 max-w-2xl mx-auto">
-                    <li class="flex items-start"><i class="fas fa-check-circle text-prayser-green mt-1 mr-2"></i><span><strong class="font-semibold">Simplicidad:</strong> Interfaz intuitiva, fácil de usar para todos.</span></li>
-                    <li class="flex items-start"><i class="fas fa-check-circle text-prayser-green mt-1 mr-2"></i><span><strong class="font-semibold">Eficiencia:</strong> Crea cotizaciones en minutos, ahorra tiempo.</span></li>
-                    <li class="flex items-start"><i class="fas fa-check-circle text-prayser-green mt-1 mr-2"></i><span><strong class="font-semibold">Organización:</strong> Toda la información de ventas en un solo lugar.</span></li>
-                    <li class="flex items-start"><i class="fas fa-check-circle text-prayser-green mt-1 mr-2"></i><span><strong class="font-semibold">Profesionalismo:</strong> Imagen cuidada en tus cotizaciones.</span></li>
-                    <li class="flex items-start"><i class="fas fa-check-circle text-prayser-green mt-1 mr-2"></i><span><strong class="font-semibold">Accesibilidad:</strong> 100% online, disponible en cualquier dispositivo.</span></li>
-                    <li class="flex items-start"><i class="fas fa-check-circle text-prayser-green mt-1 mr-2"></i><span><strong class="font-semibold">Transformación Digital:</strong> Moderniza tus procesos comerciales.</span></li>
-                </ul>
-            </section>
+      <section class="bg-gray-100 p-6 rounded-lg">
+        <h2 class="text-2xl font-semibold text-prayser-green mb-4 text-center">
+          Beneficios para tu Negocio
+        </h2>
+        <ul class="list-none space-y-3 text-gray-700 max-w-2xl mx-auto">
+          <li class="flex items-start">
+            <i class="fas fa-check-circle text-prayser-green mt-1 mr-2"></i
+            ><span
+              ><strong class="font-semibold">Simplicidad:</strong> Interfaz
+              intuitiva, fácil de usar para todos.</span
+            >
+          </li>
+          <li class="flex items-start">
+            <i class="fas fa-check-circle text-prayser-green mt-1 mr-2"></i
+            ><span
+              ><strong class="font-semibold">Eficiencia:</strong> Crea
+              cotizaciones en minutos, ahorra tiempo.</span
+            >
+          </li>
+          <li class="flex items-start">
+            <i class="fas fa-check-circle text-prayser-green mt-1 mr-2"></i
+            ><span
+              ><strong class="font-semibold">Organización:</strong> Toda la
+              información de ventas en un solo lugar.</span
+            >
+          </li>
+          <li class="flex items-start">
+            <i class="fas fa-check-circle text-prayser-green mt-1 mr-2"></i
+            ><span
+              ><strong class="font-semibold">Profesionalismo:</strong> Imagen
+              cuidada en tus cotizaciones.</span
+            >
+          </li>
+          <li class="flex items-start">
+            <i class="fas fa-check-circle text-prayser-green mt-1 mr-2"></i
+            ><span
+              ><strong class="font-semibold">Accesibilidad:</strong> 100%
+              online, disponible en cualquier dispositivo.</span
+            >
+          </li>
+          <li class="flex items-start">
+            <i class="fas fa-check-circle text-prayser-green mt-1 mr-2"></i
+            ><span
+              ><strong class="font-semibold">Transformación Digital:</strong>
+              Moderniza tus procesos comerciales.</span
+            >
+          </li>
+        </ul>
+      </section>
 
-            <section class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="bg-white p-6 rounded-lg border border-gray-200">
-                    <h3 class="text-xl font-semibold text-prayser-green mb-3"><i class="fas fa-users mr-2"></i>¿Para Quién es Prayser?</h3>
-                    <ul class="list-disc list-inside text-gray-700 space-y-1 text-sm">
-                        <li>Profesionales independientes</li>
-                        <li>Pequeños negocios (misceláneas, ferreterías)</li>
-                        <li>Mediana y gran industria</li>
-                        <li>Empresas en transición digital</li>
-                        <li>Organizaciones que buscan eficiencia</li>
-                        <li>Usuarios con conocimientos básicos de computación</li>
-                    </ul>
-                     <p class="text-xs text-gray-500 mt-3 italic">*No limitado por edad o género, sino por necesidad de eficiencia.</p>
-                </div>
-                <div class="bg-white p-6 rounded-lg border border-gray-200">
-                    <h3 class="text-xl font-semibold text-prayser-green mb-3"><i class="fas fa-lightbulb mr-2"></i>¿Qué nos Diferencia?</h3>
-                     <ul class="list-disc list-inside text-gray-700 space-y-1 text-sm">
-                        <li><strong class="text-prayser-green">Simplicidad Extrema:</strong> Evitamos la complejidad de CRMs/ERPs.</li>
-                        <li><strong class="text-prayser-green">Foco en Cotización:</strong> Especializados en agilizar este proceso clave.</li>
-                        <li><strong class="text-prayser-green">Accesibilidad:</strong> Funcionalidad potente a un costo justo.</li>
-                        <li><strong class="text-prayser-green">Experiencia Intuitiva:</strong> Basada en necesidades reales y testeadas.</li>
-                        <li><strong class="text-prayser-green">Para Todos:</strong> No solo para grandes empresas.</li>
-                    </ul>
-                     <p class="text-xs text-gray-500 mt-3 italic">*Buscamos ser la solución ideal entre lo muy complejo y lo demasiado simple.</p>
-                </div>
-            </section>
+      <section class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="bg-white p-6 rounded-lg border border-gray-200">
+          <h3 class="text-xl font-semibold text-prayser-green mb-3">
+            <i class="fas fa-users mr-2"></i>¿Para Quién es Prayser?
+          </h3>
+          <ul class="list-disc list-inside text-gray-700 space-y-1 text-sm">
+            <li>Profesionales independientes</li>
+            <li>Pequeños negocios (misceláneas, ferreterías)</li>
+            <li>Mediana y gran industria</li>
+            <li>Empresas en transición digital</li>
+            <li>Organizaciones que buscan eficiencia</li>
+            <li>Usuarios con conocimientos básicos de computación</li>
+          </ul>
+          <p class="text-xs text-gray-500 mt-3 italic">
+            *No limitado por edad o género, sino por necesidad de eficiencia.
+          </p>
+        </div>
+        <div class="bg-white p-6 rounded-lg border border-gray-200">
+          <h3 class="text-xl font-semibold text-prayser-green mb-3">
+            <i class="fas fa-lightbulb mr-2"></i>¿Qué nos Diferencia?
+          </h3>
+          <ul class="list-disc list-inside text-gray-700 space-y-1 text-sm">
+            <li>
+              <strong class="text-prayser-green">Simplicidad Extrema:</strong>
+              Evitamos la complejidad de CRMs/ERPs.
+            </li>
+            <li>
+              <strong class="text-prayser-green">Foco en Cotización:</strong>
+              Especializados en agilizar este proceso clave.
+            </li>
+            <li>
+              <strong class="text-prayser-green">Accesibilidad:</strong>
+              Funcionalidad potente a un costo justo.
+            </li>
+            <li>
+              <strong class="text-prayser-green">Experiencia Intuitiva:</strong>
+              Basada en necesidades reales y testeadas.
+            </li>
+            <li>
+              <strong class="text-prayser-green">Para Todos:</strong> No solo
+              para grandes empresas.
+            </li>
+          </ul>
+          <p class="text-xs text-gray-500 mt-3 italic">
+            *Buscamos ser la solución ideal entre lo muy complejo y lo demasiado
+            simple.
+          </p>
+        </div>
+      </section>
 
-             <section class="text-center p-4 bg-prayser-green text-white rounded-lg">
-                <h3 class="text-lg font-semibold mb-1">Tecnología Robusta y Moderna</h3>
-                <p class="text-sm">Desarrollado con el stack <strong class="font-bold">M.E.A.N.</strong> (MongoDB, Express.js, Angular, Node.js) para ofrecer una experiencia rápida, segura y escalable.</p>
-                <div class="flex justify-center space-x-4 mt-2 text-2xl">
-                    <i class="fab fa-node-js" title="Node.js"></i>
-                    <i class="fab fa-angular" title="Angular"></i>
-                    <span title="Express.js" class="font-bold text-base border px-1 rounded">E</span>
-                     <i class="fas fa-database" title="MongoDB"></i>
-                </div>
-            </section>
+      <section class="text-center p-4 bg-prayser-green text-white rounded-lg">
+        <h3 class="text-lg font-semibold mb-1">Tecnología Robusta y Moderna</h3>
+        <p class="text-sm">
+          Desarrollado con el stack
+          <strong class="font-bold">M.E.A.N.</strong> (MongoDB, Express.js,
+          Angular, Node.js) para ofrecer una experiencia rápida, segura y
+          escalable.
+        </p>
+        <div class="flex justify-center space-x-4 mt-2 text-2xl">
+          <i class="fab fa-node-js" title="Node.js"></i>
+          <i class="fab fa-angular" title="Angular"></i>
+          <span
+            title="Express.js"
+            class="font-bold text-base border px-1 rounded"
+            >E</span
+          >
+          <i class="fas fa-database" title="MongoDB"></i>
+        </div>
+      </section>
 
-            <section class="text-center border-t border-gray-200 pt-8">
-                 <h2 class="text-2xl font-semibold text-prayser-green mb-4">¿Listo para Simplificar tus Ventas?</h2>
-                 <p class="text-gray-700 mb-2">Prueba Prayser por solo <strong class="text-prayser-green">$10.00 MXN</strong> el primer mes.</p>
-                 <p class="text-gray-600 mb-6">Después, disfruta de todo por <strong class="text-prayser-green">$1,199.00 MXN</strong> mensuales.</p>
-                 <a href="https://app.prayser.com/signup" class="inline-block bg-prayser-green text-white font-semibold py-3 px-8 rounded-lg shadow hover:bg-opacity-90 transition duration-300">
-                    ¡Regístrate Ahora!
-                 </a>
-          </section>
-        </main>
-    </div>
+      <section class="text-center border-t border-gray-200 pt-8">
+        <h2 class="text-2xl font-semibold text-prayser-green mb-4">
+          ¿Listo para Simplificar tus Ventas?
+        </h2>
+        <p class="text-gray-700 mb-2">
+          Prueba Prayser por solo
+          <strong class="text-prayser-green">$10.00 MXN</strong> el primer mes.
+        </p>
+        <p class="text-gray-600 mb-6">
+          Después, disfruta de todo por
+          <strong class="text-prayser-green">$1,199.00 MXN</strong> mensuales.
+        </p>
+        <a
+          href="https://app.prayser.com/signup"
+          class="inline-block bg-prayser-green text-white font-semibold py-3 px-8 rounded-lg shadow hover:bg-opacity-90 transition duration-300"
+        >
+          ¡Regístrate Ahora!
+        </a>
+      </section>
+    </main>
+  </div>
 </div>

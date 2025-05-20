@@ -23,6 +23,5 @@ export const routes: Routes = [
       { path: 'conocenos', component: ConocenosComponent },
       { path: 'analisis', component: AnalisisComponent },
     ],
-  }
-
+  },
 ];

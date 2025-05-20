@@ -1,36 +1,46 @@
-        /* Estilos personalizados */
-        body {
-          font-family: 'Inter', sans-serif; /* Fuente Inter */
-          background-color: #f8fafc; /* Fondo gris muy claro */
-      }
-      /* Definición del color verde personalizado de Prayser */
-      .bg-prayser-green { background-color: #124734; }
-      .text-prayser-green { color: #124734; }
-      .border-prayser-green { border-color: #124734; }
+/* Estilos personalizados */
+body {
+  font-family: "Inter", sans-serif; /* Fuente Inter */
+  background-color: #f8fafc; /* Fondo gris muy claro */
+}
+/* Definición del color verde personalizado de Prayser */
+.bg-prayser-green {
+  background-color: #124734;
+}
+.text-prayser-green {
+  color: #124734;
+}
+.border-prayser-green {
+  border-color: #124734;
+}
 
-      /* Estilo para las secciones colapsables */
+/* Estilo para las secciones colapsables */
 
-      .collapsible-content.open {
-          max-height: 1000px; /* Altura suficiente para el contenido */
-      }
+.collapsible-content.open {
+  max-height: 1000px; /* Altura suficiente para el contenido */
+}
 
-      /* Estilo para los pasos del flujo */
-      .flow-step {
-          transition: transform 0.3s ease, box-shadow 0.3s ease;
-      }
-      .flow-step:hover {
-          transform: translateY(-5px);
-          box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-      }
+/* Estilo para los pasos del flujo */
+.flow-step {
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+.flow-step:hover {
+  transform: translateY(-5px);
+  box-shadow:
+    0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
 
-      /* Iconos en los botones */
-      /* .collapsible-trigger i.fa-chevron-down {
+/* Iconos en los botones */
+/* .collapsible-trigger i.fa-chevron-down {
           transition: transform 0.3s ease;
       }
       .collapsible-trigger.open i.fa-chevron-down {
           transform: rotate(180deg);
       } */
-      .collapsible-trigger i.rotate-180 {
-        transform: rotate(180deg);
-        transition: transform 0.3s ease;
-      }
+.collapsible-trigger i.rotate-180 {
+  transform: rotate(180deg);
+  transition: transform 0.3s ease;
+}
