@@ -47,4 +47,8 @@ export const routes: Routes = [
       },
     ],
   },
+  {
+        path: 'home',
+        component: HomeComponent, // La página de inicio suele cargarse eager (no diferida)
+  },
 ];
