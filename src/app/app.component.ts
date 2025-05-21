@@ -30,14 +30,14 @@ export class AppComponent implements OnInit { // Implementa OnInit
 
     // 3. Opcional: Añade Meta Tags para Redes Sociales (Open Graph y Twitter Cards)
     // Estas etiquetas son cruciales para controlar cómo se ve tu contenido cuando se comparte en redes sociales como Facebook, LinkedIn, Twitter, etc.
-    this.metaService.updateTag({ property: 'og:title', content: 'Prayser: Simplifica tus Cotizaciones y Potencia tus Ventas' });
+    this.metaService.updateTag({ property: 'og:title', content: 'Prayser: Cotiza • Gestiona • Vende' });
     this.metaService.updateTag({ property: 'og:description', content: 'La herramienta integral que optimiza tu proceso de ventas: crea cotizaciones profesionales al instante, gestiona contactos, productos y servicios, moderniza tus propuestas para cerrar más negocios.' });
     this.metaService.updateTag({ property: 'og:url', content: 'https://www.prayser.com/' }); // **¡MUY IMPORTANTE! Cambia esto por la URL real de tu landing page.**
     this.metaService.updateTag({ property: 'og:image', content: 'https://www.prayser.com/assets/images/prayser-social-share.png' }); // **Crea una imagen de vista previa y pon la URL real aquí.**
     this.metaService.updateTag({ property: 'og:type', content: 'website' }); // Tipo de contenido
 
     this.metaService.updateTag({ name: 'twitter:card', content: 'summary_large_image' });
-    this.metaService.updateTag({ name: 'twitter:site', content: '@TuUsuarioTwitter' }); // Si tienes Twitter
+    this.metaService.updateTag({ name: 'twitter:site', content: '@KyclopsRadio' }); // Si tienes Twitter
     this.metaService.updateTag({ name: 'twitter:creator', content: '@TuUsuarioTwitter' }); // Si tienes Twitter
     this.metaService.updateTag({ name: 'twitter:title', content: 'Prayser: Simplifica tus Cotizaciones y Potencia tus Ventas' });
     this.metaService.updateTag({ name: 'twitter:description', content: 'La herramienta integral que optimiza tu proceso de ventas...' });
