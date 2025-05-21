@@ -11,10 +11,9 @@ export const routes: Routes = [
     children: [
       {
         path: '',
-        component: HomeComponent, // La página de inicio suele cargarse eager (no diferida)
+        component: HomeComponent,
       },
       {
-        // Carga diferida para PresentacionComponent
         path: 'presentacion',
         loadComponent: () =>
           import('./pages/presentacion/presentacion.component').then(
@@ -22,7 +21,6 @@ export const routes: Routes = [
           ),
       },
       {
-        // Carga diferida para FuncionalidadesComponent
         path: 'funcionalidades',
         loadComponent: () =>
           import('./pages/funcionalidades/funcionalidades.component').then(
@@ -46,9 +44,5 @@ export const routes: Routes = [
           ),
       },
     ],
-  },
-  {
-        path: 'home',
-        component: HomeComponent, // La página de inicio suele cargarse eager (no diferida)
   },
 ];
