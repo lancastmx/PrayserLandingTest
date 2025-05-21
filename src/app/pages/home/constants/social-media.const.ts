@@ -1,5 +1,5 @@
 // src/app/shared/constants/social-media.const.ts
-import { SocialLink } from "./social-link.interface";
+import { SocialLink } from './social-link.interface';
 
 export const SOCIAL_MEDIA_LINKS: SocialLink[] = [
   {

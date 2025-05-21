@@ -1,9 +1,7 @@
+// src/app/app.routes.ts
+
 import { Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
-import { PresentacionComponent } from './pages/presentacion/presentacion.component';
-import { FuncionalidadesComponent } from './pages/funcionalidades/funcionalidades.component';
-import { ConocenosComponent } from './pages/conocenos/conocenos.component';
-import { AnalisisComponent } from './pages/analisis/analisis.component';
 import { LayoutComponent } from './shared/component/layout/layout.component';
 
 export const routes: Routes = [
@@ -13,15 +11,40 @@ export const routes: Routes = [
     children: [
       {
         path: '',
-        component: HomeComponent,
+        component: HomeComponent, // La página de inicio suele cargarse eager (no diferida)
       },
       {
+        // Carga diferida para PresentacionComponent
         path: 'presentacion',
-        component: PresentacionComponent,
+        loadComponent: () =>
+          import('./pages/presentacion/presentacion.component').then(
+            (c) => c.PresentacionComponent,
+          ),
       },
-      { path: 'funcionalidades', component: FuncionalidadesComponent },
-      { path: 'conocenos', component: ConocenosComponent },
-      { path: 'analisis', component: AnalisisComponent },
+      {
+        // Carga diferida para FuncionalidadesComponent
+        path: 'funcionalidades',
+        loadComponent: () =>
+          import('./pages/funcionalidades/funcionalidades.component').then(
+            (c) => c.FuncionalidadesComponent,
+          ),
+      },
+      {
+        // Carga diferida para ConocenosComponent
+        path: 'conocenos',
+        loadComponent: () =>
+          import('./pages/conocenos/conocenos.component').then(
+            (c) => c.ConocenosComponent,
+          ),
+      },
+      {
+        // Carga diferida para AnalisisComponent
+        path: 'analisis',
+        loadComponent: () =>
+          import('./pages/analisis/analisis.component').then(
+            (c) => c.AnalisisComponent,
+          ),
+      },
     ],
   },
 ];

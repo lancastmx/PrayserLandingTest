@@ -1,9 +1,9 @@
 import { SOCIAL_MEDIA_LINKS } from './social-media.const'; // Importa la nueva constante
 
-
 export const FOOTER_CONTENT = {
   slogan: 'Tu Nueva Arma para Crecer tu Negocio.',
-  description: 'Simplifica la creación de cotizaciones profesionales y potencia tus ventas.',
+  description:
+    'Simplifica la creación de cotizaciones profesionales y potencia tus ventas.',
   contactHeading: 'Contacto Directo:',
   phone1: '55 5555 5555',
   phone2: '55 5555 5555',

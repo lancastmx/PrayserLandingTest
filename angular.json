@@ -16,13 +16,9 @@
             "outputPath": "dist/prayser-landing-test",
             "index": "src/index.html",
             "browser": "src/main.ts",
-            "polyfills": [
-              "zone.js"
-            ],
+            "polyfills": ["zone.js"],
             "tsConfig": "tsconfig.app.json",
-            "assets": [
-              "src/assets"
-            ],
+            "assets": ["src/assets"],
             "styles": [
               "src/styles.css",
               "node_modules/boxicons/css/boxicons.min.css"

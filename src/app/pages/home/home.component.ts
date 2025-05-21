@@ -10,5 +10,5 @@ import { FOOTER_CONTENT } from './constants/footer-content'; // Ajusta la ruta s
   styleUrl: './home.component.css',
 })
 export class HomeComponent {
-   public footerContent = FOOTER_CONTENT;
+  public footerContent = FOOTER_CONTENT;
 }
