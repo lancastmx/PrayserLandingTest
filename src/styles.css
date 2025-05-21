@@ -1,2 +1,13 @@
-/* You can add global styles to this file, and also import other style files */
+/* src/styles.css */
+
 @import "tailwindcss";
+:root {
+    --brunswick: #124734; /* Tu verde principal */
+    --celadon: #aada91;
+    --smoke: #c5c5c5;
+    --blanco: #ffffff;
+    --negro: #000000;
+    --transition: all 0.5s ease-in-out;
+
+    --brunswick-darker: #0F3B2C; /* Tu verde para el hover */
+}
