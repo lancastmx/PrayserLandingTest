@@ -1,17 +1,16 @@
 <header
-  class="flex items-center justify-between px-4 py-1 lg:px-10 border-b border-gray-200"
+  class="flex items-center justify-between px-4 py-1 lg:px-10 border-b border-gray-200 relative"
 >
   <picture>
-    <source srcset="assets/image/LogoPrayserVerde.png" type="image/avif" />
-    <source srcset="assets/image/LogoPrayserVerde.png" type="image/webp" />
+    <source srcset="assets/image/webp_versions/LogoPrayserVerde.avif" type="image/avif" />
+    <source srcset="assets/image/webp_versions/LogoPrayserVerde.webp" type="image/webp" />
     <img
-      routerlink="/"
+      routerLink="/"
       src="assets/image/LogoPrayserVerde.png"
       alt="Logo Prayser"
       width="250"
       height="75"
-      class="block h-[75px] w-auto cursor-pointer"
-      style="max-width: 250px"
+      class="block h-auto max-h-[75px] w-full max-w-[250px] cursor-pointer"
       tabindex="0"
       loading="eager"
       fetchpriority="high"
@@ -46,10 +45,10 @@
     >
   </nav>
 
-  <div class="flex items-center space-x-4">
+  <div class="hidden lg:flex items-center space-x-4">
     <a
       href="#"
-      class="text-gray-600 hover:text-[var(--prayser-green)] transition duration-200 hidden lg:block"
+      class="text-gray-600 hover:text-[var(--prayser-green)] transition duration-200"
       >Registrate</a
     >
     <a
@@ -80,4 +79,79 @@
       ></path>
     </svg>
   </button>
+
+  <div
+    *ngIf="isMobileMenuOpen"
+    class="lg:hidden fixed inset-0 bg-white z-50 flex flex-col items-center justify-center p-4 animate-slide-in-top"
+  >
+    <button
+      class="absolute top-4 right-4 p-2 text-gray-700 hover:text-[var(--prayser-green)] focus:outline-none focus:ring-2 focus:ring-[var(--prayser-green)] rounded-md"
+      aria-label="Cerrar menú"
+      (click)="toggleMobileMenu()"
+    >
+      <svg
+        class="w-6 h-6"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M6 18L18 6M6 6l12 12"
+        ></path>
+      </svg>
+    </button>
+
+    <nav class="flex flex-col space-y-6 text-xl">
+      <a
+        routerLink="/"
+        class="text-gray-800 hover:text-[var(--prayser-green)] transition duration-200"
+        (click)="toggleMobileMenu()"
+        >Home</a
+      >
+      <a
+        routerLink="/funcionalidades"
+        class="text-gray-800 hover:text-[var(--prayser-green)] transition duration-200"
+        (click)="toggleMobileMenu()"
+        >Funcionalidades</a
+      >
+      <a
+        routerLink="/presentacion"
+        class="text-gray-800 hover:text-[var(--prayser-green)] transition duration-200"
+        (click)="toggleMobileMenu()"
+        >Presentacion</a
+      >
+      <a
+        routerLink="/conocenos"
+        class="text-gray-800 hover:text-[var(--prayser-green)] transition duration-200"
+        (click)="toggleMobileMenu()"
+        >Conocenos</a
+      >
+      <a
+        routerLink="/analisis"
+        class="text-gray-800 hover:text-[var(--prayser-green)] transition duration-200"
+        (click)="toggleMobileMenu()"
+        >Analisis</a
+      >
+    </nav>
+
+    <div class="flex flex-col space-y-4 mt-8">
+      <a
+        href="#"
+        class="text-gray-600 hover:text-[var(--prayser-green)] transition duration-200 text-lg"
+        (click)="toggleMobileMenu()"
+        >Registrate</a
+      >
+      <a
+        href="#"
+        class="bg-[var(--brunswick)] text-white text-center px-8 py-3 rounded-lg text-lg font-semibold hover:bg-[var(--brunswick-darker)] hover:scale-[1.02] active:scale-[.98] transition-all duration-300 shadow-lg focus:outline-none focus:ring-2 focus:ring-[var(--brunswick)] focus:ring-offset-2"
+        (click)="toggleMobileMenu()"
+      >
+        Iniciar Sesión
+      </a>
+    </div>
+  </div>
 </header>
