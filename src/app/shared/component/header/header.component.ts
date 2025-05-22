@@ -12,9 +12,11 @@ export class HeaderComponent {
   title = 'prayser-landing-test';
   isMobileMenuOpen = false;
 
-
   toggleMobileMenu(): void {
     this.isMobileMenuOpen = !this.isMobileMenuOpen;
-    console.log('Mobile menu is now:', this.isMobileMenuOpen ? 'Open' : 'Closed');
+    console.log(
+      'Mobile menu is now:',
+      this.isMobileMenuOpen ? 'Open' : 'Closed',
+    );
   }
 }

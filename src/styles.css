@@ -2,12 +2,12 @@
 
 @import "tailwindcss";
 :root {
-    --brunswick: #124734; /* Tu verde principal */
-    --celadon: #aada91;
-    --smoke: #c5c5c5;
-    --blanco: #ffffff;
-    --negro: #000000;
-    --transition: all 0.5s ease-in-out;
+  --brunswick: #124734; /* Tu verde principal */
+  --celadon: #aada91;
+  --smoke: #c5c5c5;
+  --blanco: #ffffff;
+  --negro: #000000;
+  --transition: all 0.5s ease-in-out;
 
-    --brunswick-darker: #0F3B2C; /* Tu verde para el hover */
+  --brunswick-darker: #0f3b2c; /* Tu verde para el hover */
 }
