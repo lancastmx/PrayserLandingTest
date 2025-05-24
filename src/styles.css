@@ -11,3 +11,6 @@
 
   --brunswick-darker: #0f3b2c; /* Tu verde para el hover */
 }
+body {
+  line-height: 1.6;
+}
