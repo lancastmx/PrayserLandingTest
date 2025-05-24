@@ -1,5 +1,5 @@
 <header
-  class="flex items-center justify-between px-4 py-1 lg:px-10 border-b border-gray-200 relative"
+  class="flex items-center justify-between px-4 py-1 lg:px-10 border-b border-gray-200 relative bg-white z-20"
 >
   <picture>
     <source
@@ -12,11 +12,15 @@
     />
     <img
       routerLink="/"
+      (click)="closeMobileMenu()"
+      (keydown.enter)="closeMobileMenu(); $event.preventDefault()"
+      (keydown.space)="closeMobileMenu(); $event.preventDefault()"
       src="assets/image/webp_versions/LogoPrayserVerde-200w.avif"
       alt="Logo Prayser"
+      role="link"
       width="250"
       height="75"
-      class="block h-auto max-h-[75px] w-full max-w-[250px] cursor-pointer"
+      class="block h-auto max-h-[75px] w-full max-w-[200px] lg:max-w-[250px] cursor-pointer"
       tabindex="0"
       loading="eager"
       fetchpriority="high"
@@ -67,10 +71,12 @@
 
   <button
     class="lg:hidden p-2 text-gray-700 hover:text-[var(--prayser-green)] focus:outline-none focus:ring-2 focus:ring-[var(--prayser-green)] rounded-md"
-    aria-label="Abrir menú"
+    [attr.aria-label]="isMobileMenuOpen ? 'Cerrar menú' : 'Abrir menú'"
+    [attr.aria-expanded]="isMobileMenuOpen"
     (click)="toggleMobileMenu()"
   >
     <svg
+      *ngIf="!isMobileMenuOpen"
       class="w-6 h-6"
       fill="none"
       stroke="currentColor"
@@ -84,16 +90,38 @@
         d="M4 6h16M4 12h16m-7 6h7"
       ></path>
     </svg>
+    <svg
+      *ngIf="isMobileMenuOpen"
+      class="w-6 h-6"
+      fill="none"
+      stroke="currentColor"
+      viewBox="0 0 24 24"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="M6 18L18 6M6 6l12 12"
+      ></path>
+    </svg>
   </button>
+</header>
 
-  <div
-    *ngIf="isMobileMenuOpen"
-    class="lg:hidden fixed inset-0 bg-white z-50 flex flex-col items-center justify-center p-4 animate-slide-in-top"
-  >
+<aside
+  [ngClass]="[
+    'fixed top-0 left-0 h-full w-64 p-5 pt-5 space-y-2 overflow-y-auto text-emerald-100',
+    'bg-gradient-to-b from-emerald-800 via-emerald-700 to-green-800',
+    'transition-transform duration-300 ease-in-out z-40',
+    isMobileMenuOpen ? 'translate-x-0' : '-translate-x-full',
+  ]"
+>
+  <div class="flex justify-between items-center mb-6">
+    <h2 class="text-xl font-semibold">Menú</h2>
     <button
-      class="absolute top-4 right-4 p-2 text-gray-700 hover:text-[var(--prayser-green)] focus:outline-none focus:ring-2 focus:ring-[var(--prayser-green)] rounded-md"
+      (click)="closeMobileMenu()"
       aria-label="Cerrar menú"
-      (click)="toggleMobileMenu()"
+      class="p-2 text-emerald-100 hover:text-white rounded-md"
     >
       <svg
         class="w-6 h-6"
@@ -110,54 +138,66 @@
         ></path>
       </svg>
     </button>
-
-    <nav class="flex flex-col space-y-6 text-xl">
-      <a
-        routerLink="/"
-        class="text-gray-800 hover:text-[var(--prayser-green)] transition duration-200"
-        (click)="toggleMobileMenu()"
-        >Home</a
-      >
-      <a
-        routerLink="/funcionalidades"
-        class="text-gray-800 hover:text-[var(--prayser-green)] transition duration-200"
-        (click)="toggleMobileMenu()"
-        >Funcionalidades</a
-      >
-      <a
-        routerLink="/presentacion"
-        class="text-gray-800 hover:text-[var(--prayser-green)] transition duration-200"
-        (click)="toggleMobileMenu()"
-        >Presentacion</a
-      >
-      <a
-        routerLink="/conocenos"
-        class="text-gray-800 hover:text-[var(--prayser-green)] transition duration-200"
-        (click)="toggleMobileMenu()"
-        >Conocenos</a
-      >
-      <a
-        routerLink="/analisis"
-        class="text-gray-800 hover:text-[var(--prayser-green)] transition duration-200"
-        (click)="toggleMobileMenu()"
-        >Analisis</a
-      >
-    </nav>
-
-    <div class="flex flex-col space-y-4 mt-8">
-      <a
-        href="#"
-        class="text-gray-600 hover:text-[var(--prayser-green)] transition duration-200 text-lg"
-        (click)="toggleMobileMenu()"
-        >Registrate</a
-      >
-      <a
-        href="#"
-        class="bg-[var(--brunswick)] text-white text-center px-8 py-3 rounded-lg text-lg font-semibold hover:bg-[var(--brunswick-darker)] hover:scale-[1.02] active:scale-[.98] transition-all duration-300 shadow-lg focus:outline-none focus:ring-2 focus:ring-[var(--brunswick)] focus:ring-offset-2"
-        (click)="toggleMobileMenu()"
-      >
-        Iniciar Sesión
-      </a>
-    </div>
   </div>
-</header>
+
+  <nav class="flex flex-col space-y-2">
+    <a
+      routerLink="/"
+      class="block py-2 px-3 rounded-md hover:bg-emerald-600"
+      (click)="closeMobileMenu()"
+      >Home</a
+    >
+    <a
+      routerLink="/funcionalidades"
+      class="block py-2 px-3 rounded-md hover:bg-emerald-600"
+      (click)="closeMobileMenu()"
+      >Funcionalidades</a
+    >
+    <a
+      routerLink="/presentacion"
+      class="block py-2 px-3 rounded-md hover:bg-emerald-600"
+      (click)="closeMobileMenu()"
+      >Presentacion</a
+    >
+    <a
+      routerLink="/conocenos"
+      class="block py-2 px-3 rounded-md hover:bg-emerald-600"
+      (click)="closeMobileMenu()"
+      >Conocenos</a
+    >
+    <a
+      routerLink="/analisis"
+      class="block py-2 px-3 rounded-md hover:bg-emerald-600"
+      (click)="closeMobileMenu()"
+      >Analisis</a
+    >
+  </nav>
+
+  <div class="flex flex-col space-y-3 pt-6 mt-6 border-t border-emerald-700">
+    <a
+      href="#"
+      class="block py-2 px-3 rounded-md hover:bg-emerald-600"
+      (click)="closeMobileMenu()"
+      >Registrate</a
+    >
+    <a
+      href="#"
+      class="block text-center py-2 px-3 rounded-md font-semibold text-white bg-green-600 hover:bg-green-700 transition-colors"
+      (click)="closeMobileMenu()"
+    >
+      Iniciar Sesión
+    </a>
+  </div>
+</aside>
+
+<div
+  *ngIf="isMobileMenuOpen"
+  (click)="closeMobileMenu()"
+  (keydown.enter)="closeMobileMenu(); $event.preventDefault()"
+  (keydown.space)="closeMobileMenu(); $event.preventDefault()"
+  (keydown.escape)="closeMobileMenu(); $event.preventDefault()"
+  class="fixed inset-0 bg-black opacity-50 z-30 lg:hidden"
+  tabindex="0"
+  role="button"
+  aria-label="Cerrar menú"
+></div>

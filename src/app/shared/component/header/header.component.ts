@@ -19,4 +19,12 @@ export class HeaderComponent {
       this.isMobileMenuOpen ? 'Open' : 'Closed',
     );
   }
+
+  // Nueva función para cerrar explícitamente el menú
+  closeMobileMenu(): void {
+    if (this.isMobileMenuOpen) {
+      this.isMobileMenuOpen = false;
+      console.log('Mobile menu is now: Closed');
+    }
+  }
 }

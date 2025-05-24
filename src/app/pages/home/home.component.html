@@ -65,7 +65,6 @@
   </picture>
 </section>
 
-
 <section
   id="beneficios"
   class="container mx-auto px-6 py-12 lg:py-16 text-center"
@@ -149,8 +148,6 @@
     </div>
   </div>
 </section>
-
-
 
 <section id="precios" class="container mx-auto px-6 py-12 lg:py-16 text-center">
   <h2 class="text-3xl lg:text-4xl font-bold mb-12">
@@ -240,7 +237,6 @@
     </div>
   </div>
 </section>
-
 
 <section
   id="funcionalidades"
@@ -393,8 +389,6 @@
   </div>
 </section>
 
-
-
 <section id="redes-sociales" class="container mx-auto px-6 py-8 text-center">
   <h2 class="text-2xl font-bold mb-6">Síguenos en Redes Sociales</h2>
   <div class="flex justify-center space-x-6 text-gray-600">
@@ -409,10 +403,6 @@
     </a>
   </div>
 </section>
-
-
-
-
 
 <footer id="footer" class="bg-gray-800 text-white py-8 text-center">
   <div class="container mx-auto px-6">
@@ -452,11 +442,13 @@
     </div>
 
     <div
-      class="mt-4 mb-6 text-sm text-gray-300 flex flex-wrap justify-center items-center space-x-1 sm:space-x-4" >
+      class="mt-4 mb-6 text-sm text-gray-300 flex flex-wrap justify-center items-center space-x-1 sm:space-x-4"
+    >
       <a
         *ngFor="let link of footerContent.navLinks"
         [href]="link.href"
-        class="inline-block py-4 px-2 hover:text-white mr-2 sm:mr-4 last:mr-0" >
+        class="inline-block py-4 px-2 hover:text-white mr-2 sm:mr-4 last:mr-0"
+      >
         {{ link.text }}
       </a>
     </div>
@@ -470,20 +462,27 @@
           *ngFor="let social of footerContent.socialLinks"
           [href]="social.url"
           target="_blank"
-          class="inline-block p-3 hover:text-white transition duration-200" [attr.aria-label]="'Síguenos en ' + social.name"
+          class="inline-block p-3 hover:text-white transition duration-200"
+          [attr.aria-label]="'Síguenos en ' + social.name"
         >
           <i class="bx {{ social.iconClass }} text-3xl" aria-hidden="true"></i>
         </a>
       </div>
     </div>
 
-    <p class="text-gray-400">{{ footerContent.copyright }}</p> <div class="mt-4 text-sm text-gray-300 flex flex-wrap justify-center items-center space-x-1 sm:space-x-4"> <a
+    <p class="text-gray-400">{{ footerContent.copyright }}</p>
+    <div
+      class="mt-4 text-sm text-gray-300 flex flex-wrap justify-center items-center space-x-1 sm:space-x-4"
+    >
+      <a
         [href]="footerContent.privacyPolicy.href"
-        class="inline-block py-4 px-2 hover:text-white mr-2 sm:mr-4" >{{ footerContent.privacyPolicy.text }}</a
+        class="inline-block py-4 px-2 hover:text-white mr-2 sm:mr-4"
+        >{{ footerContent.privacyPolicy.text }}</a
       >
       <a
         [href]="footerContent.termsAndConditions.href"
-        class="inline-block py-4 px-2 hover:text-white last:mr-0" >{{ footerContent.termsAndConditions.text }}</a
+        class="inline-block py-4 px-2 hover:text-white last:mr-0"
+        >{{ footerContent.termsAndConditions.text }}</a
       >
     </div>
   </div>
