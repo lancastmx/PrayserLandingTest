@@ -44,25 +44,49 @@
       <span>(Basado en +X opiniones)</span>
     </div>
   </div>
-  <picture>
-    <source
-      srcset="assets/image/webp_versions/Cartera-de-clientes.avif"
-      type="image/avif"
-    />
-    <source
-      srcset="assets/image/webp_versions/Cartera-de-clientes.webp"
-      type="image/webp"
-    />
-    <img
-      ngSrc="assets/image/webp_versions/Cartera-de-clientes.avif"
-      alt="Visual de la plataforma Prayser para cotizaciones y gestión"
-      class="rounded-lg shadow-lg w-full h-auto object-cover"
-      width="1200"
-      height="800"
-      loading="eager"
-      fetchpriority="high"
-    />
-  </picture>
+  <div class="lg:w-1/2 flex justify-center items-center">
+    <picture class="block w-full hero-image-container">
+      <source
+        media="(min-width: 1280px)"
+        srcset="assets/image/webp_versions/Cartera-de-clientes.avif"
+        type="image/avif"
+      />
+      <source
+        media="(min-width: 768px)"
+        srcset="assets/image/webp_versions/Cartera-de-clientes.avif"
+        type="image/avif"
+      />
+      <source
+        srcset="assets/image/webp_versions/Cartera-de-clientes.avif"
+        type="image/avif"
+      />
+      <source
+        media="(min-width: 1280px)"
+        srcset="assets/image/webp_versions/Cartera-de-clientes.webp"
+        type="image/webp"
+      />
+      <source
+        media="(min-width: 768px)"
+        srcset="assets/image/webp_versions/Cartera-de-clientes.webp"
+        type="image/webp"
+      />
+      <source
+        srcset="assets/image/webp_versions/Cartera-de-clientes.webp"
+        type="image/webp"
+      />
+
+      <img
+        ngSrc="assets/image/webp_versions/Cartera-de-clientes.avif"
+        alt="Visual de la plataforma Prayser para cotizaciones y gestión"
+        class="rounded-lg shadow-lg w-full h-auto object-cover"
+        width="1200"
+        height="800"
+        loading="eager"
+        fetchpriority="high"
+        sizes="(min-width: 1024px) 50vw, 100vw"
+      />
+    </picture>
+  </div>
 </section>
 
 <section
@@ -453,22 +477,7 @@
       </a>
     </div>
 
-    <div class="mb-6">
-      <h4 class="text-xl font-bold mb-4">
-        {{ footerContent.socialMediaHeading }}
-      </h4>
-      <div class="flex justify-center space-x-6 text-gray-400">
-        <a
-          *ngFor="let social of footerContent.socialLinks"
-          [href]="social.url"
-          target="_blank"
-          class="inline-block p-3 hover:text-white transition duration-200"
-          [attr.aria-label]="'Síguenos en ' + social.name"
-        >
-          <i class="bx {{ social.iconClass }} text-3xl" aria-hidden="true"></i>
-        </a>
-      </div>
-    </div>
+
 
     <p class="text-gray-400">{{ footerContent.copyright }}</p>
     <div

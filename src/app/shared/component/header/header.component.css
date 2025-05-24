@@ -1,0 +1,14 @@
+.header-logo-img {
+  /* Añade esta clase a tu <img> del logo en el header */
+  aspect-ratio: 250 / 75;
+  width: 200px; /* Para móvil, basado en tu max-w-[200px] */
+  height: 60px; /* Altura calculada: 200 / (250/75) */
+}
+
+@media (min-width: 1024px) {
+  /* Para 'lg' y superior */
+  .header-logo-img {
+    width: 250px; /* Basado en tu lg:max-w-[250px] */
+    height: 75px; /* Altura calculada: 250 / (250/75) */
+  }
+}
