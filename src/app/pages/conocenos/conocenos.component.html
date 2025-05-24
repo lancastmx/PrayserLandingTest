@@ -1,223 +1,124 @@
-<div class="flex">
-  <div class="navigation">
+<button
+  (click)="toggleNavMenu()"
+  class="lg:hidden fixed top-4 left-4 z-50 p-2 bg-slate-700 text-white rounded-md shadow-lg"
+  aria-label="Toggle slide navigation"
+>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    fill="none"
+    viewBox="0 0 24 24"
+    stroke-width="1.5"
+    stroke="currentColor"
+    class="w-6 h-6"
+  >
+    <path
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25H12"
+    />
+  </svg>
+</button>
+
+<div
+  class="min-h-screen flex flex-col lg:flex-row p-4 lg:p-8 space-y-8 lg:space-y-0 lg:space-x-8"
+  [class.pt-16]="!navMenuOpen() && isMobileView()"
+  [class.lg:pt-8]="true"
+>
+  <div
+    class="navigation flex flex-col space-y-2 p-4 bg-white rounded-xl shadow-lg fixed top-0 left-0 h-full w-64 z-40 overflow-y-auto transition-transform duration-300 ease-in-out lg:relative lg:w-1/4 lg:h-auto lg:translate-x-0 lg:shadow-lg lg:rounded-xl lg:bg-white lg:p-4"
+    [ngClass]="{
+      'translate-x-0': navMenuOpen(),
+      '-translate-x-full': !navMenuOpen(),
+    }"
+  >
     <button
-      *ngFor="let slide of navButtons; let i = index"
-      (click)="onNavButtonClick($event)"
-      [attr.data-slide]="'slide' + (i + 1)"
-      #navButton
-      class="text-gray-700 hover:bg-gray-100"
-      [ngClass]="{ active: i === 0 }"
+      (click)="toggleNavMenu()"
+      class="lg:hidden self-end p-1 mb-2 text-gray-500 hover:text-gray-700"
+      aria-label="Close slide navigation"
     >
-      <ng-container *ngIf="i === 0">Título</ng-container>
-      <ng-container *ngIf="i === 1">¿Qué es Prayser?</ng-container>
-      <ng-container *ngIf="i === 2">Funcionalidades</ng-container>
-      <ng-container *ngIf="i === 3">Beneficios</ng-container>
-      <ng-container *ngIf="i === 4">Público Objetivo</ng-container>
-      <ng-container *ngIf="i === 5">¿Qué Diferencia a Prayser?</ng-container>
-      <ng-container *ngIf="i === 6">Precio</ng-container>
-      <ng-container *ngIf="i === 7">Contexto</ng-container>
-      <ng-container *ngIf="i === 8">Conclusión</ng-container>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+        class="w-6 h-6"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M6 18L18 6M6 6l12 12"
+        />
+      </svg>
+    </button>
+
+    <button
+      *ngFor="let slideDef of allSlidesData"
+      [attr.data-slide]="slideDef.id"
+      (click)="onNavButtonClick(slideDef.id)"
+      class="nav-button py-3 px-4 rounded-lg text-left font-medium transition-all duration-200 ease-in-out text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50"
+      [ngClass]="{ active: activeSlideId() === slideDef.id }"
+    >
+      {{ slideDef.navButtonTitle }}
     </button>
   </div>
-  <div class="container">
-    <div id="slide1" class="slide active">
-      <h2 class="text-3xl font-semibold text-left text-green-900">
-        Adiós Excel, Hola Simplicidad: Prayser, Tu Plataforma Inteligente de
-        Cotización
-      </h2>
-      <img
-        src="manual_logo_prayser.png"
-        alt="Logotipo de Prayser"
-        class="mx-auto rounded-lg shadow-md"
-        style="max-width: 60%"
-      />
-    </div>
-    <div id="slide2" class="slide">
-      <h2 class="text-3xl font-semibold text-left text-green-900">
-        ¿Qué es Prayser?
-      </h2>
-      <p class="text-gray-700">
-        Prayser es una plataforma 100% online que facilita el proceso de ventas
-        a través de una interfaz amigable, eficaz y eficiente.
-      </p>
-      <p class="text-gray-700">
-        Surge de la necesidad de ofrecer una herramienta que simplifique el
-        proceso de cotizar para empresas de todo tipo.
-      </p>
-      <p class="text-gray-700">
-        Su giro y propósito son cotizar, gestionar y vender, impulsando la
-        transformación digital en las empresas.
-      </p>
-      <p class="text-gray-700">
-        Prayser se define como una plataforma inteligente de cotización que
-        automatiza, centraliza y acelera los procesos comerciales.
-      </p>
-    </div>
-    <div id="slide3" class="slide">
-      <h2 class="text-3xl font-semibold text-left text-green-900">
-        ¿Qué hace Prayser? (Funcionalidades Clave)
-      </h2>
-      <ul class="list-disc list-inside">
-        <li class="text-gray-700">
-          Gestión de Catálogos: Permite administrar catálogos de proveedores,
-          contactos, clientes y productos de manera sencilla y organizada.
-        </li>
-        <li class="text-gray-700">
-          Gestión de Usuarios: Ofrece la administración de usuarios dentro de la
-          plataforma.
-        </li>
-        <li class="text-gray-700">
-          Módulo de Cotización: Facilita la creación de cotizaciones de manera
-          rápida y sin complicaciones.
-        </li>
-        <li class="text-gray-700">
-          Tablero Kanban: Proporciona un tablero Kanban para la gestión visual
-          de procesos.
-        </li>
-        <li class="text-gray-700">
-          Service Dock: Un módulo para compartir de manera digital la cotización
-          y su información relacionada con el cliente final.
-        </li>
-        <li class="text-gray-700">
-          Gestión de Productos y Servicios: Permite administrar productos y
-          servicios con facilidad y rapidez.
-        </li>
-        <li class="text-gray-700">
-          Control de Inventarios: Aunque mencionado, el nivel de funcionalidad
-          específica no se detalla.
-        </li>
-        <li class="text-gray-700">
-          Procesamiento de Pedidos: Ayuda a manejar las ventas con eficiencia y
-          claridad.
-        </li>
-      </ul>
-    </div>
-    <div id="slide4" class="slide">
-      <h2 class="text-3xl font-semibold text-left text-green-900">
-        ¿Cuáles son los Beneficios de Prayser?
-      </h2>
-      <ul class="list-disc list-inside">
-        <li class="text-gray-700">
-          Simplicidad: Su principal fortaleza es una experiencia de usuario
-          simplificada e intuitiva.
-        </li>
-        <li class="text-gray-700">
-          Eficiencia: Facilita el proceso de cotizar, ahorrando tiempo y
-          esfuerzo.
-        </li>
-        <li class="text-gray-700">
-          Centralización: Permite centralizar la información de proveedores y
-          clientes en un solo espacio.
-        </li>
-        <li class="text-gray-700">
-          Modernización: Moderniza la forma en que se presentan las propuestas
-          de negocio a los clientes.
-        </li>
-        <li class="text-gray-700">
-          Conexión: Conecta clientes y proveedores para una mejor comunicación.
-        </li>
-        <li class="text-gray-700">
-          Control: Ayuda a controlar cada proceso del negocio sencillamente.
-        </li>
-        <li class="text-gray-700">
-          Transformación Digital: Impulsa la transformación digital en las
-          empresas.
-        </li>
-      </ul>
-    </div>
-    <div id="slide5" class="slide">
-      <h2 class="text-3xl font-semibold text-left text-green-900">
-        ¿Para Quién es Prayser? (Público Objetivo)
-      </h2>
-      <p class="text-gray-700">
-        El público objetivo no se limita por edad o género, sino por un
-        conocimiento básico de computación y uso de tecnologías (usuarios
-        básicos hasta avanzados).
-      </p>
-      <p class="text-gray-700">
-        Incluye profesionales independientes, pequeños negocios (como
-        misceláneas y ferreterías), y mediana y gran industria.
-      </p>
-      <p class="text-gray-700">
-        Está dirigido a empresas que deseen abandonar los medios de control
-        manual y adoptar herramientas especializadas para impulsar la
-        transformación digital.
-      </p>
-    </div>
-    <div id="slide6" class="slide">
-      <h2 class="text-3xl font-semibold text-left text-green-900">
-        ¿Qué Diferencia a Prayser?
-      </h2>
-      <p class="text-gray-700">
-        Busca alejarse de la percepción de productos con motes técnicos como CRM
-        o ERP, para ser cercano a clientes especializados y no especializados.
-      </p>
-      <p class="text-gray-700">
-        No quiere percibirse como un producto complejo o difícil, ni
-        encasillarse como una solución solo para empresas grandes o pequeñas,
-        sino para todo tipo de industria.
-      </p>
-      <p class="text-gray-700">
-        Su solución parte de requerimientos de negocio testeados a través de su
-        propia empresa y la experiencia desarrollada con clientes de
-        implementación.
-      </p>
-    </div>
-    <div id="slide7" class="slide">
-      <h2 class="text-3xl font-semibold text-left text-green-900">
-        Precio de Prayser
-      </h2>
-      <p class="text-gray-700">
-        Ofrece una prueba inicial por un precio muy bajo ($10.00 pesos
-        mexicanos).
-      </p>
-      <p class="text-gray-700">
-        Después del primer mes, el precio es de $345.00 pesos mexicanos.
-      </p>
-    </div>
-    <div id="slide8" class="slide">
-      <h2 class="text-3xl font-semibold text-left text-green-900">
-        Prayser en el Contexto de Software de Cotizaciones y CRM
-      </h2>
-      <p class="text-gray-700">
-        Prayser se enfoca en ser una plataforma amigable y eficiente para la
-        gestión de cotizaciones.
-      </p>
-      <p class="text-gray-700">
-        Mientras que existen softwares de CRM (Customer Relationship Management)
-        que también pueden incluir funcionalidades de cotización y gestión de
-        clientes, Prayser busca la simplicidad y accesibilidad para usuarios que
-        quizás no necesiten la complejidad de un CRM completo.
-      </p>
-      <p class="text-gray-700">
-        Otras soluciones de software de cotizaciones mencionadas incluyen
-        DataCRM, HubSpot, Salesforce, Proposify y Qwilr, algunas de las cuales
-        se integran con CRMs. Prayser busca destacarse por su simplicidad y por
-        no identificarse con términos técnicos.
-      </p>
-      <p class="text-gray-700">
-        HubSpot también ofrece un software para cotizaciones que se integra con
-        su CRM gratuito, permitiendo completar automáticamente las cotizaciones
-        con datos del CRM. Prayser podría considerarse una alternativa para
-        quienes buscan una solución más sencilla inicialmente.
-      </p>
-    </div>
-    <div id="slide9" class="slide">
-      <h2 class="text-3xl font-semibold text-left text-green-900">
-        Conclusión
-      </h2>
-      <p class="text-gray-700">
-        Prayser simplifica la creación y gestión de cotizaciones, permitiendo a
-        las empresas ganar tiempo y profesionalizar su proceso de ventas.
-      </p>
-      <p class="text-gray-700">
-        Su enfoque en la facilidad de uso y su precio accesible lo convierten en
-        una excelente opción para una amplia gama de negocios que buscan
-        modernizar su gestión comercial sin complejidad.
-      </p>
-      <p class="text-gray-700">
-        ¡Prueba Prayser hoy y despídete de las complicaciones!
-      </p>
-    </div>
+
+  <div
+    class="container flex-1 bg-white p-6 rounded-xl shadow-lg transition-all duration-300 ease-in-out"
+    [ngClass]="{
+      'lg:ml-[calc(25%_+_2rem)]': navMenuOpen() && !isMobileView(),
+      'lg:ml-0': !navMenuOpen() || isMobileView(),
+    }"
+  >
+    <ng-container *ngFor="let slideDef of allSlidesData">
+      <div
+        [id]="slideDef.id"
+        class="slide space-y-4"
+        [ngClass]="{ active: activeSlideId() === slideDef.id }"
+      >
+        <h2
+          class="text-3xl lg:text-4xl font-extrabold text-left text-green-800 leading-tight"
+        >
+          {{ slideDef.contentTitle }}
+        </h2>
+        <picture *ngIf="slideDef.isTitleSlide && slideDef.logoSrc">
+          <source [srcset]="slideDef.logoSrc" type="image/avif" />
+          <source [srcset]="slideDef.logoSrc" type="image/webp" />
+          <img
+            [src]="slideDef.logoSrc"
+            alt="Logo Prayser"
+            role="link"
+            width="250"
+            height="75"
+            class="block cursor-pointer max-h-[75px] rounded-md shadow-sm"
+            tabindex="0"
+            loading="eager"
+            fetchpriority="high"
+            onerror="this.onerror=null;this.src='https://placehold.co/250x75/E0F2F1/047857?text=Error';"
+          />
+        </picture>
+        <p
+          *ngFor="let paragraph of slideDef.paragraphs"
+          class="text-gray-700 leading-relaxed"
+        >
+          {{ paragraph }}
+        </p>
+        <ul
+          *ngIf="slideDef.listItems && slideDef.listItems.length > 0"
+          class="list-disc list-inside text-gray-700 space-y-2"
+        >
+          <li *ngFor="let item of slideDef.listItems">
+            <span [innerHTML]="item"></span>
+          </li>
+        </ul>
+      </div>
+    </ng-container>
   </div>
 </div>
+
+<div
+  *ngIf="navMenuOpen() && isMobileView()"
+  (click)="toggleNavMenu()"
+  class="fixed inset-0 bg-black/50 z-30 lg:hidden"
+  aria-hidden="true"
+></div>

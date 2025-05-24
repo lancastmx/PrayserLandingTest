@@ -1,7 +1,6 @@
 /* Estilos para el componente Funcionalidades */
 
 body {
-  font-family: "Inter", sans-serif;
   background-color: #f3f4f6; /* gray-100 */
 }
 
@@ -50,9 +49,7 @@ header {
 }
 
 /* Custom Styles */
-body {
-  font-family: "Inter", sans-serif; /* Using Inter font */
-}
+
 /* Style for the active menu item */
 .active-link {
   background-color: #e5e7eb; /* gray-200 */
