@@ -1,3 +1,9 @@
 .hero-image-container {
   aspect-ratio: 1200 / 800; /* o simplificado 3 / 2 */
 }
+@font-face {
+  font-family: 'TuFuentePersonalizada';
+  src: url('/ruta/a/tu-fuente.woff2') format('woff2');
+  /* otros atributos como font-weight, font-style */
+  font-display: swap; /* <-- AÑADE ESTO */
+}
