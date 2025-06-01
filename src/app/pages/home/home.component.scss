@@ -1,0 +1,18 @@
+.parent {
+  perspective: 500px;
+  width: 200px;
+  height: 200px;
+  margin: 100px auto;
+}
+
+.child {
+  width: 200px;
+  height: 200px;
+  background-color: blue;
+  transform: rotateY(45deg);
+  transition: transform 0.5s;
+}
+
+.child:hover {
+  transform: rotateY(0deg);
+}

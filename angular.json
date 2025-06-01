@@ -20,7 +20,7 @@
             "tsConfig": "tsconfig.app.json",
             "assets": ["src/assets", "src/robots.txt"],
             "styles": [
-              "src/styles.css",
+              "src/styles.scss",
               "node_modules/boxicons/css/boxicons.min.css"
             ],
             "scripts": [],
@@ -81,7 +81,7 @@
               }
             ],
             "styles": [
-              "src/styles.css",
+              "src/styles.scss",
               "node_modules/boxicons/css/boxicons.min.css"
             ],
             "scripts": []

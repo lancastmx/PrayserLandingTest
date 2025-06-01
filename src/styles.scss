@@ -1,0 +1,20 @@
+/* src/styles.css */
+@use "tailwindcss";
+:root {
+  --brunswick: #124734; /* Tu verde principal */
+  --celadon: #aada91;
+  --smoke: #c5c5c5;
+  --blanco: #ffffff;
+  --negro: #000000;
+  --transition: all 0.5s ease-in-out;
+
+  --brunswick-darker: #0f3b2c; /* Tu verde para el hover */
+}
+body {
+  line-height: 1.6;
+}
+html, body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
