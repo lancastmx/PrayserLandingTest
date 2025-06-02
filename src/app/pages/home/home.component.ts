@@ -1,4 +1,9 @@
-import { Component, OnDestroy, afterNextRender, ChangeDetectorRef } from '@angular/core'; // Importa ChangeDetectorRef
+import {
+  Component,
+  OnDestroy,
+  afterNextRender,
+  ChangeDetectorRef,
+} from '@angular/core'; // Importa ChangeDetectorRef
 import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { FOOTER_CONTENT } from './constants/footer-content';
 import { interval, Subscription } from 'rxjs';
@@ -17,25 +22,25 @@ export class HomeComponent implements OnDestroy {
       src: 'assets/image/webp_versions/Cartera-de-clientes.avif',
       alt: 'Gestiona tu cartera de Clientes',
       width: 1200,
-      height: 800
+      height: 800,
     },
     {
       src: 'assets/image/publicidad.png',
       alt: 'Publicidad Integrada en Prayser',
       width: 1200,
-      height: 800
+      height: 800,
     },
     {
       src: 'assets/image/productos-servicio.png',
       alt: 'Gestión de Productos y Servicios',
       width: 1200,
-      height: 800
+      height: 800,
     },
     {
       src: 'assets/image/plantillas.png',
       alt: 'Plantillas Personalizadas Prayser',
       width: 1200,
-      height: 800
+      height: 800,
     },
     // Añade más imágenes
   ];
@@ -43,10 +48,12 @@ export class HomeComponent implements OnDestroy {
   currentCarouselImageIndex = 0;
   private carouselAnimationSubscription!: Subscription;
 
-  constructor(private cdr: ChangeDetectorRef) { // Inyecta ChangeDetectorRef aquí
+  constructor(private cdr: ChangeDetectorRef) {
+    // Inyecta ChangeDetectorRef aquí
     afterNextRender(() => {
       this.carouselAnimationSubscription = interval(3000).subscribe(() => {
-        this.currentCarouselImageIndex = (this.currentCarouselImageIndex + 1) % this.carouselImages.length;
+        this.currentCarouselImageIndex =
+          (this.currentCarouselImageIndex + 1) % this.carouselImages.length;
         this.cdr.detectChanges(); // ¡Esta línea es clave!
       });
     });
@@ -66,13 +73,16 @@ export class HomeComponent implements OnDestroy {
 
   // Método para ir a la siguiente imagen
   nextSlide(): void {
-    this.currentCarouselImageIndex = (this.currentCarouselImageIndex + 1) % this.carouselImages.length;
+    this.currentCarouselImageIndex =
+      (this.currentCarouselImageIndex + 1) % this.carouselImages.length;
     this.cdr.detectChanges(); // También forzar detección de cambios para navegación manual
   }
 
   // Método para ir a la imagen anterior
   prevSlide(): void {
-    this.currentCarouselImageIndex = (this.currentCarouselImageIndex - 1 + this.carouselImages.length) % this.carouselImages.length;
+    this.currentCarouselImageIndex =
+      (this.currentCarouselImageIndex - 1 + this.carouselImages.length) %
+      this.carouselImages.length;
     this.cdr.detectChanges(); // También forzar detección de cambios para navegación manual
   }
 
@@ -81,17 +91,17 @@ export class HomeComponent implements OnDestroy {
     {
       url: 'assets/image/publicidad.png',
       rotation: '-rotate-12',
-      alt: 'Image for Animated Card 2'
+      alt: 'Image for Animated Card 2',
     },
     {
       url: 'assets/image/productos-servicio.png',
       rotation: 'rotate-6',
-      alt: 'Image for Animated Card 3'
+      alt: 'Image for Animated Card 3',
     },
     {
       url: 'assets/image/plantillas.png',
       rotation: '-rotate-12',
-      alt: 'Image for Animated Card 4'
+      alt: 'Image for Animated Card 4',
     },
   ];
 
@@ -103,6 +113,6 @@ export class HomeComponent implements OnDestroy {
     usuariosEquipo: 'assets/image/webp_versions/Cartera-de-clientes.avif',
     gestionCotizaciones: 'assets/image/webp_versions/Cartera-de-clientes.avif',
     tableroKanban: 'assets/image/kanban.png',
-    serviceDock: 'assets/image/siviceDock.png'
+    serviceDock: 'assets/image/siviceDock.png',
   };
 }
