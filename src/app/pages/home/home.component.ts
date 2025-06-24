@@ -115,4 +115,10 @@ export class HomeComponent implements OnDestroy {
     tableroKanban: 'assets/image/kanban.png',
     serviceDock: 'assets/image/siviceDock.png',
   };
+  openWhatsApp(): void {
+    const phoneNumber = '525564667408'; // Incluye el código de país (52 para México)
+    const message = 'Hola, estoy interesado en Prayser y me gustaría más información.';
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, '_blank');
+  }
 }

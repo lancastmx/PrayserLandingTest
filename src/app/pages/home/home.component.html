@@ -602,6 +602,7 @@
   </div>
 </section>
 
+
 <footer id="footer" class="bg-gray-800 text-white py-8 text-center">
   <div class="container mx-auto px-6">
     <div class="mb-6">
@@ -616,15 +617,21 @@
     >
       <div class="text-sm">
         <p class="font-semibold mb-2">{{ footerContent.contactHeading }}</p>
-        <p class="flex items-center justify-center md:justify-start mb-1">
+        <p class="flex items-center justify-center md:justify-start mb-1" >
           <i class="bx bx-phone mr-2" aria-hidden="true"></i>
           {{ footerContent.phone1 }}
         </p>
-        <p class="flex items-center justify-center md:justify-start mb-1">
-          <i class="bx bx-phone mr-2" aria-hidden="true"></i>
+        <button
+          type="button"
+          (click)="openWhatsApp()"
+          (keyup.enter)="openWhatsApp()"
+          class="flex items-center justify-center md:justify-start mb-1 bg-transparent border-0 p-0 m-0 text-left cursor-pointer focus:outline-none focus:ring-2 focus:ring-green-500"
+          aria-label="Contactar por WhatsApp"
+        >
+          <i class="bx bxl-whatsapp text-xl mr-2" aria-hidden="true"></i>
           {{ footerContent.phone2 }}
-        </p>
-        <p class="flex items-center justify-center md:justify-start">
+        </button>
+        <p  class="flex items-center justify-center md:justify-start">
           <i class="bx bx-envelope mr-2" aria-hidden="true"></i>
           {{ footerContent.email }}
         </p>
@@ -637,8 +644,26 @@
           {{ footerContent.address }}
         </p>
       </div>
-    </div>
 
+      
+    </div>
+    <div class="text-sm">
+        <p class="font-semibold mb-2">
+          {{ footerContent.socialMediaHeading }}
+        </p>
+        <div class="flex justify-center md:justify-start space-x-4">
+          <a
+            *ngFor="let socialLink of footerContent.socialLinks"
+            [href]="socialLink.url"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-gray-400 hover:text-white transition-colors duration-300"
+            [attr.aria-label]="socialLink.name"
+          >
+            <i class="bx text-2xl" [class]="socialLink.iconClass"></i>
+          </a>
+        </div>
+      </div>
     <div
       class="mt-4 mb-6 text-sm text-gray-300 flex flex-wrap justify-center items-center space-x-1 sm:space-x-4"
     >

@@ -5,8 +5,8 @@ export const FOOTER_CONTENT = {
   description:
     'Simplifica la creación de cotizaciones profesionales y potencia tus ventas.',
   contactHeading: 'Contacto Directo:',
-  phone1: '55 5555 5555',
-  phone2: '55 5555 5555',
+  phone1: '55 6651 8467',
+  phone2: '55 6466 7408',
   email: 'hola@prayser.com',
   locationHeading: 'Nuestra Ubicación:',
   address: 'Centeno 670, Col. Granjas México, Iztacalco, 08400, CDMX',
@@ -24,3 +24,4 @@ export const FOOTER_CONTENT = {
   privacyPolicy: { text: 'Aviso de Privacidad', href: '#' },
   termsAndConditions: { text: 'Términos y Condiciones', href: '#' },
 };
+ 
