@@ -16,3 +16,10 @@
 .child:hover {
   transform: rotateY(0deg);
 }
+.giff {
+  /* Añade esta clase a tu <img> del logo en el header */
+  aspect-ratio: 250 / 75;
+  width: 200px; /* Para móvil, basado en tu max-w-[200px] */
+  height: 60px; /* Altura calculada: 200 / (250/75) */
+  object-fit: contain;
+}
