@@ -1,4 +1,3 @@
-// src/app/app.routes.ts
 
 import { Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
@@ -41,6 +40,14 @@ export const routes: Routes = [
         loadComponent: () =>
           import('./pages/analisis/analisis.component').then(
             (c) => c.AnalisisComponent,
+          ),
+      },
+      {
+        // Carga diferida para AnalisisComponent
+        path: 'tutorials',
+        loadComponent: () =>
+          import('./pages/tutorials-page/tutorials-page.component').then(
+            (c) => c.TutorialsPageComponent,
           ),
       },
     ],

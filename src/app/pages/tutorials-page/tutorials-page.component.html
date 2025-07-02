@@ -1,1 +1,91 @@
-<p>tutorials-page works!</p>
+<div class="flex h-screen bg-white font-['Inter']">
+  <aside
+    class="fixed inset-y-0 left-0 z-40 w-64 bg-gray-50 border-r border-gray-200 p-4 transition-transform duration-300 ease-in-out transform md:-translate-x-0 md:relative md:flex md:flex-col"
+    [class.transform]="!sidebarOpen()"
+    [class.-translate-x-full]="!sidebarOpen()"
+  >
+    <nav class="flex-1 overflow-y-auto text-sm">
+      <ul>
+        @for (tutorial of tutorials; track tutorial.id) {
+          <li class="mb-2">
+            <button
+              class="flex w-full items-center rounded-lg p-2 text-sm"
+              [ngClass]="
+                activeTutorialId() === tutorial.id
+                  ? 'bg-gray-200 text-primary-600 font-semibold'
+                  : 'text-gray-600 hover:bg-gray-200'
+              "
+              (click)="setActiveTutorial(tutorial.id!)"
+            >
+              <i class="{{ tutorial.icon }} w-5 h-5 mr-3"></i> {{ tutorial.title }}
+            </button>
+          </li>
+        } @empty {
+          <li class="mb-2">
+            <span class="block p-2 text-gray-500">
+              No hay tutoriales cargados.
+            </span>
+          </li>
+        }
+      </ul>
+    </nav>
+  </aside>
+
+  <div class="flex-1 flex flex-col overflow-hidden">
+    <main class="flex-1 overflow-x-hidden overflow-y-auto bg-gray-100 p-6">
+      <div id="content-area" class="bg-white p-6 rounded-lg shadow">
+        <h2 class="text-2xl font-semibold text-gray-700 mb-4">
+          Guía de {{ currentTutorialDefinition()?.title }}
+        </h2>
+
+        @if (currentStepItem()) {
+          <div class="flex flex-col lg:flex-row lg:items-start lg:gap-x-4">
+            <div class="w-full lg:w-7/12 flex justify-center mb-4 lg:mb-0">
+              <img
+                [src]="currentStepItem()!.gifUrl ?? 'https://placehold.co/800x400/f3f4f6/9ca3af?text=GIF+no+disponible'"
+                [alt]="currentStepItem()!.title ?? 'Imagen del paso'"
+                class="max-w-full h-auto rounded shadow-md" style="max-height: 400px; object-fit: contain;"
+                onerror="this.onerror=null; this.src='https://placehold.co/600x300/f3f4f6/9ca3af?text=Error+al+cargar+imagen';"
+              />
+            </div>
+
+            <div class="w-full lg:w-5/12 ml-0 p-0"> <h3 class="text-xl font-semibold text-gray-800 mb-2">
+                {{ currentStepItem()!.title }}
+              </h3>
+
+              <p class="text-gray-600 mb-2"> Paso {{ currentStepIndex() + 1 }} de {{ totalSteps() }}
+              </p>
+
+              <div class="h-auto overflow-y-auto" style="max-height: 25em;"> <div
+                  class="text-gray-600"
+                  [innerHTML]="currentStepItem()!.description"
+                ></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex justify-between mt-6">
+            <button
+              class="px-4 py-2 rounded-lg text-sm font-semibold border border-gray-300 text-gray-700 hover:bg-gray-100 "
+              (click)="prevStep()"
+            >
+              Anterior
+            </button>
+            <button
+              class="px-4 py-2 rounded-lg text-sm font-semibold border border-gray-300 text-gray-700 hover:bg-gray-100 "
+              
+              (click)="nextStep()"
+            >
+              Siguiente Paso
+            </button>
+          </div>
+        } @else {
+          <div class="text-center text-gray-500 mt-5"> <i class="fas fa-info-circle text-3xl mb-3"></i>
+            <p>No se pudo cargar el contenido del tutorial o paso seleccionado.</p>
+            <p>Por favor, asegúrate de que los datos de los tutoriales estén correctamente definidos.</p>
+          </div>
+        }
+      </div>
+    </main>
+  </div>
+</div>
