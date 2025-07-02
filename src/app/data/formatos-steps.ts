@@ -1,8 +1,7 @@
 import { ITutorialTab } from '../core/interfaces/stepItem';
-
 const FormatosTutorialGifs = {
   // Gifs representativos para cada paso (tendrías que crear estos assets)
-  accederFormatos: 'assets/gifs/formatos/acceder_formatos.gif', // Gif de la primera imagen
+  accederFormatos: 'assets/gifs/datos-contacto.webp', // Gif de la primera imagen
   botonAgregarFormatos: 'assets/gifs/formatos/boton_agregar_formatos.gif', // Gif de la primera imagen
   seleccionarPlantilla: 'assets/gifs/formatos/seleccionar_plantilla.gif', // Gif de la segunda imagen (modal)
   configurarInformacion: 'assets/gifs/formatos/configurar_informacion.gif', // Gif de la tercera imagen (pestaña Información)

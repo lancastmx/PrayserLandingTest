@@ -2,11 +2,7 @@ import { Component, computed, Signal, signal, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 
-// Importamos las interfaces
 import { ITutorialTab, StepItem } from '../../core/interfaces/stepItem';
-
-// Importamos los datos de los tutoriales
-// Asumimos que cada uno de estos es un 'ITutorialTab[]' con al menos un elemento
 import { QuotesSteps } from '../../data/quotes-steps';
 import { ProductsSteps } from '../../data/products-steps';
 import { FormatosSteps } from '../../data/formatos-steps';
@@ -16,7 +12,7 @@ import { FormatosSteps } from '../../data/formatos-steps';
   standalone: true,
   imports: [
     CommonModule,
-    RouterLink // Mantén RouterLink si lo usas en el HTML para el logo o enlaces. Si no, quítalo.
+    RouterLink // Mantén RouterLink si lo usas en el HTML. Si no, quítalo.
   ],
   templateUrl: './tutorials-page.component.html',
   styleUrls: ['./tutorials-page.component.css']
@@ -29,19 +25,19 @@ export class TutorialsPageComponent implements OnInit {
       id: 'crear-quote',
       title: 'Crear Quote',
       icon: 'bx bx-receipt',
-      data: QuotesSteps,
+      data: QuotesSteps, // Asumo que QuotesSteps también es un ITutorialTab[] (probablemente con un solo elemento)
     },
     {
       id: 'dar-alta-producto',
       title: 'Dar de Alta Producto',
       icon: 'bx bx-package',
-      data: ProductsSteps,
+      data: ProductsSteps, // ESTE ES EL QUE TIENE MÚLTIPLES ELEMENTOS (Carga Manual, Carga Masiva)
     },
     {
       id: 'crear-formato',
       title: 'Crear Formato',
       icon: 'bx bx-layout',
-      data: FormatosSteps,
+      data: FormatosSteps, // Asumo que FormatosSteps también es un ITutorialTab[] (probablemente con un solo elemento)
     },
   ];
 
@@ -49,44 +45,65 @@ export class TutorialsPageComponent implements OnInit {
   modalTitle = signal<string>('Guía de Ayuda');
 
   // ID del tutorial principal actualmente seleccionado en el sidebar
-  private readonly _activeTutorialId = signal<string>(''); // Inicializamos vacío y lo seteamos en ngOnInit
+  private readonly _activeTutorialId = signal<string>('');
   readonly activeTutorialId: Signal<string> = this._activeTutorialId.asReadonly();
 
-  // --- Estado del Paso Actual dentro del Tutorial Activo ---
+  // Índice de la SUB-PESTAÑA activa dentro del tutorial principal (ej. "Carga Manual" vs "Carga Masiva")
+  private readonly _activeSubTabTutorialIndex = signal<number>(0);
+  readonly activeSubTabTutorialIndex: Signal<number> = this._activeSubTabTutorialIndex.asReadonly();
+
+
+  // Índice del paso actual dentro de la SUB-PESTAÑA activa
   private readonly _currentStepIndex = signal<number>(0);
   readonly currentStepIndex: Signal<number> = this._currentStepIndex.asReadonly();
 
 
   // --- Computed Signals para Acceso Simplificado ---
 
-  // Obtiene la definición completa del tutorial principal activo
+  // Obtiene la definición completa del tutorial principal activo (ej. el objeto para "Dar de Alta Producto")
   readonly currentTutorialDefinition = computed(() => {
     const tutorialDef = this.tutorials.find(t => t.id === this.activeTutorialId());
     // console.log('Computed: currentTutorialDefinition', tutorialDef); // Debug
     return tutorialDef;
   });
 
-  // Obtiene el array de StepItem[] del tutorial activo (ej. los pasos de "Crear Quote")
-  // Asume que data[0] es la ITutorialTab relevante.
-  readonly currentTutorialSteps: Signal<StepItem[]> = computed(() => {
+  // Obtiene el ARRAY DE SUB-PESTAÑAS (ITutorialTab[]) para el tutorial principal activo (ej. [Carga Manual, Carga Masiva])
+  readonly currentTutorialSubTabs: Signal<ITutorialTab[]> = computed(() => {
     const def = this.currentTutorialDefinition();
-    const steps = (def && def.data.length > 0 && def.data[0].steps) ? def.data[0].steps : [];
-    // console.log('Computed: currentTutorialSteps (all steps)', steps); // Debug
+    const subTabs = def ? def.data : [];
+    // console.log('Computed: currentTutorialSubTabs', subTabs); // Debug
+    return subTabs;
+  });
+
+  // Obtiene la SUB-PESTAÑA (ITutorialTab) activa dentro del tutorial principal (ej. el objeto "Carga Manual")
+  readonly activeSubTabTutorial: Signal<ITutorialTab | null> = computed(() => {
+    const subTabs = this.currentTutorialSubTabs();
+    const index = this.activeSubTabTutorialIndex();
+    const activeTab = (subTabs.length > 0 && index >= 0 && index < subTabs.length) ? subTabs[index] : null;
+    // console.log('Computed: activeSubTabTutorial', activeTab); // Debug
+    return activeTab;
+  });
+
+  // Obtiene el array de StepItem[] (los pasos) para la SUB-PESTAÑA activa
+  readonly currentStepItems: Signal<StepItem[]> = computed(() => {
+    const activeTab = this.activeSubTabTutorial();
+    const steps = (activeTab && activeTab.steps) ? activeTab.steps : [];
+    // console.log('Computed: currentStepItems (actual steps for active sub-tab)', steps); // Debug
     return steps;
   });
 
   // Obtiene el StepItem actual que debe mostrarse
-  readonly currentStepItem: Signal<StepItem | null> = computed(() => {
-    const steps = this.currentTutorialSteps();
+  readonly currentStepContent: Signal<StepItem | null> = computed(() => {
+    const steps = this.currentStepItems();
     const index = this.currentStepIndex();
     const item = (steps.length > 0 && index >= 0 && index < steps.length) ? steps[index] : null;
-    // console.log('Computed: currentStepItem', item, 'Index:', index, 'Total steps:', steps.length); // Debug
+    // console.log('Computed: currentStepContent', item); // Debug
     return item;
   });
 
-  // El número total de pasos para el tutorial activo
+  // El número total de pasos para la SUB-PESTAÑA activa
   readonly totalSteps: Signal<number> = computed(() => {
-    const total = this.currentTutorialSteps().length;
+    const total = this.currentStepItems().length;
     // console.log('Computed: totalSteps', total); // Debug
     return total;
   });
@@ -114,16 +131,27 @@ export class TutorialsPageComponent implements OnInit {
   }
 
   /**
-   * Establece el tutorial principal activo y reinicia el índice del paso.
-   * @param id El ID del tutorial a activar.
+   * Establece el tutorial principal activo (desde el sidebar) y reinicia todo el estado de sub-pestañas y pasos.
+   * @param id El ID del tutorial principal a activar.
    */
   setActiveTutorial(id: string) {
-    // console.log('Action: setActiveTutorial', id); // Debug
+    console.log('Action: setActiveTutorial (main tab)', id); // Debug
     this._activeTutorialId.set(id);
-    this._currentStepIndex.set(0); // Siempre reiniciar el paso al cambiar de tutorial
+    this._activeSubTabTutorialIndex.set(0); // Resetear a la primera sub-pestaña
+    this._currentStepIndex.set(0); // Resetear a la primera paso
     if (this.sidebarOpen()) {
-        this.toggleSidebar(false); // Cierra el sidebar si está abierto en móvil
+        this.toggleSidebar(false);
     }
+  }
+
+  /**
+   * Selecciona una sub-pestaña específica dentro del tutorial principal activo.
+   * @param index El índice de la sub-pestaña a activar.
+   */
+  selectSubTab(index: number) {
+    console.log('Action: selectSubTab', index); // Debug
+    this._activeSubTabTutorialIndex.set(index);
+    this._currentStepIndex.set(0); // Resetear a la primera paso de la nueva sub-pestaña
   }
 
   /**
