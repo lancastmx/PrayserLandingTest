@@ -18,47 +18,24 @@ export const QuotesSteps: ITutorialTab[] = [
     title: 'Creación de Cotizaciones',
     icon: 'bx bx-receipt', // Icono para cotizaciones (ej: un recibo o documento)
     steps: [
+      
       {
         gifUrl: CotizacionTutorialGifs.botonAgregarCotizacion,
         title: 'Paso 1: Iniciar una Nueva Cotización',
         description: `
-          <p>Para comenzar a crear una nueva cotización en el sistema:</p>
-          <ol class="mt-2">
-            <li>En el menú principal, dirígete a la sección <strong>"Cotizaciones"</strong>.</li>
-            <li>En la esquina superior derecha de la pantalla de listado, haz clic en el botón verde <strong>“Agregar Cotizaciones”</strong>.</li>
-            <li>Esto te llevará al formulario de creación de la cotización.</li>
-          </ol>
+          <p>Tienes dos formas de comenzar a crear una nueva cotización:</p><ol class=\"mt-2\"><li><strong>Desde el menú lateral izquierdo:</strong> Navega a la sección <strong>\"Cotizaciones\"</strong> para ver el listado, y luego haz clic en el botón verde <strong>“Agregar Cotización”</strong>.</li><li><strong>Desde el acceso directo superior:</strong> Si prefieres ir directamente a la creación, puedes hacer clic en el botón <strong>“Cotizar”</strong> ubicado en la parte superior de la pantalla.</li></ol><p>Ambas opciones te llevarán al formulario para comenzar a construir tu nueva cotización.</p>
         `,
       },
       {
         gifUrl: CotizacionTutorialGifs.llenarDatosContacto,
         title: 'Paso 2: Rellenar Datos Básicos y de Contacto',
         description: `
-          <p>En el formulario de nueva cotización, completa la siguiente información:</p>
-          <div class="mt-3">
-            <h5>1. Datos del Cliente</h5>
-            <ul>
-              <li><strong>Buscar/Seleccionar Cliente:</strong> Utiliza el campo de búsqueda o el desplegable para asociar esta cotización a un cliente existente en tu base de datos. Si el cliente ya está registrado, algunos campos se rellenarán automáticamente.</li>
-            </ul>
-          </div>
-          <div class="mt-3">
-            <h5>2. Información de Contacto</h5>
-            <ul>
-              <li><strong>Nombre de Contacto*:</strong> Ingresa el nombre de la persona a quien va dirigida la cotización (campo obligatorio).</li>
-              <li><strong>Número de Teléfono:</strong> Proporciona un número de contacto, incluyendo el código de país.</li>
-              <li><strong>Email de Contacto:</strong> Introduce la dirección de correo electrónico del contacto.</li>
-            </ul>
-          </div>
-          <div class="mt-3">
-            <h5>3. Datos Generales y Observaciones</h5>
-            <ul>
-              <li><strong>Formato*:</strong> Selecciona el formato deseado para la cotización (campo obligatorio).</li>
-              <li><strong>Etiquetas:</strong> Opcionalmente, asigna etiquetas para organizar y filtrar tus cotizaciones.</li>
-              <li><strong>Observaciones:</strong> Añade cualquier nota o comentario relevante para esta cotización.</li>
-            </ul>
-          </div>
+          <div>
+  <p>En el formulario de nueva cotización, completa la siguiente información:</p><div class="mt-3"><h5>1. Datos del Cliente</h5><ul><li><strong>Buscar/Seleccionar Cliente:</strong> Utiliza el campo de búsqueda o el desplegable para asociar esta cotización a un cliente existente en tu base de datos. Si el cliente ya está registrado, algunos campos se rellenarán automáticamente.</li></ul></div><div class="mt-3"><h5>2. Información de Contacto</h5><ul><li><strong class="text-obligatorio">Nombre de Contacto*:</strong> Ingresa el nombre de la persona a quien va dirigida la cotización (campo obligatorio).</li><li><strong>Número de Teléfono:</strong> Proporciona un número de contacto, incluyendo el código de país.</li><li><strong>Email de Contacto:</strong> Introduce la dirección de correo electrónico del contacto.</li></ul></div><div class="mt-3"><h5>3. Datos Generales y Observaciones</h5><ul><li><strong class="text-obligatorio">Formato*:</strong> Selecciona el formato deseado para la cotización (campo obligatorio).</li><li><strong class="text-opcional">Etiquetas:</strong> Opcionalmente, asigna etiquetas para organizar y filtrar tus cotizaciones.</li><li><strong class="text-opcional">Observaciones:</strong> Añade cualquier nota o comentario relevante para esta cotización.</li></ul></div>
+</div>
         `,
       },
+      
       {
         gifUrl: CotizacionTutorialGifs.confirmarCreacion,
         title: 'Paso 3: Guardar Datos Iniciales de la Cotización',

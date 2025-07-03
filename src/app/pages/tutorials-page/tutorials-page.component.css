@@ -1,0 +1,7 @@
+.text-obligatorio {
+  color: #D28E8E; /* Rojo para campos obligatorios */
+}
+
+.text-opcional {
+  color: #aada91; /* Verde para campos opcionales */
+}

@@ -19,3 +19,17 @@ body {
   padding: 0;
   box-sizing: border-box;
 }
+.text-obligatorio {
+  color: #D28E8E; /* Rojo para campos obligatorios */
+}
+
+.text-opcional {
+  color: #aada91; /* Verde para campos opcionales */
+}
+.text-obligatorio {
+  color: var(--color-obligatorio); /* Asegúrate de que --color-obligatorio esté definido en :root */
+}
+
+.text-opcional {
+  color: var(--color-opcional); /* Asegúrate de que --color-opcional esté definido en :root */
+}

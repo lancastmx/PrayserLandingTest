@@ -23,13 +23,13 @@ export class TutorialsPageComponent implements OnInit {
   readonly tutorials: { id: string; title: string; icon: string; data: ITutorialTab[] }[] = [
     {
       id: 'crear-quote',
-      title: 'Crear Quote',
+      title: 'Crear Cotización',
       icon: 'bx bx-receipt',
       data: QuotesSteps, // Asumo que QuotesSteps también es un ITutorialTab[] (probablemente con un solo elemento)
     },
     {
       id: 'dar-alta-producto',
-      title: 'Dar de Alta Producto',
+      title: 'Agregar Producto | Servicio',
       icon: 'bx bx-package',
       data: ProductsSteps, // ESTE ES EL QUE TIENE MÚLTIPLES ELEMENTOS (Carga Manual, Carga Masiva)
     },
