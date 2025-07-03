@@ -51,36 +51,35 @@ export const ProductsSteps: ITutorialTab[] = [
           <div class="mt-3">
             <h5>1. Información General</h5>
             <ul>
+              <li><strong>Tipo:</strong> Indica si es un <strong>"Producto"</strong> o <strong>"Servicio"</strong> 
               <li><strong>Nombre:</strong> El nombre principal del producto.</li>
-              <li><strong>Código (SKU):</strong> Un identificador único para tu control.</li>
-              <li><strong>Descripción:</strong> Detalles y características del producto.</li>
-              <li><strong>Tipo:</strong> Indica si es un <strong>"Producto"</strong> o <strong>"Servicio"</strong> (¡escríbelo exactamente así!).</li>
+              <li><strong>Código:</strong> Un identificador único para tu control.</li>             
               <li><strong>Código SAT:</strong> Opcional, para temas fiscales (8 caracteres numéricos).</li>
-              <li><strong>Proveedor Asociado:</strong> Selecciona a tu proveedor principal.</li>
-            </ul>
-          </div>
-          <div class="mt-3">
-            <h5>2. Precios y Stock</h5>
-            <ul>
-              <li><strong>Precio de Venta:</strong> El precio al que ofrecerás tu producto a los clientes.</li>
-              <li><strong>Costo:</strong> El precio al que adquieres el producto (solo para tu control interno y obligatorio para el precio por defecto).</li>
-              <li><strong>Existencia Actual:</strong> La cantidad de unidades que tienes en tu inventario (se gestiona como un atributo dinámico).</li>
-            </ul>
-          </div>
-          <div class="mt-3">
-            <h5>3. Categorías y Atributos Dinámicos</h5>
-            <ul>
+              <li><strong>Proveedor Asociado:</strong> Selecciona a tu proveedor </li>
+              <li><strong>Descripción:</strong> Detalles y características del producto.</li>
               <li><strong>Categorías y Subcategorías:</strong> Organiza tu producto con etiquetas personalizadas.</li>
-              <li><strong>Atributos Dinámicos:</strong> Añade características especiales como color, tamaño, material, etc. (previamente configurados en el sistema).</li>
             </ul>
           </div>
           <div class="mt-3">
-            <h5>4. Imágenes y Archivos</h5>
+            <h5>2. Imágenes y Ficha técnica</h5>
             <ul>
               <li><strong>Imágenes:</strong> Sube fotos de tu producto (hasta 15 imágenes, proporción 1:1 recomendada).</li>
               <li><strong>Fichas Técnicas:</strong> Adjunta documentos o imágenes con especificaciones (hasta 5 fichas).</li>
             </ul>
           </div>
+          <div class="mt-3">
+            <h5>3. Precios</h5>
+            <ul>
+              <li><strong>Precio de Venta:</strong> El precio al que ofrecerás tu producto a los clientes.</li>
+              <li><strong>Costo:</strong> El precio al que adquieres el producto (solo para tu control interno y obligatorio para el precio por defecto).</li>
+            </ul>
+          </div>
+          <div class="mt-3">
+            <h5>4. Atributos Dinámicos</h5>
+            <ul>
+              <li><strong>Atributos Dinámicos:</strong> Añade características especiales como color, tamaño, material, etc. (previamente configurados en el sistema).</li>
+            </ul>
+          </div>       
           <div class="mt-3">
             <h5>5. Productos Relacionados</h5>
             <ul>
