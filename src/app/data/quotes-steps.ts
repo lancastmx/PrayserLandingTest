@@ -3,13 +3,17 @@ import { ITutorialTab } from './../core/interfaces/stepItem';
 const CotizacionTutorialGifs = {
   // Gifs representativos para cada paso (estos serían los que subirías a tus assets)
   botonAgregarCotizacion: 'assets/gifs/cotizaciones/agregar_cotizacion.gif', // Gif de la primera imagen
-  llenarDatosContacto: 'assets/gifs/cotizaciones/llenar_datos_contacto.gif', // Gif de la segunda imagen
-  confirmarCreacion: 'assets/gifs/cotizaciones/confirmar_creacion.gif', // Gif que muestra el guardado inicial
+  llenarDatosContacto: 'assets/gifs/cotizaciones/llenar_datos_contacto.gif',
+  confirmarCreacion: 'assets/gifs/cotizaciones/llenar_datos_contacto.gif', // Gif de la segunda imagen
+  // confirmarCreacion: 'assets/gifs/cotizaciones/confirmar_creacion.gif', // Gif que muestra el guardado inicial
   navegarAConceptos: 'assets/gifs/cotizaciones/navegar_a_conceptos.gif', // Gif de la tercera imagen, mostrando la navegación a Conceptos
-  abrirModalConceptos: 'assets/gifs/cotizaciones/abrir_modal_conceptos.gif', // Gif de la cuarta imagen, mostrando el click en "Nuevo Producto | Servicio"
+  // abrirModalConceptos: 'assets/gifs/cotizaciones/abrir_modal_conceptos.gif', // Gif de la cuarta imagen, mostrando el click en "Nuevo Producto | Servicio"
+  abrirModalConceptos: 'assets/gifs/cotizaciones/navegar_a_conceptos.gif',
+  // seleccionarYAgregarConcepto:'assets/gifs/cotizaciones/seleccionar_agregar_concepto.gif', // Gif de la quinta imagen, mostrando la selección y agregar
   seleccionarYAgregarConcepto:
-    'assets/gifs/cotizaciones/seleccionar_agregar_concepto.gif', // Gif de la quinta imagen, mostrando la selección y agregar
-  finalizarCotizacion: 'assets/gifs/cotizaciones/finalizar_cotizacion.gif', // Gif que muestra la cotización con conceptos y las opciones finales
+    'assets/gifs/cotizaciones/navegar_a_conceptos.gif',
+  // finalizarCotizacion: 'assets/gifs/cotizaciones/finalizar_cotizacion.gif', // Gif que muestra la cotización con conceptos y las opciones finales
+  finalizarCotizacion: 'assets/gifs/cotizaciones/navegar_a_conceptos.gif'
 };
 
 export const QuotesSteps: ITutorialTab[] = [

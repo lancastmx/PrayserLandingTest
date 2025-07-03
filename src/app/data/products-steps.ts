@@ -3,7 +3,7 @@ import { ITutorialTab } from './../core/interfaces/stepItem';
 
 const ProductTutorialGifs = {
   // Generales
-  productoServicio: 'assets/gifs/contactoNAP.gif',
+  productoServicio: 'assets/gifs/GIF-Carga-Producto.gif',
   nombreProducto: 'assets/gifs/datos-contacto.webp',
   claveProducto: 'assets/gifs/datos-contacto.webp',
   asignarProveedor: 'assets/gifs/datos-contacto.webp',
