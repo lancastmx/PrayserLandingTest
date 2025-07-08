@@ -15,7 +15,7 @@ export const QuotesSteps: ITutorialTab[] = [
   {
     id: 'creacion-cotizacion',
     title: 'Creación de Cotizaciones',
-    icon: 'bx bx-receipt', // Icono para cotizaciones (ej: un recibo o documento)
+    icon: 'bx bx-receipt', 
     steps: [
       {
         gifUrl: CotizacionTutorialGifs.botonAgregarCotizacion,
@@ -25,31 +25,35 @@ export const QuotesSteps: ITutorialTab[] = [
           <h6><strong>1. Inicia una Nueva Cotización:</strong></h6>
           <ul>
             <li class="mx-2">○ Desde el <strong>menú lateral izquierdo</strong>: Ve a <strong>Cotizaciones</strong> y haz clic en <strong>Agregar cotización</strong>.</li>
-            <li class="mx-2">○ Desde el <strong>acceso directo</strong>: Pulsa el botón <strong>Cotizar<strong> en la <strong>barra superior derecha.</strong></li>
+            <li class="mx-2">○ Desde el <strong>acceso directo</strong>: Pulsa el botón <strong>Cotizar</strong> en la <strong>barra superior derecha.</strong>.</li>
           </ul>
           <p><em>*Cualquiera de las dos opciones te abrirá el formulario.</em></p>
 
-          <h6><strong>2. Rellena Datos Básicos y de Contacto:</strong></h6>
-          <p>En el formulario de “nueva cotización”, ingresa la siguiente información:</p>
+          <h6>2. Formulario de <strong>nueva cotización</strong></strong></h6>
+          <p class="mt-2">Opcionalmente, selecciona un cliente existente o crea uno nuevo.</p>
           <ul>
           <ol class="mx-2">
-            <p class="mx-2">○ Buscar</p>
-            <li class="mx-2">○ Selecciona un cliente previamente registrado existente.</li>
+            
+            <li class="mx-2">○  Selecciona un cliente previamente registrado.</li>
             <li class="mx-2">○ Si el cliente no existe, haz clic en <strong> boton + </strong> y completa los campos requeridos.</li>
           </ol>
             <ol class="mx-2">
-              <p>○ Información de contacto nuevo:</p>
-              <li class="mx-2"><strong> Nombre*<strong></li>
-              <li class="mx-2"><strong>Teléfono<strong></li>
-              <li class="mx-2"><strong>Correo electrónico<strong></li>
+              <p>Crea nuevo contacto:</p>
+              <li class="mx-2"><strong>○  Nombre*</strong></li>
+              <li class="mx-2"><strong>○  Teléfono</strong></li>
+              <li class="mx-2"><strong>○  Correo electrónico</strong></li>
             </ol>
           </ul>
+
+          <p class="mt-2">3. Completa los Datos de la Cotización.<strong>(Opcional)</strong></p>
           <ol>
-           <li class="mx-2">○ **Datos generales y observaciones:** Selecciona el **Formato***, añade **Etiquetas o Tags** y **Observaciones**.</li>
+           <li class="mx-2">○ Selecciona el Formato de cotización</li>
+           <li class="mx-2">○ Añade Etiquetas o Tags</li>
+           <li class="mx-2">○ Selecciona o agrega Observaciones.</li>
           </ol>
-          <p class="mt-2">**3. Guarda los Datos Iniciales:** Haz clic en el botón verde **Guardar**.</p>
-          <p class="mt-2">**4. Confirmación y Redirección:** El sistema asignará un **folio único** y te redirigirá a la pantalla de edición.</p>
-          <p><em>*Tu cotización estará registrada y lista para el siguiente paso.</em></p>
+          <p class="mt-4">4. Haz clic en el botón verde <strong>Guardar.</strong></p>
+          <p class="mt-2">5. Confirmación y Redirección:El sistema asignará un folio único y te redirigirá a la pantalla de edición.</p>
+          <p><em>Tu cotización estará registrada y lista para el siguiente paso.</em></p>
         `,
       },
       {
