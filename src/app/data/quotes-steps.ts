@@ -1,5 +1,20 @@
 import { ITutorialTab } from './../core/interfaces/stepItem';
 
+// const CotizacionTutorialGifs = {
+//   // Gifs representativos para cada paso (estos serían los que subirías a tus assets)
+//   botonAgregarCotizacion: 'assets/gifs/cotizaciones/agregar_cotizacion.gif', // Gif de la primera imagen
+//   llenarDatosContacto: 'assets/gifs/cotizaciones/llenar_datos_contacto.gif',
+//   confirmarCreacion: 'assets/gifs/cotizaciones/llenar_datos_contacto.gif', // Gif de la segunda imagen
+//   // confirmarCreacion: 'assets/gifs/cotizaciones/confirmar_creacion.gif', // Gif que muestra el guardado inicial
+//   navegarAConceptos: 'assets/gifs/cotizaciones/navegar_a_conceptos.gif', // Gif de la tercera imagen, mostrando la navegación a Conceptos
+//   // abrirModalConceptos: 'assets/gifs/cotizaciones/abrir_modal_conceptos.gif', // Gif de la cuarta imagen, mostrando el click en "Nuevo Producto | Servicio"
+//   abrirModalConceptos: 'assets/gifs/cotizaciones/navegar_a_conceptos.gif',
+//   // seleccionarYAgregarConcepto:'assets/gifs/cotizaciones/seleccionar_agregar_concepto.gif', // Gif de la quinta imagen, mostrando la selección y agregar
+//   seleccionarYAgregarConcepto:
+//     'assets/gifs/cotizaciones/navegar_a_conceptos.gif',
+//   // finalizarCotizacion: 'assets/gifs/cotizaciones/finalizar_cotizacion.gif', // Gif que muestra la cotización con conceptos y las opciones finales
+//   finalizarCotizacion: 'assets/gifs/cotizaciones/navegar_a_conceptos.gif'
+// };
 const CotizacionTutorialGifs = {
   // Gifs representativos para cada paso (estos serían los que subirías a tus assets)
   botonAgregarCotizacion: 'assets/gifs/cotizaciones/agregar_cotizacion.gif', // Gif de la primera imagen
@@ -22,88 +37,176 @@ export const QuotesSteps: ITutorialTab[] = [
     title: 'Creación de Cotizaciones',
     icon: 'bx bx-receipt', // Icono para cotizaciones (ej: un recibo o documento)
     steps: [
-      
       {
         gifUrl: CotizacionTutorialGifs.botonAgregarCotizacion,
-        title: 'Paso 1: Iniciar una Nueva Cotización',
+        title: 'Paso 1: Crear una nueva cotización',
         description: `
-          <p>Tienes dos formas de comenzar a crear una nueva cotización:</p><ol class=\"mt-2\"><li><strong>Desde el menú lateral izquierdo:</strong> Navega a la sección <strong>\"Cotizaciones\"</strong> para ver el listado, y luego haz clic en el botón verde <strong>“Agregar Cotización”</strong>.</li><li><strong>Desde el acceso directo superior:</strong> Si prefieres ir directamente a la creación, puedes hacer clic en el botón <strong>“Cotizar”</strong> ubicado en la parte superior de la pantalla.</li></ol><p>Ambas opciones te llevarán al formulario para comenzar a construir tu nueva cotización.</p>
+          <p>Tienes dos maneras de iniciar la cotización:</p>
+          <ol class="mt-2">
+            <li>1. Desde el menú lateral izquierdo:</li>
+          </ol>
+          <ul class="mt-2">
+            <li class="mx-2">○ Ve a <strong>Cotizaciones</strong></li>
+            <li class="mx-2">○ Haz clic en el botón verde <strong>Agregar cotización</strong></li>
+          </ul>
+          <ol class="mt-2">
+            <li>2. Desde el acceso directo:</li>
+          </ol>
+          <ul class="mt-2">
+            <li class="mx-2">○ <strong>Pulsa el botón Cotizar</strong> en la barra superior derecha</li>
+          </ul>
+          <p class="mt-2"><em>*Cualquiera de las dos opciones te abrirá el formulario para comenzar tu nueva cotización.</em></p>
         `,
       },
       {
         gifUrl: CotizacionTutorialGifs.llenarDatosContacto,
-        title: 'Paso 2: Rellenar Datos Básicos y de Contacto',
+        title: 'Paso 2: Llenar los datos básicos y de contacto',
         description: `
-          <div>
-  <p>En el formulario de nueva cotización, completa la siguiente información:</p><div class="mt-3"><h5>1. Datos del Cliente</h5><ul><li><strong>Buscar/Seleccionar Cliente:</strong> Utiliza el campo de búsqueda o el desplegable para asociar esta cotización a un cliente existente en tu base de datos. Si el cliente ya está registrado, algunos campos se rellenarán automáticamente.</li></ul></div><div class="mt-3"><h5>2. Información de Contacto</h5><ul><li><strong class="text-obligatorio">Nombre de Contacto*:</strong> Ingresa el nombre de la persona a quien va dirigida la cotización (campo obligatorio).</li><li><strong>Número de Teléfono:</strong> Proporciona un número de contacto, incluyendo el código de país.</li><li><strong>Email de Contacto:</strong> Introduce la dirección de correo electrónico del contacto.</li></ul></div><div class="mt-3"><h5>3. Datos Generales y Observaciones</h5><ul><li><strong class="text-obligatorio">Formato*:</strong> Selecciona el formato deseado para la cotización (campo obligatorio).</li><li><strong class="text-opcional">Etiquetas:</strong> Opcionalmente, asigna etiquetas para organizar y filtrar tus cotizaciones.</li><li><strong class="text-opcional">Observaciones:</strong> Añade cualquier nota o comentario relevante para esta cotización.</li></ul></div>
-</div>
-        `,
+          <p>En el formulario de “nueva cotización”, ingresa la información siguiente:</p>
+          <h5 class="mt-2">1. <strong>Datos del cliente recurrente</strong></h5>
+          <ul>
+            <li class="mx-2">○ <strong>Buscar/seleccionar cliente:</strong> usa el buscador o el desplegable para asociar la cotización a un cliente existente.</li>
+            <li class="mx-2">○ <strong>Si el cliente ya está dado de alta:</strong> te aparecerá una ficha con los datos guardados anteriormente.</li>
+            <li class="mx-2">○ <strong>Seleccionar:</strong> Da clic en el botón verde.</li>
+            <li class="mx-2">○ Puedes modificar o agregar datos u observaciones. En caso de que uno o más de los campos tenga un error la plataforma no te dejará guardar.</li>
+          </ul>
+          <h5 class="mt-2">2. <strong>Información de contacto o contacto nuevo</strong></h5>
+          <ul>
+            <li class="mx-2">○ <strong>Nombre de contacto*:</strong> Escribe el nombre de la persona a quien va dirigida la cotización.</li>
+            <li class="mx-2">○ <strong>Teléfono:</strong> Incluye el número con código de país.</li>
+            <li class="mx-2">○ <strong>Correo electrónico:</strong> Introduce la dirección de email del contacto.</li>
+          </ul>
+          <h5 class="mt-2">3. <strong>Datos generales y observaciones</strong></h5>
+          <ul>
+            <li class="mx-2">○ <strong>Formato*:</strong> selecciona el diseño deseado para la cotización.</li>
+            <li class="mx-2">○ <strong>Etiquetas o Tags:</strong> opción para añadir etiquetas que ayuden a organizar y filtrar tus cotizaciones.</li>
+            <li class="mx-2">○ <strong>Observaciones:</strong> cualquier nota o comentario relevante.</li>
+          </ul>
+          <p class="mt-2"><strong>Dar clic en el botón verde Guardar.</strong></p>
+          <p class="mt-2"><em>* Los campos marcados con asterisco son obligatorios.</em></p>
+        `
       },
-      
       {
         gifUrl: CotizacionTutorialGifs.confirmarCreacion,
-        title: 'Paso 3: Guardar Datos Iniciales de la Cotización',
+        title: 'Paso 3: Guardar la cotización',
         description: `
-          <p>Una vez que hayas completado los campos básicos:</p>
+          <p class="mt-2><strong>Una vez completados los datos básicos:</strong></p>
           <ol class="mt-2">
-            <li>En la parte inferior del formulario, haz clic en el botón verde <strong>“Guardar”</strong>.</li>
-            <li>Esto creará la cotización en el sistema y se le asignará un número de folio único (ej. "020725-Y1JJ3").</li>
-            <li>Serás redirigido automáticamente a la vista de edición de la cotización recién creada.</li>
+            <li class="mx-2">○ Desplázate hasta el final del formulario y haz clic en el <strong>botón verde Guardar.</strong></li>
+            <li class="mx-2">○ <strong>El sistema creará la cotización y le asignará automáticamente un folio único</strong> (por ejemplo, “020725-Y1JJ3”).</li>
+            <li class="mx-2">○ <strong>Serás redirigido automáticamente a la pantalla de edición</strong> de la cotización recién creada.</li>
           </ol>
-        `,
+          <p class="mt-2><em>Así tendrás tu cotización registrada y lista para continuar con los siguientes pasos.</em></p>
+        `
       },
       {
         gifUrl: CotizacionTutorialGifs.navegarAConceptos,
-        title: 'Paso 4: Añadir Productos o Servicios (Conceptos)',
+        title: 'Paso 4: Agregar productos o servicios (Conceptos)',
         description: `
-          <p>Ahora que la cotización ha sido creada, es momento de agregar los ítems que la componen:</p>
+          <p class="mt-2><strong>Ahora que la cotización está creada, añade los conceptos que la componen:</strong></p>
           <ol class="mt-2">
-            <li>En la barra de navegación horizontal superior, asegúrate de estar en la pestaña <strong>"Oportunidad"</strong> (generalmente es la predeterminada al editar).</li>
-            <li>En el submenú vertical de la izquierda, selecciona la opción <strong>"Conceptos"</strong>.</li>
-            <li>En el panel central, verás que aún no hay conceptos agregados.</li>
+            <li class="mx-2">○ <strong>En la barra de navegación superior, asegúrate de estar en Oportunidad</strong> (se abre por defecto al editar).</li>
+            <li class="mx-2">○ <strong>Abre la sección Conceptos</strong> (ícono del carrito de compra) en el menú lateral izquierdo.</li>
+            <li class="mx-2">○ <strong>Revisa el panel de conceptos</strong>: al principio, estará vacío y podrás comenzar a añadir productos o servicios.</li>
           </ol>
-        `,
+          <p class="mt-2><em>Los siguientes pasos te guiarán para incorporar cada Concepto a tu cotización.</em></p>
+        `
       },
       {
         gifUrl: CotizacionTutorialGifs.abrirModalConceptos,
-        title: 'Paso 5: Seleccionar Conceptos del Catálogo',
+        title: 'Paso 5: Seleccionar conceptos del catálogo',
         description: `
-          <p>Para buscar y añadir los productos o servicios:</p>
+          <p><strong>Para buscar y añadir productos o servicios a tu cotización:</strong></p>
           <ol class="mt-2">
-            <li>Haz clic en el botón verde <strong>“Nuevo Producto | Servicio”</strong> o <strong>“Explorar Conceptos”</strong> ubicado en la parte superior del panel de conceptos.</li>
-            <li>Se abrirá una ventana emergente (modal) titulada <strong>"SELECCIONAR CONCEPTO"</strong>.</li>
-            <li>Utiliza la barra de <strong>"Buscar Concepto"</strong> para encontrar rápidamente el ítem que deseas.</li>
+            <li class="mx-2">1. Haz clic en el botón verde <strong>Explorar Conceptos </strong>en la parte superior del panel de conceptos.</li>
+            <li class="mx-2">2. Aparecerá la ventana emergente en donde <strong>Seleccionas el concepto. </strong></li>
+            <li class="mx-2">3. <strong>Usa el campo Buscar concepto</strong> para localizar rápidamente lo que necesitas.</li>
+            <li class="mx-2">4. <strong>Haz clic en el botón verde +</strong> para añadirlo.
+              <ul class="mt-2">
+                <li class="mx-2">○ <strong>El producto se moverá al lado derecho</strong>, donde podrás modificar cantidad.</li>
+              </ul>
+            </li>
+            <li class="mx-2">○ <strong>Finalizar:</strong>
+              <ul class="mt-2">
+                <li class="mx-2">○ <strong>Haz clic en Aceptar</strong> para confirmar.</li>
+                <li class="mx-2">○ <strong>Los conceptos seleccionados aparecerán listados</strong> en la sección Conceptos.</li>
+              </ul>
+            </li>
           </ol>
-        `,
+        `
       },
-      {
-        gifUrl: CotizacionTutorialGifs.seleccionarYAgregarConcepto,
-        title: 'Paso 6: Agregar Conceptos a la Cotización',
-        description: `
-          <p>Dentro del modal "SELECCIONAR CONCEPTO":</p>
-          <ol class="mt-2">
-            <li>Una vez que encuentres el producto o servicio en la lista de la izquierda, haz clic en el botón verde <strong>“Agregar”</strong> junto a él.</li>
-            <li>El concepto se moverá al panel derecho del modal, confirmando que ha sido seleccionado para la cotización.</li>
-            <li>Repite este paso para todos los productos y/o servicios que desees incluir.</li>
-            <li>Cuando hayas terminado de seleccionar, haz clic en el botón verde <strong>“Aceptar”</strong> en la parte inferior derecha del modal.</li>
-            <li>Los conceptos seleccionados ahora aparecerán listados en la sección "Conceptos" de tu cotización.</li>
-          </ol>
-        `,
-      },
+      // {
+      //   gifUrl: CotizacionTutorialGifs.seleccionarYAgregarConcepto,
+      //   title: 'Paso 6: Agregar Conceptos a la Cotización',
+      //   description: `
+      //     <h4>Paso 6: Agregar Conceptos a la Cotización</h4>
+      //     <p><strong>Ya que estás en la ventana para Seleccionar concepto:</strong></p>
+      //     <h5>1. <strong>Agregar producto o servicio</strong></h5>
+      //     <ul>
+      //       <li>○ <strong>Ubica el producto</strong> en la lista izquierda.</li>
+      //       <li>○ <strong>Haz clic en Agregar</strong>.</li>
+      //     </ul>
+      //     <h5>2. <strong>Confirmar selección</strong></h5>
+      //     <ul>
+      //       <li>○ <strong>El producto se moverá a la derecha</strong>.</li>
+      //       <li>○ <strong>Repite el proceso</strong> para cada producto o servicio.</li>
+      //     </ul>
+      //     <h5>3. <strong>Finalizar</strong></h5>
+      //     <ul>
+      //       <li>○ <strong>Haz clic en Aceptar</strong> para cerrar la ventana.</li>
+      //     </ul>
+      //     <p>Los conceptos elegidos aparecerán listados en la sección Conceptos de tu cotización.</p>
+      //   `
+      // },
       {
         gifUrl: CotizacionTutorialGifs.finalizarCotizacion,
-        title: 'Paso 7: Ajustes Finales y Guardar Cotización',
+        title: 'Paso 6: Realizar ajustes finales y guardar la cotización',
         description: `
-          <p>Con los conceptos ya agregados, puedes realizar los últimos ajustes:</p>
+          <p><strong>Con los conceptos ya incorporados, completa estos pasos:</strong></p>
           <ol class="mt-2">
-            <li><strong>Ajustar Cantidades/Precios:</strong> Si es necesario, edita las cantidades de los productos o sus precios directamente en la tabla de conceptos (aunque no se ve en los Gifs, es una funcionalidad esperada).</li>
-            <li><strong>Aplicar Impuestos:</strong> Haz clic en el botón <strong>"Aplicar impuestos"</strong> si corresponde.</li>
-            <li><strong>Revisar Montos:</strong> Verifica el "Monto Total", "Subtotal", "Impuestos" y "Utilidad" en la barra inferior.</li>
-            <li><strong>Guardar Cambios:</strong> Para registrar todas las modificaciones, haz clic en el botón verde <strong>“Guardar”</strong> en la parte inferior de la pantalla.</li>
-            <li><strong>Acciones Adicionales:</strong> Utiliza las opciones como <strong>"Generar PDF"</strong>, <strong>"Compartir"</strong>, <strong>"Priorizar"</strong> o <strong>"Duplicar"</strong> según tus necesidades.</li>
+            <li><strong>○ Ajustar cantidades y precios:</strong>
+              <ul>
+                <li>○ <strong>Modifica directamente las cantidades o precios</strong> en la tabla de conceptos si es necesario.</li>
+              </ul>
+            </li>
+            <li><strong>○ Aplicar impuestos:</strong>
+              <ul>
+                <li>○ <strong>Haz clic en Aplicar impuestos</strong> si corresponde por normativa o cliente.</li>
+              </ul>
+            </li>
+            <li><strong>○ Revisar montos:</strong>
+              <ul>
+                <li>○ <strong>Verifica los valores mostrados</strong> en la barra inferior:</li>
+                <ul>
+                  <li>Subtotal</li>
+                  <li>Impuestos</li>
+                  <li>Monto total</li>
+                  <li>Utilidad</li>
+                </ul>
+              </ul>
+            </li>
+            <li><strong>○ Guardar cambios:</strong>
+              <ul>
+                <li>○ <strong>Haz clic en Guardar</strong> en la parte inferior para registrar todo.</li>
+              </ul>
+            </li>
+            <li><strong>○ Más opciones:</strong>
+              <ul>
+                <li>○ <strong>Usa las funciones adicionales:</strong></li>
+                <ul>
+                  <li>Generar PDF</li>
+                  <li>Compartir</li>
+                  <li>Priorizar</li>
+                  <li>Duplicar</li>
+                </ul>
+              </ul>
+            </li>
           </ol>
-        `,
-      },
-    ],
-  },
+          <p>Con estos pasos, tu cotización estará lista para enviarse o compartirse.</p>
+        `
+      }
+    ]
+  }
 ];
+
+

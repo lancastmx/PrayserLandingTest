@@ -1,13 +1,23 @@
 import { ITutorialTab } from '../core/interfaces/stepItem';
+// const FormatosTutorialGifs = {
+//   // Gifs representativos para cada paso (tendrías que crear estos assets)
+//   accederFormatos: 'assets/gifs/datos-contacto.webp', // Gif de la primera imagen
+//   botonAgregarFormatos: 'assets/gifs/formatos/boton_agregar_formatos.gif', // Gif de la primera imagen
+//   seleccionarPlantilla: 'assets/gifs/formatos/seleccionar_plantilla.gif', // Gif de la segunda imagen (modal)
+//   configurarInformacion: 'assets/gifs/formatos/configurar_informacion.gif', // Gif de la tercera imagen (pestaña Información)
+//   configurarMultimedia: 'assets/gifs/formatos/configurar_multimedia.gif', // Gif de la cuarta imagen (pestaña Multimedia)
+//   configurarAvanzado: 'assets/gifs/formatos/configurar_avanzado.gif', // Gif de la quinta imagen (pestaña Avanzado)
+//   guardarFormato: 'assets/gifs/formatos/guardar_formato.gif', // Gif mostrando el click en Guardar
+// }; /Users/angelcastillo/POC/prayser-landing-test/src/assets/gifs/formatos/ejemploformato.gif
 const FormatosTutorialGifs = {
   // Gifs representativos para cada paso (tendrías que crear estos assets)
-  accederFormatos: 'assets/gifs/datos-contacto.webp', // Gif de la primera imagen
-  botonAgregarFormatos: 'assets/gifs/formatos/boton_agregar_formatos.gif', // Gif de la primera imagen
-  seleccionarPlantilla: 'assets/gifs/formatos/seleccionar_plantilla.gif', // Gif de la segunda imagen (modal)
-  configurarInformacion: 'assets/gifs/formatos/configurar_informacion.gif', // Gif de la tercera imagen (pestaña Información)
-  configurarMultimedia: 'assets/gifs/formatos/configurar_multimedia.gif', // Gif de la cuarta imagen (pestaña Multimedia)
-  configurarAvanzado: 'assets/gifs/formatos/configurar_avanzado.gif', // Gif de la quinta imagen (pestaña Avanzado)
-  guardarFormato: 'assets/gifs/formatos/guardar_formato.gif', // Gif mostrando el click en Guardar
+  accederFormatos: 'assets/gifs/formatos/ejemploformato.gif', // Gif de la primera imagen
+  botonAgregarFormatos: 'assets/gifs/formatos/ejemploformato.gif', // Gif de la primera imagen
+  seleccionarPlantilla: 'assets/gifs/formatos/ejemploformato.gif', // Gif de la segunda imagen (modal)
+  configurarInformacion: 'assets/gifs/formatos/ejemploformato.gif', // Gif de la tercera imagen (pestaña Información)
+  configurarMultimedia: 'assets/gifs/formatos/ejemploformato.gif', // Gif de la cuarta imagen (pestaña Multimedia)
+  configurarAvanzado: 'assets/gifs/formatos/ejemploformato.gif', // Gif de la quinta imagen (pestaña Avanzado)
+  guardarFormato: 'assets/gifs/formatos/ejemploformato.gif', // Gif mostrando el click en Guardar
 };
 
 export const FormatosSteps: ITutorialTab[] = [
