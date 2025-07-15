@@ -133,7 +133,7 @@ export const ProductsSteps: ITutorialTab[] = [
             <p><strong>¡Muy Importante!:</strong> Evita borrar o cambiar los nombres de las columnas en la plantilla. El sistema los necesita exactamente así.</p>
           </div>
           <div class="mt-3">
-            <h5>Campos Importantes (si aplica):</h5>
+            <h5>Campos Importantes (si aplica):</h5
             <ul>
               <li><strong>Atributos Dinámicos:</strong> Si has configurado características especiales (ej. "Inventario", "Color"), rellena sus valores.</li>
               <li><strong>Imágenes y Fichas Técnicas:</strong> Proporciona URLs públicas (¡no de Google Drive!). <strong>Copia solo el texto de la URL, no como un enlace clicable</strong>, para evitar que el sistema no pueda leerla.</li>

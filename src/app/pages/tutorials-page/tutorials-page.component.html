@@ -115,22 +115,22 @@
     </main>
   </div>
 </div>
-<!-- Botón “hamburger” sólo móvil -->
-<!-- <button
-  class="mobile-toggle md:hidden"
+
+
+<!-- Cambia esto: -->
+<!-- <div class="fixed bottom-4 right-4 z-50 block md:hidden"> -->
+
+<!-- Por esto: -->
+<div class="fixed top-4 right-4 z-50 block md:hidden">
+  <button
   (click)="toggleSidebar()"
-  aria-label="Abrir/Cerrar menú"
+  class="fixed top-4 right-4 z-50 block md:hidden
+         w-12 h-12 flex items-center justify-center
+         bg-[#124734] hover:bg-[#0f3d2c]
+         text-white rounded-full shadow-lg transition"
+  aria-label="Abrir menú"
 >
   <i class="fas fa-bars"></i>
-</button> -->
-
-<!-- Encájalo justo después del </aside> -->
-<div class="fixed bottom-4 right-4 z-50 block md:hidden">
-  <button
-    (click)="toggleSidebar()"
-    class="mobile-toggle md:hidden"
-    aria-label="Abrir/Cerrar menú"
-  >
-    <i class="fas fa-bars"></i>
-  </button>
+</button>
 </div>
+
