@@ -5,3 +5,40 @@
 .text-opcional {
   color: #aada91; /* Verde para campos opcionales */
 }
+/* botón flotante sólo en móvil */
+.mobile-toggle {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  z-index: 50;            /* por encima de todo */
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: theme('colors.primary.600'); /* o tu color */
+  /* color: white; */
+  border: none;
+  border-radius: 9999px;   /* fully rounded */
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  transition: background-color .2s;
+}
+.mobile-toggle:hover {
+  background-color: theme('colors.primary.700');
+}
+
+/* por si no usas Tailwind para el aside */
+.sidebar {
+  /* ya pusiste transform en html; aquí reforzamos la transición */
+  transition: transform .3s ease-in-out;
+}
+
+/* estado cerrado por defecto en móvil */
+@media (max-width: 767px) {
+  .sidebar {
+    transform: translateX(-100%);
+  }
+  .sidebar.translate-x-0 {
+    transform: translateX(0) !important;
+  }
+}

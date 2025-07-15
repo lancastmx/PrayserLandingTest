@@ -5,6 +5,7 @@
     [class.transform]="!sidebarOpen()"
     [class.-translate-x-full]="!sidebarOpen()"
   >
+  
 
     <nav class="flex-1 overflow-y-auto text-sm">
       <ul>
@@ -114,3 +115,12 @@
     </main>
   </div>
 </div>
+<!-- Botón “hamburger” sólo móvil -->
+<button
+  class="mobile-toggle md:hidden"
+  (click)="toggleSidebar()"
+  aria-label="Abrir/Cerrar menú"
+>
+  <i class="fas fa-bars"></i>
+</button>
+
