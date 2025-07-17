@@ -24,6 +24,8 @@ const ProductTutorialGifs = {
   buscarRelacionado: 'assets/gifs/datos-contacto.webp',
   configurarRelacion: 'assets/gifs/products/configurar_relacion.gif',
   agregarOpcionales: 'assets/gifs/products/agregar_opcionales.gif',
+  // Carga Masiva prayser-landing-test/src/assets/gifs/cargaMasiva/descargar_plantilla.gif
+  descargarPlantilla: 'assets/gifs/cargaMasiva/descargar_plantilla.gif',
 };
 
 export const ProductsSteps: ITutorialTab[] = [
@@ -107,7 +109,7 @@ export const ProductsSteps: ITutorialTab[] = [
     icon: 'bx bx-upload', // Icono para carga masiva
     steps: [
       {
-        gifUrl: ProductTutorialGifs.productoServicio,
+        gifUrl: ProductTutorialGifs.descargarPlantilla,
         title: 'Paso 1: Descargar Plantilla',
         description: `
           <p>Esta opción es ideal si necesitas subir muchos productos a la vez.</p>
