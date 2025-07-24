@@ -28,7 +28,7 @@
   </picture>
 
   <nav class="hidden lg:flex items-center space-x-6">
-    <!-- <a
+    <a
       routerLink="/"
       class="text-gray-600 hover:text-[var(--prayser-green)] transition duration-200"
       >Home</a
@@ -52,15 +52,20 @@
       routerLink="/analisis"
       class="text-gray-600 hover:text-[var(--prayser-green)] transition duration-200"
       >Analisis</a
-    > -->
+    >
     <a
-      routerLink="/tutorials"
+      routerLink="/tutoriales"
       class="text-gray-600 hover:text-[var(--prayser-green)] transition duration-200"
       >Tutoriales</a
     >
+     <a
+      routerLink="/landing-pages"
+      class="text-gray-600 hover:text-[var(--prayser-green)] transition duration-200"
+      >landing-pages</a
+    >
   </nav>
 
-  <!-- <div class="hidden lg:flex items-center space-x-4">
+  <div class="hidden lg:flex items-center space-x-4">
     <a
       href="#"
       class="text-gray-600 hover:text-[var(--prayser-green)] transition duration-200"
@@ -72,9 +77,9 @@
     >
       Iniciar Sesión
     </a>
-  </div> -->
+  </div>
 
-  <!-- <button
+ <button
     class="lg:hidden p-2 text-gray-700 hover:text-[var(--prayser-green)] focus:outline-none focus:ring-2 focus:ring-[var(--prayser-green)] rounded-md"
     [attr.aria-label]="isMobileMenuOpen ? 'Cerrar menú' : 'Abrir menú'"
     [attr.aria-expanded]="isMobileMenuOpen"
@@ -110,7 +115,7 @@
         d="M6 18L18 6M6 6l12 12"
       ></path>
     </svg>
-  </button> -->
+  </button> 
 </header>
 
 <aside
@@ -177,7 +182,13 @@
       >Analisis</a
     >
     <a
-      routerLink="/tutorials"
+      routerLink="/tutoriales"
+      class="block py-2 px-3 rounded-md hover:bg-emerald-600"
+      (click)="closeMobileMenu()"
+      >tutorials</a
+    >
+    <a
+      routerLink="/landing-pages"
       class="block py-2 px-3 rounded-md hover:bg-emerald-600"
       (click)="closeMobileMenu()"
       >tutorials</a

@@ -1,0 +1,46 @@
+[
+  {
+    "id": "hdr-2",
+    "type": "header",
+    "text": "Nuestra Agencia Digital",
+    "level": 2,
+    "color": "#334155",
+    "fontFamily": "Inter, sans-serif",
+    "x": 15,
+    "y": 50,
+    "zIndex": 1
+  },
+  {
+    "id": "txt-2",
+    "type": "text",
+    "content": "Soluciones web y móviles adaptadas a tu negocio.",
+    "size": "text-base",
+    "color": "#475569",
+    "x": 15,
+    "y": 110,
+    "zIndex": 1
+  },
+  {
+    "id": "img-2",
+    "type": "image",
+    "src": "https://placehold.co/800x450?text=Equipo+Creativo",
+    "alt": "Equipo creativo trabajando",
+    "rounded": false,
+    "shadow": true,
+    "x": 400,
+    "y": 50,
+    "width": 500,
+    "height": 300,
+    "zIndex": 0
+  },
+  {
+    "id": "btn-1",
+    "type": "button",
+    "label": "Contáctanos",
+    "color": "bg-sky-500 text-white",
+    "action": null,
+    "x": 15,
+    "y": 380,
+    "zIndex": 1
+  }
+]

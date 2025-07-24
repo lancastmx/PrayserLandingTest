@@ -1,0 +1,34 @@
+[
+  {
+    "id": "img-1",
+    "type": "image",
+    "src": "https://placehold.co/1920x600?text=Cabecera",
+    "alt": "Imagen de cabecera",
+    "rounded": true,
+    "shadow": true,
+    "x": 0,
+    "y": 0,
+    "zIndex": 0
+  },
+  {
+    "id": "hdr-1",
+    "type": "header",
+    "text": "Bienvenido a CreativePulse",
+    "level": 1,
+    "color": "#1e293b",
+    "fontFamily": "Inter, sans-serif",
+    "x": 20,
+    "y": 100,
+    "zIndex": 1
+  },
+  {
+    "id": "txt-1",
+    "type": "text",
+    "content": "Desde el concepto hasta la creación, damos vida a tu proyecto y te impulsamos hacia el futuro.",
+    "size": "text-lg",
+    "color": "#64748b",
+    "x": 20,
+    "y": 160,
+    "zIndex": 1
+  }
+]

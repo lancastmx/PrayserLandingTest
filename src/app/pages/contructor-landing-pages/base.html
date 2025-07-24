@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editor Visual HTML</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Estilos para la barra de desplazamiento */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #94a3b8;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #64748b;
+        }
+        .preview-frame {
+            transition: width 0.3s ease-in-out;
+        }
+    </style>
+</head>
+<body class="bg-slate-100">
+
+    <div class="flex h-screen flex-col">
+        <!-- Barra superior de controles -->
+        <div class="bg-white border-b border-slate-200 p-2 flex items-center justify-between shadow-sm z-10">
+            <div class="flex items-center gap-3">
+                <div class="flex items-center gap-2 bg-slate-100 rounded-md p-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-slate-600"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
+                    <span class="font-semibold text-slate-800">Editor HTML</span>
+                </div>
+            </div>
+            <div class="flex items-center gap-2">
+                <button id="desktop-view" title="Vista de Escritorio" class="p-2 rounded-md bg-sky-500 text-white hover:bg-sky-600">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="12" x="3" y="4" rx="2" ry="2"/><line x1="12" x2="12" y1="16" y2="20"/><line x1="8" x2="16" y1="20" y2="20"/></svg>
+                </button>
+                <button id="tablet-view" title="Vista de Tableta" class="p-2 rounded-md bg-slate-200 text-slate-700 hover:bg-slate-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><line x1="12" x2="12" y1="18" y2="18"/></svg>
+                </button>
+                <button id="mobile-view" title="Vista de Móvil" class="p-2 rounded-md bg-slate-200 text-slate-700 hover:bg-slate-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="10" height="18" x="7" y="3" rx="2" ry="2"/><line x1="12" x2="12" y1="17" y2="17"/></svg>
+                </button>
+            </div>
+            <button id="export-btn" class="bg-green-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-green-600 transition-colors">
+                Exportar HTML
+            </button>
+        </div>
+
+        <div class="flex flex-1 overflow-hidden">
+            <!-- Barra lateral de elementos -->
+            <aside class="w-64 bg-white p-4 overflow-y-auto border-r border-slate-200 shadow-md">
+                <h2 class="text-lg font-bold mb-4 text-slate-800">Elementos</h2>
+                <div class="grid grid-cols-2 gap-3">
+                    <button class="element-btn" data-code='<h1 class="text-5xl font-bold text-slate-800 my-4">Encabezado Principal</h1>'>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mx-auto mb-1"><path d="M4 12h8"/><path d="M4 18V6"/><path d="M12 18V6"/></svg>
+                        <span>Encabezado</span>
+                    </button>
+                    <button class="element-btn" data-code='<p class="text-slate-600 my-4 leading-relaxed">Este es un párrafo de texto. Puedes editarlo para describir tus servicios o productos. La claridad y la concisión son clave.</p>'>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mx-auto mb-1"><line x1="8" x2="21" y1="6" y2="6"/><line x1="8" x2="21" y1="12" y2="12"/><line x1="8" x2="21" y1="18" y2="18"/><line x1="3" x2="3.01" y1="6" y2="6"/><line x1="3" x2="3.01" y1="12" y2="12"/><line x1="3" x2="3.01" y1="18" y2="18"/></svg>
+                        <span>Párrafo</span>
+                    </button>
+                    <button class="element-btn" data-code='<img src="https://placehold.co/800x450/e2e8f0/334155?text=Imagen+Profesional" alt="Imagen de marcador de posición" class="rounded-lg shadow-md my-4 w-full h-auto">'>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mx-auto mb-1"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>
+                        <span>Imagen</span>
+                    </button>
+                    <button class="element-btn" data-code='<button class="bg-sky-500 text-white font-bold py-3 px-6 rounded-lg hover:bg-sky-600 transition-colors my-4">Llamada a la Acción</button>'>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mx-auto mb-1"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><path d="M12 8v8"></path><path d="M8 12h8"></path></svg>
+                        <span>Botón</span>
+                    </button>
+                    <button class="element-btn" data-code='<div class="border-t border-slate-200 my-8"></div>'>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mx-auto mb-1"><line x1="5" x2="19" y1="12" y2="12"/></svg>
+                        <span>Separador</span>
+                    </button>
+                    <button class="element-btn" data-code='<div class="my-4 grid md:grid-cols-2 gap-8">\n  <div class="bg-slate-50 p-6 rounded-lg">\n    <h3 class="font-bold text-lg mb-2">Columna 1</h3>\n    <p class="text-sm text-slate-600">Contenido de la primera columna.</p>\n  </div>\n  <div class="bg-slate-50 p-6 rounded-lg">\n    <h3 class="font-bold text-lg mb-2">Columna 2</h3>\n    <p class="text-sm text-slate-600">Contenido de la segunda columna.</p>\n  </div>\n</div>'>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mx-auto mb-1"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M12 3v18"/></svg>
+                        <span>2 Columnas</span>
+                    </button>
+                </div>
+            </aside>
+
+            <!-- Área principal de edición y vista previa -->
+            <main class="flex-1 grid grid-cols-1 lg:grid-cols-2 overflow-hidden">
+                <!-- Editor de Código -->
+                <div class="h-full flex flex-col bg-slate-800">
+                    <div class="flex-shrink-0 bg-slate-900 text-white p-2 text-sm font-semibold">
+                        Editor de Código HTML
+                    </div>
+                    <textarea id="html-editor" class="w-full h-full p-4 bg-slate-800 text-slate-200 font-mono text-sm leading-6 resize-none outline-none"></textarea>
+                </div>
+
+                <!-- Vista Previa -->
+                <div class="h-full flex flex-col bg-slate-200">
+                     <div class="flex-shrink-0 bg-slate-900 text-white p-2 text-sm font-semibold">
+                        Vista Previa
+                    </div>
+                    <div class="p-4 flex-1 overflow-auto flex justify-center">
+                        <div id="preview-container" class="preview-frame w-full h-full bg-white shadow-lg rounded-md">
+                           <iframe id="preview-frame" class="w-full h-full border-0"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script>
+        const htmlEditor = document.getElementById('html-editor');
+        const previewFrame = document.getElementById('preview-frame');
+        const elementButtons = document.querySelectorAll('.element-btn');
+        const exportBtn = document.getElementById('export-btn');
+        const previewContainer = document.getElementById('preview-container');
+
+        // Vistas de dispositivo
+        const desktopViewBtn = document.getElementById('desktop-view');
+        const tabletViewBtn = document.getElementById('tablet-view');
+        const mobileViewBtn = document.getElementById('mobile-view');
+        const viewButtons = [desktopViewBtn, tabletViewBtn, mobileViewBtn];
+
+        // --- CÓDIGO INICIAL ---
+        const initialCode = `<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Landing Page</title>
+    <script src="https://cdn.tailwindcss.com"><\/script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-white">
+
+    <!-- Header -->
+    <header class="p-6">
+        <div class="container mx-auto flex justify-between items-center">
+            <h2 class="text-xl font-bold text-slate-800">creativepulse.</h2>
+            <nav class="hidden md:flex space-x-8">
+                <a href="#" class="text-slate-600 hover:text-sky-500">Equipo</a>
+                <a href="#" class="text-slate-600 hover:text-sky-500">Servicios</a>
+                <a href="#" class="text-slate-600 hover:text-sky-500">Testimonios</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <main class="container mx-auto p-6 mt-10">
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+            <!-- Columna de Texto -->
+            <div>
+                <h1 class="text-5xl lg:text-6xl font-extrabold text-slate-800 leading-tight mb-4">
+                    Diseño innovador y Agencia de desarrollo
+                </h1>
+                <p class="text-slate-600 text-lg mb-6">
+                    Desde el concepto hasta la creación, estamos aquí para dar vida a tu proyecto y ayudar a tu negocio a crecer en el mundo digital.
+                </p>
+                <button class="bg-sky-500 text-white font-bold py-3 px-8 rounded-lg hover:bg-sky-600 transition-transform hover:scale-105">
+                    Descubre nuestros servicios
+                </button>
+            </div>
+            <!-- Columna de Imagen -->
+            <div>
+                <img src="https://placehold.co/800x600/e2e8f0/334155?text=Equipo+Colaborando" alt="Equipo trabajando en un proyecto" class="rounded-xl shadow-2xl">
+            </div>
+        </div>
+    </main>
+
+</body>
+</html>`;
+
+        htmlEditor.value = initialCode;
+
+        // --- FUNCIONES ---
+
+        // Función para actualizar la vista previa
+        function updatePreview() {
+            const sourceCode = htmlEditor.value;
+            const previewDoc = previewFrame.contentDocument || previewFrame.contentWindow.document;
+            previewDoc.open();
+            previewDoc.write(sourceCode);
+            previewDoc.close();
+        }
+
+        // Función para insertar código en el editor
+        function insertCode(code) {
+            const start = htmlEditor.selectionStart;
+            const end = htmlEditor.selectionEnd;
+            const text = htmlEditor.value;
+            const before = text.substring(0, start);
+            const after = text.substring(end, text.length);
+            htmlEditor.value = before + code + '\n' + after;
+            htmlEditor.selectionStart = htmlEditor.selectionEnd = start + code.length + 1;
+            htmlEditor.focus();
+            updatePreview();
+        }
+        
+        // Función para exportar el HTML
+        function exportHTML() {
+            const blob = new Blob([htmlEditor.value], { type: 'text/html' });
+            const a = document.createElement('a');
+            a.href = URL.createObjectURL(blob);
+            a.download = 'index.html';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+        }
+
+        // Función para cambiar la vista de dispositivo
+        function setView(view) {
+            viewButtons.forEach(btn => {
+                btn.classList.remove('bg-sky-500', 'text-white');
+                btn.classList.add('bg-slate-200', 'text-slate-700');
+            });
+
+            if (view === 'desktop') {
+                previewContainer.style.width = '100%';
+                desktopViewBtn.classList.add('bg-sky-500', 'text-white');
+            } else if (view === 'tablet') {
+                previewContainer.style.width = '768px';
+                tabletViewBtn.classList.add('bg-sky-500', 'text-white');
+            } else if (view === 'mobile') {
+                previewContainer.style.width = '375px';
+                mobileViewBtn.classList.add('bg-sky-500', 'text-white');
+            }
+        }
+
+        // --- EVENT LISTENERS ---
+
+        // Actualizar al escribir en el editor
+        htmlEditor.addEventListener('keyup', updatePreview);
+        htmlEditor.addEventListener('input', updatePreview);
+
+        // Añadir elementos al hacer clic en los botones
+        elementButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const codeToInsert = button.getAttribute('data-code');
+                insertCode(codeToInsert);
+            });
+            // Estilos para los botones de elementos
+            button.classList.add('bg-slate-100', 'p-3', 'rounded-lg', 'text-slate-700', 'font-medium', 'text-sm', 'hover:bg-sky-100', 'hover:text-sky-600', 'transition-colors', 'text-center');
+        });
+
+        // Exportar archivo
+        exportBtn.addEventListener('click', exportHTML);
+
+        // Cambiar vistas de dispositivo
+        desktopViewBtn.addEventListener('click', () => setView('desktop'));
+        tabletViewBtn.addEventListener('click', () => setView('tablet'));
+        mobileViewBtn.addEventListener('click', () => setView('mobile'));
+
+        // Carga inicial
+        updatePreview();
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+// src/app/pages/contructor-landing-pages/contructor-landing-pages.component.ts
+import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import ejemploLanding1 from '../data/ejemplo-landing-1.json';
+import ejemploLanding2 from '../data/ejemplo-landing-2.json';
+import { CanvasService } from '../services/canvas.service';
+import { LandingElement } from '../models/landing-page.models';
+
+@Component({
+standalone: true,
+selector: 'app-contructor-landing-pages',
+imports: \[CommonModule],
+templateUrl: './contructor-landing-pages.component.html',
+styleUrls: \['./contructor-landing-pages.component.css']
+})
+export class ContructorLandingPagesComponent implements OnInit {
+elements: LandingElement\[] = \[];
+
+constructor(private canvasService: CanvasService) {}
+
+ngOnInit(): void {
+this.canvasService.elements\$.subscribe(list => this.elements = list);
+this.loadExample(1);
+}
+
+loadExample(exampleNumber: 1 | 2): void {
+const data = exampleNumber === 1 ? ejemploLanding1 : ejemploLanding2;
+this.canvasService.clear();
+data.forEach(item => {
+// Reinterpretamos el payload sin id ni zIndex
+const { id, zIndex, ...payload } = item as any;
+this.canvasService.create(payload);
+});
+}
+
+switchExample(): void {
+const firstId = this.elements\[0]?.id;
+const isFirst = ejemploLanding1\[0]?.id === firstId;
+this.loadExample(isFirst ? 2 : 1);
+}
+}
+
+<!-- src/app/pages/contructor-landing-pages/contructor-landing-pages.component.html -->
+
+<div class="flex justify-center items-center p-4 bg-slate-200">
+  <div class="mobile-frame relative bg-white shadow-lg rounded-2xl overflow-hidden" style="width:375px; height:667px;">
+    <div class="screen relative w-full h-full">
+      <ng-container *ngFor="let el of elements">
+        <ng-container [ngSwitch]="el.type">
+          <div *ngSwitchCase="'header'"
+               [attr.data-id]="el.id"
+               class="absolute"
+               [ngStyle]="{
+                 left: el.x + 'px', top: el.y + 'px', zIndex: el.zIndex,
+                 color: el.color, fontFamily: el.fontFamily,
+                 fontSize: el.level===1?'1.5rem':el.level===2?'1.25rem':'1rem'
+               }">
+            {{ el.text }}
+          </div>
+          <img *ngSwitchCase="'image'"
+               [attr.data-id]="el.id"
+               class="absolute"
+               [src]="el.src" [alt]="el.alt"
+               [ngStyle]="{
+                 left: el.x + 'px', top: el.y + 'px', zIndex: el.zIndex,
+                 width: el.width? el.width+'px':'auto',
+                 height: el.height? el.height+'px':'auto'
+               }"
+               [class.rounded]="el.rounded"
+               [class.shadow]="el.shadow" />
+          <p *ngSwitchCase="'text'"
+             [attr.data-id]="el.id"
+             class="absolute"
+             [ngStyle]="{
+               left: el.x + 'px', top: el.y + 'px', zIndex: el.zIndex,
+               color: el.color
+             }"
+             [class]="el.size">
+            {{ el.content }}
+          </p>
+          <button *ngSwitchCase="'button'"
+                  [attr.data-id]="el.id"
+                  class="absolute px-4 py-2 rounded"
+                  [style.zIndex]="el.zIndex"
+                  [ngStyle]="{ left: el.x + 'px', top: el.y + 'px' }"
+                  [class]="el.color">
+            {{ el.label }}
+          </button>
+          <div *ngSwitchCase="'divider'"
+               [attr.data-id]="el.id"
+               class="absolute w-full border-t"
+               [ngStyle]="{
+                 left: el.x + 'px', top: el.y + 'px', zIndex: el.zIndex
+               }"></div>
+        </ng-container>
+      </ng-container>
+    </div>
+  </div>
+</div>
+
+/\* src/app/pages/contructor-landing-pages/contructor-landing-pages.component.css \*/
+.mobile-frame {
+border: 1px solid #ccc;
+}
