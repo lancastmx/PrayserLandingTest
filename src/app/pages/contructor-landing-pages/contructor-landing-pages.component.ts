@@ -16,6 +16,7 @@ interface CanvasElement {
   src?: string;
   alt?: string;
 }
+type DeviceView = 'desktop' | 'tablet' | 'mobile';
 @Component({
   selector: 'app-contructor-landing-pages',
   standalone: true,
@@ -30,7 +31,7 @@ export class ContructorLandingPagesComponent   {
   
   public layers: CanvasElement[] = [];
   public jsonOutput = 'Aquí se mostrarán los datos...';
-
+  public currentView: DeviceView = 'desktop';
   constructor(private cdr: ChangeDetectorRef, private ngZone: NgZone) {}
 
 
@@ -182,6 +183,25 @@ export class ContructorLandingPagesComponent   {
   getCanvasData(): void {
     const dataArray = Object.values(this.elementsData);
     this.jsonOutput = JSON.stringify(dataArray, null, 2);
+  }
+  setView(view: DeviceView): void {
+    this.currentView = view;
+    const canvas = this.canvasContainer.nativeElement;
+    
+    switch (view) {
+      case 'desktop':
+        canvas.style.width = '1920px';
+        canvas.style.height = '1080px';
+        break;
+      case 'tablet':
+        canvas.style.width = '768px';
+        canvas.style.height = '1024px';
+        break;
+      case 'mobile':
+        canvas.style.width = '375px';
+        canvas.style.height = '812px';
+        break;
+    }
   }
 }
 

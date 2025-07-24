@@ -35,10 +35,26 @@
     </aside>
 
     <!-- Área del Canvas Principal -->
-    <main class="flex-1 bg-slate-200 p-8 flex justify-center items-center">
-        <div #canvasContainer class="canvas-container w-full h-full rounded-lg shadow-inner">
-            <!-- Los elementos se añadirán aquí dinámicamente -->
-        </div>
-    </main>
+    <div class="flex-1 flex flex-col">
+        <!-- Barra de cambio de vista -->
+        <header class="flex-shrink-0 bg-white p-2 flex justify-center items-center gap-2 border-b border-slate-200">
+            <button (click)="setView('desktop')" [class.active-view]="currentView === 'desktop'" class="view-btn" title="Escritorio">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+            </button>
+            <button (click)="setView('tablet')" [class.active-view]="currentView === 'tablet'" class="view-btn" title="Tablet">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>
+            </button>
+            <button (click)="setView('mobile')" [class.active-view]="currentView === 'mobile'" class="view-btn" title="Móvil">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>
+            </button>
+        </header>
+
+        <!-- Contenedor del Canvas con scroll -->
+        <main class="flex-1 bg-slate-200 p-8 flex justify-center items-start overflow-auto">
+            <div #canvasContainer class="canvas-container rounded-lg shadow-inner">
+                <!-- Los elementos se añadirán aquí dinámicamente -->
+            </div>
+        </main>
+    </div>
 </div>
 
