@@ -1,0 +1,71 @@
+[
+  {
+    "id": "template-1",
+    "name": "Encabezado y Galería",
+    "data": [
+      {
+        "type": "header",
+        "text": "Nuestra Galería",
+        "level": 1,
+        "x": 50,
+        "y": 40,
+        "width": 600,
+        "height": 50
+      },
+      {
+        "type": "image",
+        "src": "https://placehold.co/600x400/a7f3d0/14532d?text=Producto+1",
+        "alt": "Producto 1",
+        "rounded": true,
+        "x": 50,
+        "y": 120,
+        "width": 300,
+        "height": 200
+      },
+      {
+        "type": "image",
+        "src": "https://placehold.co/600x400/d1d5db/1f2937?text=Producto+2",
+        "alt": "Producto 2",
+        "rounded": true,
+        "x": 370,
+        "y": 120,
+        "width": 300,
+        "height": 200
+      }
+    ]
+  },
+  {
+    "id": "template-2",
+    "name": "Artículo con Imagen Lateral",
+    "data": [
+      {
+        "type": "header",
+        "text": "Título del Artículo",
+        "level": 2,
+        "x": 50,
+        "y": 50,
+        "width": 400,
+        "height": 40
+      },
+      {
+        "type": "text",
+        "content": "Este es el cuerpo del artículo, donde se explica detalladamente el contenido principal. Puede extenderse por varias líneas.",
+        "size": "text-base",
+        "x": 50,
+        "y": 110,
+        "width": 400,
+        "height": 300
+      },
+      {
+        "type": "image",
+        "src": "https://placehold.co/600x800/e5e7eb/4b5563?text=Imagen+Destacada",
+        "alt": "Imagen Destacada",
+        "shadow": true,
+        "x": 480,
+        "y": 50,
+        "width": 250,
+        "height": 360
+      }
+    ]
+  }
+]
